@@ -12,12 +12,8 @@ class String
   end
 end
 
-desc 'Setup with example files and submodules'
+desc 'Setup with example files'
 task :setup do
-  # Update and initialize the submodules in case they forget
-  puts 'Updating submodules...'.cyan
-  `git submodule update --init --recursive`
-
   # Copy examples defines
   puts 'Copying example RPGitHubAPIKeys into place...'.cyan
   `cp OKGitHubAPIKeysExample.h OKGitHubAPIKeys.h`
