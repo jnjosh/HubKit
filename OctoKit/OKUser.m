@@ -1,12 +1,13 @@
 //
-//  User.m
+//  OKUser.m
 //  Repos
 //
-//  Created by Rhys Powell on 29/12/12.
-//  Copyright (c) 2012 Rhys Powell. All rights reserved.
+//  Created by Rhys Powell on 13/01/13.
+//  Copyright (c) 2013 Rhys Powell. All rights reserved.
 //
 
 #import "OKUser.h"
+#import "OKIssue.h"
 #import "OKRepo.h"
 #import "SSKeychain.h"
 #import "OKDefines.h"
@@ -26,6 +27,8 @@ static OKUser *__currentUser = nil;
 @dynamic login;
 @dynamic name;
 @dynamic repos;
+@dynamic issues;
+@dynamic assignedIssues;
 
 @synthesize accessToken = _accessToken;
 

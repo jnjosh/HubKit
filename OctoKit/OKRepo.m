@@ -1,43 +1,46 @@
 //
-//  Repo.m
+//  OKRepo.m
 //  Repos
 //
-//  Created by Rhys Powell on 29/12/12.
-//  Copyright (c) 2012 Rhys Powell. All rights reserved.
+//  Created by Rhys Powell on 13/01/13.
+//  Copyright (c) 2013 Rhys Powell. All rights reserved.
 //
 
+#import "OKRepo.h"
+#import "OKIssue.h"
 #import "OKRepo.h"
 #import "OKUser.h"
 #import "NSDictionary+OKExtensions.h"
 
+
 @implementation OKRepo
 
-@dynamic name;
-@dynamic fullName;
 @dynamic byline;
-@dynamic isPrivate;
-@dynamic fork;
-@dynamic htmlURL;
-@dynamic gitURL;
 @dynamic cloneURL;
-@dynamic sshURL;
-@dynamic svnURL;
-@dynamic mirrorURL;
-@dynamic homepageURL;
-@dynamic language;
+@dynamic fork;
 @dynamic forks;
-@dynamic watchers;
-@dynamic stargazers;
-@dynamic size;
-@dynamic masterBranch;
-@dynamic openIssues;
+@dynamic fullName;
+@dynamic gitURL;
+@dynamic hasDownloads;
 @dynamic hasIssues;
 @dynamic hasWiki;
-@dynamic hasDownloads;
+@dynamic homepageURL;
+@dynamic htmlURL;
+@dynamic isPrivate;
+@dynamic language;
+@dynamic masterBranch;
+@dynamic mirrorURL;
+@dynamic name;
+@dynamic openIssues;
+@dynamic size;
+@dynamic sshURL;
+@dynamic stargazers;
+@dynamic svnURL;
+@dynamic watchers;
+@dynamic child;
 @dynamic owner;
 @dynamic parent;
-@dynamic child;
-@dynamic source;
+@dynamic issues;
 
 + (NSString *)entityName
 {

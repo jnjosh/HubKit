@@ -11,6 +11,8 @@
 typedef void (^OKHTTPClientSuccess)(AFJSONRequestOperation *operation, id responseObject);
 typedef void (^OKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *error);
 
+@class OKRepo;
+
 @interface OKHTTPClient : AFHTTPClient
 
 + (instancetype)sharedClient;
@@ -35,5 +37,9 @@ typedef void (^OKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *
 
 - (void)getUserReposWithSuccess:(OKHTTPClientSuccess)success
                         failure:(OKHTTPClientFailure)failure;
+
+- (void)getIssuesForRepo:(OKRepo *)repo
+                 success:(OKHTTPClientSuccess)success
+                 failure:(OKHTTPClientFailure)failure;
 
 @end
