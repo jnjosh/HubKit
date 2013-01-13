@@ -9,7 +9,7 @@
 #import "OKHTTPClient.h"
 #import "OKGitHubAPIKeys.h"
 #import "SSKeychain.h"
-#import "User.h"
+#import "OKUser.h"
 
 @implementation OKHTTPClient
 
@@ -34,7 +34,7 @@
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
         [self setDefaultHeader:@"Accept" value:@"application/json"];
         [self setParameterEncoding:AFJSONParameterEncoding];
-        [self setAuthorizationHeaderWithToken:[[User currentUser] accessToken]];
+        [self setAuthorizationHeaderWithToken:[[OKUser currentUser] accessToken]];
     }
     
     return self;
@@ -60,7 +60,7 @@
     [self setAuthorizationHeaderWithUsername:username password:password];
     [self postPath:authPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *responseDict = (NSDictionary *)responseObject;
-        if ([SSKeychain setPassword:responseDict[@"token"] forService:kRPKeychainServiceName account:@"GitHub"]) {
+        if ([SSKeychain setPassword:responseDict[@"token"] forService:kOKKeychainServiceName account:@"GitHub"]) {
             NSLog(@"Saved token %@", responseDict[@"token"]);
             [self setAuthorizationHeaderWithToken:responseDict[@"token"]];
         }
@@ -80,9 +80,9 @@
 {
     [self setAuthorizationHeaderWithToken:accessToken];
     [self getPath:@"user" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        User *user = [User objectWithDictionary:responseObject];
+        OKUser *user = [OKUser objectWithDictionary:responseObject];
         user.accessToken = accessToken;
-        [User setCurrentUser:user];
+        [OKUser setCurrentUser:user];
         [user save];
         
         if (success) {

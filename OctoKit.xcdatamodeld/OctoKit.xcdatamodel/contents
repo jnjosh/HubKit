@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Repo" representedClassName="Repo" syncable="YES">
+    <entity name="Repo" representedClassName="OKRepo" syncable="YES">
         <attribute name="byline" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cloneURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -30,7 +30,7 @@
         <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="repos" inverseEntity="User" syncable="YES"/>
         <relationship name="parent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Repo" inverseName="child" inverseEntity="Repo" syncable="YES"/>
     </entity>
-    <entity name="User" representedClassName="User" syncable="YES">
+    <entity name="User" representedClassName="OKUser" syncable="YES">
         <attribute name="avatarURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="blogURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
@@ -46,6 +46,6 @@
     </entity>
     <elements>
         <element name="Repo" positionX="376" positionY="218" width="128" height="465"/>
-        <element name="User" positionX="198" positionY="216" width="128" height="58"/>
+        <element name="User" positionX="198" positionY="216" width="128" height="225"/>
     </elements>
 </model>
