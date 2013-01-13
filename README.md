@@ -2,11 +2,11 @@
 
 OctoKit is a GitHub API client written in Objective-C, intended for use on iOS. It provides a native wrapper around the GitHub API based on [AFNetworking][afn] as well as offline data persistence using Core Data.
 
-[afn]: https://github.com/AFNetworking/AFNetworking
-
 ## Setting up OctoKit
 
-First you'll need to clone OctoKit into your project's directory, I recommend using git submodules for this, keeping the code in a *Vendor* directory:
+First you're going to need AFNetworking, so visit [their repo's page][afn] and follow the setup instructions.
+
+With that done, you'll need to clone OctoKit into your project's directory, I recommend using git submodules for this, keeping the code in a *Vendor* directory:
 
 ```
 $ mkdir Vendor
@@ -27,3 +27,5 @@ With those files generated, you can add OctoKit to your project. You'll want to 
 Finally, you'll need to open `OctoKit.xcdatamodeld` in Xcode, open the File inspector (⌥⌘1) and under *Target Membership*, check your project's build target.
 
 With that all done, you should be ready to use OctoKit.
+
+[afn]: https://github.com/AFNetworking/AFNetworking
