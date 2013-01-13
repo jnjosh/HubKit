@@ -42,6 +42,11 @@
 @dynamic child;
 @dynamic source;
 
++ (NSString *)entityName
+{
+    return @"Repo";
+}
+
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
     [super unpackDictionary:dictionary];

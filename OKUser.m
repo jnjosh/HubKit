@@ -30,7 +30,7 @@ static OKUser *__currentUser = nil;
 
 + (NSString *)entityName
 {
-    return @"OKUser";
+    return @"User";
 }
 
 + (OKUser *)currentUser
