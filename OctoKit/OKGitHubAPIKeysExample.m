@@ -9,5 +9,5 @@
 #import "OKGitHubAPIKeys.h"
 
 #error Configure your API keys
-NSString *const kRPGtHubClientID = @"YOUR_CLIENT_ID";
-NSString *const kRPGtHubClientSecret = @"YOUR_CLIENT_SECRET";
+NSString *const kOKGtHubClientID = @"YOUR_CLIENT_ID";
+NSString *const kOKGtHubClientSecret = @"YOUR_CLIENT_SECRET";
