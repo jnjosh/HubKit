@@ -1,5 +1,7 @@
 # OctoKit
 
+*A GitHub API wrapper from [rpwll](http://github.com/rpwll) and [jnjosh](http://github.com/jnjosh).*
+
 OctoKit is a GitHub API client written in Objective-C, intended for use on iOS. It provides a native wrapper around the GitHub API based on [AFNetworking][afn] as well as offline data persistence using Core Data.
 
 ## Setting up OctoKit
