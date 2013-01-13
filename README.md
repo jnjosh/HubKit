@@ -12,7 +12,7 @@ With that done, you'll need to clone OctoKit into your project's directory, I re
 
 ```
 $ mkdir Vendor
-$ git submodule add git://github.com/rpwll/OctoKit.git Vendor/OctoKit
+$ git submodule add git://github.com/OctoKit/OctoKit.git Vendor/OctoKit
 ```
 
 With the repository cloned, `cd` into OctoKit's directory and run the included Rakefile to setup dummy API key files:

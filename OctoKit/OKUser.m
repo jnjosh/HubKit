@@ -8,8 +8,9 @@
 
 #import "OKUser.h"
 #import "OKRepo.h"
-#import "NSDictionary+RPExtensions.h"
 #import "SSKeychain.h"
+#import "OKDefines.h"
+#import "NSDictionary+OKExtensions.h"
 
 NSString *const kRPCurrentUserChangedNotificationName = @"RPCurrentUserChangedNotification";
 static OKUser *__currentUser = nil;
