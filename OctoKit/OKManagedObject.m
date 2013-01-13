@@ -75,7 +75,7 @@ static NSURL *__persistentStoreURL;
         NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
         
         if (!model) {
-            [[NSException exceptionWithName:@"RPManagedObjectMissingModel" reason:@"You need to provide a managed model" userInfo:nil] raise];
+            [[NSException exceptionWithName:@"OKManagedObjectMissingModel" reason:@"You need to provide a managed model" userInfo:nil] raise];
             return nil;
         }
         

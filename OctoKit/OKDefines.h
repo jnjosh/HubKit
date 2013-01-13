@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#ifndef RPDEFINES
-#define RPDEFINES
+#ifndef OKDEFINES
+#define OKDEFINES
 
 #pragma mark - User Defaults Keys
 

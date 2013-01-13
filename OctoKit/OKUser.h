@@ -12,7 +12,7 @@
 
 @class OKRepo;
 
-extern NSString *const kRPCurrentUserChangedNotificationName;
+extern NSString *const kOKCurrentUserChangedNotificationName;
 
 @interface OKUser : OKRemoteManagedObject
 

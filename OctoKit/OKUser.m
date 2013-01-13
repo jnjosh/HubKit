@@ -12,7 +12,7 @@
 #import "OKDefines.h"
 #import "NSDictionary+OKExtensions.h"
 
-NSString *const kRPCurrentUserChangedNotificationName = @"RPCurrentUserChangedNotification";
+NSString *const kOKCurrentUserChangedNotificationName = @"RPCurrentUserChangedNotification";
 static OKUser *__currentUser = nil;
 
 @implementation OKUser
@@ -82,7 +82,7 @@ static OKUser *__currentUser = nil;
     }
     
     [userDefaults synchronize];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kRPCurrentUserChangedNotificationName object:user];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kOKCurrentUserChangedNotificationName object:user];
 }
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
