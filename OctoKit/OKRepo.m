@@ -7,11 +7,8 @@
 //
 
 #import "OKRepo.h"
-#import "OKRepo.h"
 #import "OKUser.h"
-
-#import "NSDictionary+RPExtensions.h"
-
+#import "NSDictionary+OKExtensions.h"
 
 @implementation OKRepo
 
