@@ -32,7 +32,7 @@
     if (self = [super initWithBaseURL:base]) {
         // Use JSON
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-        [self setDefaultHeader:@"Accept" value:@"application/json"];
+        [self setDefaultHeader:@"Accept" value:@"application/vnd.github.v3.full+json"];
         [self setParameterEncoding:AFJSONParameterEncoding];
         [self setAuthorizationHeaderWithToken:[[OKUser currentUser] accessToken]];
     }
