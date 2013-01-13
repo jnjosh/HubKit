@@ -10,6 +10,7 @@
 #import "OKGitHubAPIKeys.h"
 #import "SSKeychain.h"
 #import "OKUser.h"
+#import "OKRepo.h"
 #import "OKDefines.h"
 
 @implementation OKHTTPClient
@@ -130,6 +131,21 @@
 - (void)getUserReposWithSuccess:(OKHTTPClientSuccess)success failure:(OKHTTPClientFailure)failure
 {
     [self getPath:@"/user/repos" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (success) {
+            success((AFJSONRequestOperation *)operation, responseObject);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure((AFJSONRequestOperation *)operation, error);
+        }
+    }];
+}
+
+- (void)getIssuesForRepo:(OKRepo *)repo success:(OKHTTPClientSuccess)success failure:(OKHTTPClientFailure)failure
+{
+    NSString *path = [NSString stringWithFormat:@"/repos/%@/%@/issues", repo.owner.login, repo.name];
+    
+    [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             success((AFJSONRequestOperation *)operation, responseObject);
         }

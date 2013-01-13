@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Issue" representedClassName="OKIssue" syncable="YES">
+        <attribute name="commentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="rawBody" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remoteID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="assignee" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="assignedIssues" inverseEntity="User" syncable="YES"/>
+        <relationship name="repo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Repo" inverseName="issues" inverseEntity="Repo" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="issues" inverseEntity="User" syncable="YES"/>
+    </entity>
     <entity name="Repo" representedClassName="OKRepo" syncable="YES">
         <attribute name="byline" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cloneURL" optional="YES" attributeType="String" syncable="YES"/>
@@ -27,6 +40,7 @@
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="watchers" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="child" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Repo" inverseName="parent" inverseEntity="Repo" syncable="YES"/>
+        <relationship name="issues" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Issue" inverseName="repo" inverseEntity="Issue" syncable="YES"/>
         <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="repos" inverseEntity="User" syncable="YES"/>
         <relationship name="parent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Repo" inverseName="child" inverseEntity="Repo" syncable="YES"/>
     </entity>
@@ -42,10 +56,13 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="remoteID" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="assignedIssues" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Issue" inverseName="assignee" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="issues" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Issue" inverseName="user" inverseEntity="Issue" syncable="YES"/>
         <relationship name="repos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Repo" inverseName="owner" inverseEntity="Repo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Repo" positionX="376" positionY="218" width="128" height="465"/>
-        <element name="User" positionX="198" positionY="216" width="128" height="225"/>
+        <element name="Repo" positionX="385" positionY="315" width="128" height="478"/>
+        <element name="User" positionX="45" positionY="629" width="128" height="253"/>
+        <element name="Issue" positionX="-128" positionY="270" width="128" height="208"/>
     </elements>
 </model>

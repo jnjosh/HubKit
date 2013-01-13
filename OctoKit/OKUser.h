@@ -1,16 +1,16 @@
 //
-//  User.h
+//  OKUser.h
 //  Repos
 //
-//  Created by Rhys Powell on 29/12/12.
-//  Copyright (c) 2012 Rhys Powell. All rights reserved.
+//  Created by Rhys Powell on 13/01/13.
+//  Copyright (c) 2013 Rhys Powell. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "OKRemoteManagedObject.h"
 
-@class OKRepo;
+@class OKIssue, OKRepo;
 
 extern NSString *const kOKCurrentUserChangedNotificationName;
 
@@ -25,6 +25,8 @@ extern NSString *const kOKCurrentUserChangedNotificationName;
 @property (nonatomic, retain) NSString * login;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *repos;
+@property (nonatomic, retain) NSSet *issues;
+@property (nonatomic, retain) NSSet *assignedIssues;
 @property (nonatomic, strong) NSString *accessToken;
 
 + (OKUser *)currentUser;
@@ -38,5 +40,15 @@ extern NSString *const kOKCurrentUserChangedNotificationName;
 - (void)removeReposObject:(OKRepo *)value;
 - (void)addRepos:(NSSet *)values;
 - (void)removeRepos:(NSSet *)values;
+
+- (void)addIssuesObject:(OKIssue *)value;
+- (void)removeIssuesObject:(OKIssue *)value;
+- (void)addIssues:(NSSet *)values;
+- (void)removeIssues:(NSSet *)values;
+
+- (void)addAssignedIssuesObject:(OKIssue *)value;
+- (void)removeAssignedIssuesObject:(OKIssue *)value;
+- (void)addAssignedIssues:(NSSet *)values;
+- (void)removeAssignedIssues:(NSSet *)values;
 
 @end
