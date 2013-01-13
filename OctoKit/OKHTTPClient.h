@@ -13,6 +13,10 @@ typedef void (^OKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *
 
 @interface OKHTTPClient : AFHTTPClient
 
+/** Authorization Scope specifying the access you are asking for on the user's github account
+ */
+@property (nonatomic, strong) NSArray *authorizationScopes;
+
 + (instancetype)sharedClient;
 
 - (void)logInUserWithUsername:(NSString *)username
