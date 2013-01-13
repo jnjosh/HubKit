@@ -36,6 +36,7 @@
         [self setDefaultHeader:@"Accept" value:@"application/vnd.github.v3.full+json"];
         [self setParameterEncoding:AFJSONParameterEncoding];
         [self setAuthorizationHeaderWithToken:[[OKUser currentUser] accessToken]];
+		[self setAuthorizationScopes:@[OKGithubAuthorizationScopes.user, OKGithubAuthorizationScopes.repo]];
     }
     
     return self;
@@ -55,7 +56,7 @@
     NSDictionary *params = @{
         @"client_id"     : kOKGtHubClientID,
         @"client_secret" : kOKGtHubClientSecret,
-        @"scopes"        : @[@"user", @"repo"]
+        @"scopes"        : self.authorizationScopes
     };
     
     [self setAuthorizationHeaderWithUsername:username password:password];
