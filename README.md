@@ -1,5 +1,7 @@
 # OctoKit
 
+*A GitHub API wrapper from [rpwll](http://github.com/rpwll) and [jnjosh](http://github.com/jnjosh).*
+
 OctoKit is a GitHub API client written in Objective-C, intended for use on iOS. It provides a native wrapper around the GitHub API based on [AFNetworking][afn] as well as offline data persistence using Core Data.
 
 ## Setting up OctoKit
@@ -10,7 +12,7 @@ With that done, you'll need to clone OctoKit into your project's directory, I re
 
 ```
 $ mkdir Vendor
-$ git submodule add git://github.com/rpwll/OctoKit.git Vendor/OctoKit
+$ git submodule add git://github.com/OctoKit/OctoKit.git Vendor/OctoKit
 ```
 
 With the repository cloned, `cd` into OctoKit's directory and run the included Rakefile to setup dummy API key files:

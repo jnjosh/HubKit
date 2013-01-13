@@ -10,6 +10,7 @@
 #import "OKGitHubAPIKeys.h"
 #import "SSKeychain.h"
 #import "OKUser.h"
+#import "OKDefines.h"
 
 @implementation OKHTTPClient
 
