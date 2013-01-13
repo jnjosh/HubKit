@@ -10,7 +10,7 @@
 
 #pragma mark - User Defaults Keys
 
-NSString *const kOKCurrentUserIDKey = @"RPCurrentUserID";
+NSString *const kOKCurrentUserIDKey = @"OKCurrentUserID";
 
 #pragma mark - Keychain
 

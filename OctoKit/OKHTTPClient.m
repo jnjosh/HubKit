@@ -53,8 +53,8 @@
 {
     NSString *authPath = @"authorizations";
     NSDictionary *params = @{
-        @"client_id"     : kRPGtHubClientID,
-        @"client_secret" : kRPGtHubClientSecret,
+        @"client_id"     : kOKGtHubClientID,
+        @"client_secret" : kOKGtHubClientSecret,
         @"scopes"        : @[@"user", @"repo"]
     };
     
