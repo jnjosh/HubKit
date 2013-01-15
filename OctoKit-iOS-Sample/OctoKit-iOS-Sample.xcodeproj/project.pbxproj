@@ -39,13 +39,34 @@
 		A42E5E7516A27D1F00BB5907 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7416A27D1F00BB5907 /* MobileCoreServices.framework */; };
 		A42E5E7716A27D8A00BB5907 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7616A27D8A00BB5907 /* Security.framework */; };
 		A42E5E7916A27D9100BB5907 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7816A27D9100BB5907 /* CoreData.framework */; };
+		A43711EB16A521C00084D675 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A43711EA16A521C00084D675 /* libOCMock.a */; };
 		A4A3924E16A4D528004A2878 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A3924D16A4D528004A2878 /* SenTestingKit.framework */; };
 		A4A3924F16A4D528004A2878 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0B16A278A200BB5907 /* UIKit.framework */; };
 		A4A3925016A4D528004A2878 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0D16A278A200BB5907 /* Foundation.framework */; };
 		A4A3925616A4D528004A2878 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4A3925416A4D528004A2878 /* InfoPlist.strings */; };
-		A4A3926616A4DE66004A2878 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A3926516A4DE66004A2878 /* libOCMock.a */; };
 		A4A3926B16A4DEC5004A2878 /* OKClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3926A16A4DEC5004A2878 /* OKClientTests.m */; };
-		A4A3926C16A4E72E004A2878 /* OKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3916A27B0A00BB5907 /* OKHTTPClient.m */; };
+		A4A3927B16A51B68004A2878 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E5416A27BAF00BB5907 /* AFHTTPClient.m */; };
+		A4A3927D16A51B6D004A2878 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E5616A27BAF00BB5907 /* AFHTTPRequestOperation.m */; };
+		A4A3927E16A51B6D004A2878 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E5816A27BAF00BB5907 /* AFImageRequestOperation.m */; };
+		A4A3927F16A51B74004A2878 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E5A16A27BAF00BB5907 /* AFJSONRequestOperation.m */; };
+		A4A3928016A51B74004A2878 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E5C16A27BAF00BB5907 /* AFNetworkActivityIndicatorManager.m */; };
+		A4A3928116A51B74004A2878 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E5F16A27BAF00BB5907 /* AFPropertyListRequestOperation.m */; };
+		A4A3928216A51B74004A2878 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E6116A27BAF00BB5907 /* AFURLConnectionOperation.m */; };
+		A4A3928316A51B74004A2878 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E6316A27BAF00BB5907 /* AFXMLRequestOperation.m */; };
+		A4A3928416A51B74004A2878 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E6516A27BAF00BB5907 /* UIImageView+AFNetworking.m */; };
+		A4A3928C16A51B9A004A2878 /* OKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3916A27B0A00BB5907 /* OKHTTPClient.m */; };
+		A4A3928D16A51B9A004A2878 /* OKGitHubAPIKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E4B16A27B2900BB5907 /* OKGitHubAPIKeys.m */; };
+		A4A3928E16A51B9A004A2878 /* OKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3516A27B0A00BB5907 /* OKDefines.m */; };
+		A4A3928F16A51B9A004A2878 /* OKManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3B16A27B0A00BB5907 /* OKManagedObject.m */; };
+		A4A3929016A51B9A004A2878 /* OKRemoteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3D16A27B0A00BB5907 /* OKRemoteManagedObject.m */; };
+		A4A3929116A51B9A004A2878 /* OKRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3F16A27B0A00BB5907 /* OKRepo.m */; };
+		A4A3929216A51B9A004A2878 /* OKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E4116A27B0A00BB5907 /* OKUser.m */; };
+		A4A3929316A51B9A004A2878 /* NSDictionary+OKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E7016A27BEE00BB5907 /* NSDictionary+OKExtensions.m */; };
+		A4A3929416A51BA9004A2878 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E5116A27BA300BB5907 /* SSKeychain.m */; };
+		A4A3929516A51BD8004A2878 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7816A27D9100BB5907 /* CoreData.framework */; };
+		A4A3929616A51BD8004A2878 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7616A27D8A00BB5907 /* Security.framework */; };
+		A4A3929716A51BD8004A2878 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7416A27D1F00BB5907 /* MobileCoreServices.framework */; };
+		A4A3929816A51BD8004A2878 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7216A27D1A00BB5907 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,12 +125,12 @@
 		A42E5E7416A27D1F00BB5907 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A42E5E7616A27D8A00BB5907 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A42E5E7816A27D9100BB5907 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A43711EA16A521C00084D675 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libOCMock.a; path = "../Vendor/OCMock/Source/build/Release-iphoneos/libOCMock.a"; sourceTree = "<group>"; };
 		A4A3924C16A4D528004A2878 /* OctoKit-iOS-UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OctoKit-iOS-UnitTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A3924D16A4D528004A2878 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A4A3925316A4D528004A2878 /* OctoKit-iOS-UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OctoKit-iOS-UnitTests-Info.plist"; sourceTree = "<group>"; };
 		A4A3925516A4D528004A2878 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A4A3925A16A4D528004A2878 /* OctoKit-iOS-UnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OctoKit-iOS-UnitTests-Prefix.pch"; sourceTree = "<group>"; };
-		A4A3926516A4DE66004A2878 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libOCMock.a; path = "../Vendor/OCMock/Source/build/Release-iphoneos/libOCMock.a"; sourceTree = "<group>"; };
 		A4A3926A16A4DEC5004A2878 /* OKClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKClientTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,10 +153,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4A3926616A4DE66004A2878 /* libOCMock.a in Frameworks */,
+				A43711EB16A521C00084D675 /* libOCMock.a in Frameworks */,
 				A4A3924E16A4D528004A2878 /* SenTestingKit.framework in Frameworks */,
 				A4A3924F16A4D528004A2878 /* UIKit.framework in Frameworks */,
 				A4A3925016A4D528004A2878 /* Foundation.framework in Frameworks */,
+				A4A3929516A51BD8004A2878 /* CoreData.framework in Frameworks */,
+				A4A3929616A51BD8004A2878 /* Security.framework in Frameworks */,
+				A4A3929716A51BD8004A2878 /* MobileCoreServices.framework in Frameworks */,
+				A4A3929816A51BD8004A2878 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +191,7 @@
 		A42E5E0A16A278A200BB5907 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A4A3926516A4DE66004A2878 /* libOCMock.a */,
+				A43711EA16A521C00084D675 /* libOCMock.a */,
 				A42E5E7816A27D9100BB5907 /* CoreData.framework */,
 				A42E5E7616A27D8A00BB5907 /* Security.framework */,
 				A42E5E7416A27D1F00BB5907 /* MobileCoreServices.framework */,
@@ -427,8 +452,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4A3926C16A4E72E004A2878 /* OKHTTPClient.m in Sources */,
 				A4A3926B16A4DEC5004A2878 /* OKClientTests.m in Sources */,
+				A4A3927B16A51B68004A2878 /* AFHTTPClient.m in Sources */,
+				A4A3927D16A51B6D004A2878 /* AFHTTPRequestOperation.m in Sources */,
+				A4A3927E16A51B6D004A2878 /* AFImageRequestOperation.m in Sources */,
+				A4A3927F16A51B74004A2878 /* AFJSONRequestOperation.m in Sources */,
+				A4A3928016A51B74004A2878 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				A4A3928116A51B74004A2878 /* AFPropertyListRequestOperation.m in Sources */,
+				A4A3928216A51B74004A2878 /* AFURLConnectionOperation.m in Sources */,
+				A4A3928316A51B74004A2878 /* AFXMLRequestOperation.m in Sources */,
+				A4A3928416A51B74004A2878 /* UIImageView+AFNetworking.m in Sources */,
+				A4A3928C16A51B9A004A2878 /* OKHTTPClient.m in Sources */,
+				A4A3928D16A51B9A004A2878 /* OKGitHubAPIKeys.m in Sources */,
+				A4A3928E16A51B9A004A2878 /* OKDefines.m in Sources */,
+				A4A3928F16A51B9A004A2878 /* OKManagedObject.m in Sources */,
+				A4A3929016A51B9A004A2878 /* OKRemoteManagedObject.m in Sources */,
+				A4A3929116A51B9A004A2878 /* OKRepo.m in Sources */,
+				A4A3929216A51B9A004A2878 /* OKUser.m in Sources */,
+				A4A3929316A51B9A004A2878 /* NSDictionary+OKExtensions.m in Sources */,
+				A4A3929416A51BA9004A2878 /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,17 +574,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-					"$(SRCROOT)/Vendor",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(SRCROOT)/../Vendor/**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Vendor/OCMock/**";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Vendor/OCMock\"/**";
 				INFOPLIST_FILE = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Vendor/OCMock\"/**",
+					"\"$(SRCROOT)/../Vendor/OCMock\"/**",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -557,17 +598,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-					"$(SRCROOT)/Vendor",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(SRCROOT)/../Vendor/**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Vendor/OCMock/**";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Vendor/OCMock\"/**";
 				INFOPLIST_FILE = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Vendor/OCMock\"/**",
+					"\"$(SRCROOT)/../Vendor/OCMock\"/**",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -606,6 +646,7 @@
 				A4A3925C16A4D528004A2878 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

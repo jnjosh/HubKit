@@ -22,10 +22,12 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+#import <OCMock/OCMock.h>
 #import "OKHTTPClient.h"
 
 @interface OKClientTests : SenTestCase
 
+@property (nonatomic, strong) OCMockObject *mockClient;
 
 @end
 
@@ -35,18 +37,20 @@
 
 - (void)setUp
 {
-	
+	self.mockClient = [OCMockObject mockForClass:[OKHTTPClient class]];
 }
 
 - (void)tearDown
 {
+	[self.mockClient stopMocking];
 }
 
 #pragma mark - Tests
 
-- (void)testSample
+- (void)testSimpleMockImplementation
 {
-	
+	[[self.mockClient stub] logInUserWithAccessToken:nil success:nil failure:nil];
+	[self.mockClient verify];
 }
 
 @end
