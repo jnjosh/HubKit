@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'OctoKit-iOS-UnitTests' target in the 'OctoKit-iOS-UnitTests' project
+//
+
+#ifdef __OBJC__
+	#import <UIKit/UIKit.h>
+	#import <Foundation/Foundation.h>
+#endif

@@ -39,6 +39,10 @@
 		A42E5E7516A27D1F00BB5907 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7416A27D1F00BB5907 /* MobileCoreServices.framework */; };
 		A42E5E7716A27D8A00BB5907 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7616A27D8A00BB5907 /* Security.framework */; };
 		A42E5E7916A27D9100BB5907 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7816A27D9100BB5907 /* CoreData.framework */; };
+		A4A3924E16A4D528004A2878 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A3924D16A4D528004A2878 /* SenTestingKit.framework */; };
+		A4A3924F16A4D528004A2878 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0B16A278A200BB5907 /* UIKit.framework */; };
+		A4A3925016A4D528004A2878 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0D16A278A200BB5907 /* Foundation.framework */; };
+		A4A3925616A4D528004A2878 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4A3925416A4D528004A2878 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +101,11 @@
 		A42E5E7416A27D1F00BB5907 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A42E5E7616A27D8A00BB5907 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A42E5E7816A27D9100BB5907 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A4A3924C16A4D528004A2878 /* OctoKit-iOS-UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OctoKit-iOS-UnitTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4A3924D16A4D528004A2878 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A4A3925316A4D528004A2878 /* OctoKit-iOS-UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OctoKit-iOS-UnitTests-Info.plist"; sourceTree = "<group>"; };
+		A4A3925516A4D528004A2878 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A4A3925A16A4D528004A2878 /* OctoKit-iOS-UnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OctoKit-iOS-UnitTests-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +123,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A4A3924816A4D528004A2878 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4A3924E16A4D528004A2878 /* SenTestingKit.framework in Frameworks */,
+				A4A3924F16A4D528004A2878 /* UIKit.framework in Frameworks */,
+				A4A3925016A4D528004A2878 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -122,6 +141,7 @@
 			children = (
 				A42E5E3016A27AFE00BB5907 /* OctoKit */,
 				A42E5E1116A278A200BB5907 /* OctoKit-iOS-Sample */,
+				A4A3925116A4D528004A2878 /* OctoKit-iOS-UnitTests */,
 				A42E5E4D16A27B7B00BB5907 /* Vendor */,
 				A42E5E0A16A278A200BB5907 /* Frameworks */,
 				A42E5E0816A278A200BB5907 /* Products */,
@@ -132,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				A42E5E0716A278A200BB5907 /* OctoKit-iOS-Sample.app */,
+				A4A3924C16A4D528004A2878 /* OctoKit-iOS-UnitTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,6 +167,7 @@
 				A42E5E0B16A278A200BB5907 /* UIKit.framework */,
 				A42E5E0D16A278A200BB5907 /* Foundation.framework */,
 				A42E5E0F16A278A200BB5907 /* CoreGraphics.framework */,
+				A4A3924D16A4D528004A2878 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -242,6 +264,24 @@
 			name = SSKeychain;
 			sourceTree = "<group>";
 		};
+		A4A3925116A4D528004A2878 /* OctoKit-iOS-UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4A3925216A4D528004A2878 /* Supporting Files */,
+			);
+			path = "OctoKit-iOS-UnitTests";
+			sourceTree = "<group>";
+		};
+		A4A3925216A4D528004A2878 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A4A3925316A4D528004A2878 /* OctoKit-iOS-UnitTests-Info.plist */,
+				A4A3925416A4D528004A2878 /* InfoPlist.strings */,
+				A4A3925A16A4D528004A2878 /* OctoKit-iOS-UnitTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -261,6 +301,24 @@
 			productName = "OctoKit-iOS-Sample";
 			productReference = A42E5E0716A278A200BB5907 /* OctoKit-iOS-Sample.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A4A3924B16A4D528004A2878 /* OctoKit-iOS-UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4A3925D16A4D528004A2878 /* Build configuration list for PBXNativeTarget "OctoKit-iOS-UnitTests" */;
+			buildPhases = (
+				A4A3924716A4D528004A2878 /* Sources */,
+				A4A3924816A4D528004A2878 /* Frameworks */,
+				A4A3924916A4D528004A2878 /* Resources */,
+				A4A3924A16A4D528004A2878 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OctoKit-iOS-UnitTests";
+			productName = "OctoKit-iOS-UnitTests";
+			productReference = A4A3924C16A4D528004A2878 /* OctoKit-iOS-UnitTests.octest */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -285,6 +343,7 @@
 			projectRoot = "";
 			targets = (
 				A42E5E0616A278A200BB5907 /* OctoKit-iOS-Sample */,
+				A4A3924B16A4D528004A2878 /* OctoKit-iOS-UnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -301,7 +360,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A4A3924916A4D528004A2878 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4A3925616A4D528004A2878 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A4A3924A16A4D528004A2878 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A42E5E0316A278A200BB5907 /* Sources */ = {
@@ -332,6 +415,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A4A3924716A4D528004A2878 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -339,6 +429,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				A42E5E1516A278A200BB5907 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A4A3925416A4D528004A2878 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4A3925516A4D528004A2878 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -420,6 +518,36 @@
 			};
 			name = Release;
 		};
+		A4A3925B16A4D528004A2878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Prefix.pch";
+				INFOPLIST_FILE = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A4A3925C16A4D528004A2878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Prefix.pch";
+				INFOPLIST_FILE = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -440,6 +568,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A4A3925D16A4D528004A2878 /* Build configuration list for PBXNativeTarget "OctoKit-iOS-UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4A3925B16A4D528004A2878 /* Debug */,
+				A4A3925C16A4D528004A2878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
