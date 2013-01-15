@@ -24,11 +24,17 @@ Once you have bundler installed, you can continue to run the tools to setup your
 
     rake setup
 
+### Be sure to open the project from the workspace file: _OctoKit-Sample.xcworkspace_
+
 Additional Rake task:
 
     rake test:all     # All Unit Tests
     rake test:ios     # iOS Unit Tests
     rake tools:setup  # Setup For Development
+
+## Testing
+
+Testing can be performed in Xcode using the ⌘U keyboard shortcut from within Xcode or using the `rake test` script from the project directory
 
 ## Setting up OctoKit
 

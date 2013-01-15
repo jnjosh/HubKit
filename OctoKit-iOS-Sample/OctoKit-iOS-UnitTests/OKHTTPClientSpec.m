@@ -20,36 +20,39 @@
  SOFTWARE.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import "Specta.h"
+
+#define EXP_SHORTHAND
+#import "Expecta.h"
 
 #import <OCMock/OCMock.h>
 #import "OKHTTPClient.h"
 
-@interface OKClientTests : SenTestCase
+SpecBegin(OKHTTPClientSpec)
 
-@property (nonatomic, strong) OCMockObject *mockClient;
+describe(@"OKHTTPClient", ^{
+	
+	// stub out sample for now
+	context(@"when testing with a mock object", ^{
+		__block OCMockObject *mockClient = nil;
+		
+		beforeAll(^{
+			mockClient = [OCMockObject mockForClass:[OKHTTPClient class]];
+		});
+		
+		it(@"should send login", ^{
+			[[mockClient stub] logInUserWithUsername:@"XXXX" password:@"XXXX" success:nil failure:nil];
+			[mockClient verify];
+		});
+		
+		// sample to verify setup
+		it(@"should not fail", ^{
+			expect(1).to.equal(1);
+			//expect(1).to.equal(2);
+		});
+		
+	});
+	
+});
 
-@end
-
-@implementation OKClientTests
-
-#pragma mark - Test Configuration
-
-- (void)setUp
-{
-	self.mockClient = [OCMockObject mockForClass:[OKHTTPClient class]];
-}
-
-- (void)tearDown
-{
-}
-
-#pragma mark - Tests
-
-- (void)testSimpleMockImplementation
-{
-	[[self.mockClient stub] logInUserWithAccessToken:nil success:nil failure:nil];
-	[self.mockClient verify];
-}
-
-@end
+SpecEnd
