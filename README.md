@@ -12,22 +12,19 @@ OctoKit uses Ruby's Rakefile to perform command line setup of the project and th
 
 Once you have bundler installed, you can continue to run the tools to setup your development environment:
 
-1. Clone the repository from Github:
+Clone the repository from Github:
     
     https://github.com/OctoKit/OctoKit.git
 
-
-2. Install all the gems required.
+Install all the gems required.
 
     bundle install
 
-
-3. Install all submodules and prepare for development:
+Install all submodules and prepare for development:
 
     rake setup
 
-
-### Be sure to open the project from the workspace file: _OctoKit-Sample.xcworkspace_
+### Be sure to open the project from the workspace file: OctoKit-Sample.xcworkspace
 
 Additional Rake task:
 
