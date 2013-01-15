@@ -1,19 +1,26 @@
 require_relative 'Scripts/RakeHelper.rb'
 require "xcoder"
 
-task :default => 'tools:setup'
+task :default => :setup
+task :setup => 'tools:setup'
 task :test => 'test:all'
 
 namespace :tools do
   
   desc "Setup For Development"
   task :setup do
-    puts 'Cloning Git Submodules...'.cyan
+    puts '* Cloning Git Submodules...'.cyan
     `git submodule update --init --recursive`
-    puts 'Copying example RPGitHubAPIKeys into place...'.cyan
+    
+    puts '* Copying example RPGitHubAPIKeys into place...'.cyan
     `cp OctoKit/OKGitHubAPIKeysExample.h OctoKit/OKGitHubAPIKeys.h`
     `cp OctoKit/OKGitHubAPIKeysExample.m OctoKit/OKGitHubAPIKeys.m`
 
+    puts '* Configuring Testing Libraries (Specta/Expecta)'.cyan
+    `cd \"Vendor/Specta\" ; rake`
+    `cd \"Vendor/Expecta\" ; rake`
+
+    puts
     puts 'Done! You\'re ready to get started!'.green  
   end
 

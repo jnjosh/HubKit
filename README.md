@@ -4,6 +4,32 @@
 
 OctoKit is a GitHub API client written in Objective-C, intended for use on iOS. It provides a native wrapper around the GitHub API based on [AFNetworking][afn] as well as offline data persistence using Core Data.
 
+## Setting up for Develompent / Contributing
+
+OctoKit uses Ruby's Rakefile to perform command line setup of the project and therefore requires Ruby. If you don't already have Bundler, install it via RubyGems:
+
+    gem install bundler
+
+Once you have bundler installed, you can continue to run the tools to setup your development environment:
+
+1. Clone the repository from Github:
+    
+    https://github.com/OctoKit/OctoKit.git
+
+2. Install all the gems required.
+
+    bundle install
+
+3. Install all submodules and prepare for development:
+
+    rake setup
+
+Additional Rake task:
+
+    rake test:all     # All Unit Tests
+    rake test:ios     # iOS Unit Tests
+    rake tools:setup  # Setup For Development
+
 ## Setting up OctoKit
 
 First you're going to need AFNetworking, so visit [their repo's page][afn] and follow the setup instructions.
