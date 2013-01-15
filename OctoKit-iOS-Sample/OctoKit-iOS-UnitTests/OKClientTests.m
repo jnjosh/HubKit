@@ -42,7 +42,6 @@
 
 - (void)tearDown
 {
-	[self.mockClient stopMocking];
 }
 
 #pragma mark - Tests
