@@ -4,3 +4,6 @@
 [submodule "Vendor/SSKeychain"]
 	path = Vendor/SSKeychain
 	url = git@github.com:soffes/sskeychain.git
+[submodule "Vendor/OCMock"]
+	path = Vendor/OCMock
+	url = git@github.com:erikdoe/ocmock.git

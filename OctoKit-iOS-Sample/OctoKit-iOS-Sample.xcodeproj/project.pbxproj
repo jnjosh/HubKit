@@ -43,6 +43,9 @@
 		A4A3924F16A4D528004A2878 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0B16A278A200BB5907 /* UIKit.framework */; };
 		A4A3925016A4D528004A2878 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0D16A278A200BB5907 /* Foundation.framework */; };
 		A4A3925616A4D528004A2878 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4A3925416A4D528004A2878 /* InfoPlist.strings */; };
+		A4A3926616A4DE66004A2878 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A3926516A4DE66004A2878 /* libOCMock.a */; };
+		A4A3926B16A4DEC5004A2878 /* OKClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3926A16A4DEC5004A2878 /* OKClientTests.m */; };
+		A4A3926C16A4E72E004A2878 /* OKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3916A27B0A00BB5907 /* OKHTTPClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +109,8 @@
 		A4A3925316A4D528004A2878 /* OctoKit-iOS-UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OctoKit-iOS-UnitTests-Info.plist"; sourceTree = "<group>"; };
 		A4A3925516A4D528004A2878 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A4A3925A16A4D528004A2878 /* OctoKit-iOS-UnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OctoKit-iOS-UnitTests-Prefix.pch"; sourceTree = "<group>"; };
+		A4A3926516A4DE66004A2878 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libOCMock.a; path = "../Vendor/OCMock/Source/build/Release-iphoneos/libOCMock.a"; sourceTree = "<group>"; };
+		A4A3926A16A4DEC5004A2878 /* OKClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKClientTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A3926616A4DE66004A2878 /* libOCMock.a in Frameworks */,
 				A4A3924E16A4D528004A2878 /* SenTestingKit.framework in Frameworks */,
 				A4A3924F16A4D528004A2878 /* UIKit.framework in Frameworks */,
 				A4A3925016A4D528004A2878 /* Foundation.framework in Frameworks */,
@@ -160,6 +166,7 @@
 		A42E5E0A16A278A200BB5907 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A4A3926516A4DE66004A2878 /* libOCMock.a */,
 				A42E5E7816A27D9100BB5907 /* CoreData.framework */,
 				A42E5E7616A27D8A00BB5907 /* Security.framework */,
 				A42E5E7416A27D1F00BB5907 /* MobileCoreServices.framework */,
@@ -267,6 +274,7 @@
 		A4A3925116A4D528004A2878 /* OctoKit-iOS-UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				A4A3926A16A4DEC5004A2878 /* OKClientTests.m */,
 				A4A3925216A4D528004A2878 /* Supporting Files */,
 			);
 			path = "OctoKit-iOS-UnitTests";
@@ -419,6 +427,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A3926C16A4E72E004A2878 /* OKHTTPClient.m in Sources */,
+				A4A3926B16A4DEC5004A2878 /* OKClientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,10 +534,20 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(SRCROOT)/Vendor",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Vendor/OCMock/**";
 				INFOPLIST_FILE = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Vendor/OCMock\"/**",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -539,10 +559,20 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(SRCROOT)/Vendor",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Vendor/OCMock/**";
 				INFOPLIST_FILE = "OctoKit-iOS-UnitTests/OctoKit-iOS-UnitTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Vendor/OCMock\"/**",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
