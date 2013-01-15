@@ -16,13 +16,16 @@ Once you have bundler installed, you can continue to run the tools to setup your
     
     https://github.com/OctoKit/OctoKit.git
 
+
 2. Install all the gems required.
 
     bundle install
 
+
 3. Install all submodules and prepare for development:
 
     rake setup
+
 
 ### Be sure to open the project from the workspace file: _OctoKit-Sample.xcworkspace_
 
