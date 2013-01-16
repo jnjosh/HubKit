@@ -45,6 +45,7 @@
 		A43711F916A52C9F0084D675 /* libSpecta-ios-universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A43711EE16A52C9F0084D675 /* libSpecta-ios-universal.a */; };
 		A437121A16A52CB90084D675 /* libExpecta-ios-universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A437121716A52CB90084D675 /* libExpecta-ios-universal.a */; };
 		A43E971D16A64C2200E05562 /* HKHTTPClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E971C16A64C2200E05562 /* HKHTTPClientSpec.m */; };
+		A43E972E16A65A6100E05562 /* HKRepositoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E972D16A65A6100E05562 /* HKRepositoryViewController.m */; };
 		A4A3924E16A4D528004A2878 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A3924D16A4D528004A2878 /* SenTestingKit.framework */; };
 		A4A3924F16A4D528004A2878 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0B16A278A200BB5907 /* UIKit.framework */; };
 		A4A3925016A4D528004A2878 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0D16A278A200BB5907 /* Foundation.framework */; };
@@ -177,6 +178,8 @@
 		A437121916A52CB90084D675 /* NSValue+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+Expecta.h"; path = "../Vendor/Expecta/products/NSValue+Expecta.h"; sourceTree = "<group>"; };
 		A43E971C16A64C2200E05562 /* HKHTTPClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKHTTPClientSpec.m; sourceTree = "<group>"; };
 		A43E972916A6565E00E05562 /* HubKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubKit.h; sourceTree = "<group>"; };
+		A43E972C16A65A6100E05562 /* HKRepositoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKRepositoryViewController.h; sourceTree = "<group>"; };
+		A43E972D16A65A6100E05562 /* HKRepositoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKRepositoryViewController.m; sourceTree = "<group>"; };
 		A4A3924C16A4D528004A2878 /* HubKit-iOS-UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HubKit-iOS-UnitTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A3924D16A4D528004A2878 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A4A3925316A4D528004A2878 /* HubKit-iOS-UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HubKit-iOS-UnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -261,6 +264,8 @@
 			children = (
 				A42E5E1A16A278A200BB5907 /* HKAppDelegate.h */,
 				A42E5E1B16A278A200BB5907 /* HKAppDelegate.m */,
+				A43E972C16A65A6100E05562 /* HKRepositoryViewController.h */,
+				A43E972D16A65A6100E05562 /* HKRepositoryViewController.m */,
 				A42E5E1216A278A200BB5907 /* Supporting Files */,
 			);
 			path = "HubKit-iOS-Sample";
@@ -560,6 +565,7 @@
 				A42E5E6E16A27BAF00BB5907 /* UIImageView+AFNetworking.m in Sources */,
 				A42E5E7116A27BEE00BB5907 /* NSDictionary+HKExtensions.m in Sources */,
 				57C55CB016A62B2C0094DF4F /* HKIssue.m in Sources */,
+				A43E972E16A65A6100E05562 /* HKRepositoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,24 +20,29 @@
  SOFTWARE.
  */
 
-#import "HKAppDelegate.h"
 #import "HKRepositoryViewController.h"
 
-@interface HKAppDelegate ()
+@interface HKRepositoryViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) HKRepositoryViewController *repositoryViewController;
+@property (nonatomic, weak) UITableView *tableView;
 
 @end
 
-@implementation HKAppDelegate
+@implementation HKRepositoryViewController {}
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+#pragma mark - UIViewController
+
+- (void)loadView
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[HKRepositoryViewController alloc] initWithNibName:nil bundle:nil];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
+    self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+    [self.view setBackgroundColor:[UIColor viewFlipsideBackgroundColor]];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
 }
 
 @end
