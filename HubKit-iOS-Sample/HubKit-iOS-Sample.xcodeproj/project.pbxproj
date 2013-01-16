@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57AA0A9716A6A16300F9E033 /* HKKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E973016A660BE00E05562 /* HKKeychain.m */; };
+		57AA0A9816A6A17A00F9E033 /* HKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E977F16A67E5500E05562 /* HKUser.m */; };
 		A42E5E0C16A278A200BB5907 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0B16A278A200BB5907 /* UIKit.framework */; };
 		A42E5E0E16A278A200BB5907 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0D16A278A200BB5907 /* Foundation.framework */; };
 		A42E5E1016A278A200BB5907 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0F16A278A200BB5907 /* CoreGraphics.framework */; };
@@ -562,6 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57AA0A9816A6A17A00F9E033 /* HKUser.m in Sources */,
 				A4A3927B16A51B68004A2878 /* AFHTTPClient.m in Sources */,
 				A4A3927D16A51B6D004A2878 /* AFHTTPRequestOperation.m in Sources */,
 				A4A3927E16A51B6D004A2878 /* AFImageRequestOperation.m in Sources */,
@@ -577,6 +580,7 @@
 				A4A3929316A51B9A004A2878 /* NSDictionary+HKExtensions.m in Sources */,
 				A4A3929416A51BA9004A2878 /* SSKeychain.m in Sources */,
 				A43E971D16A64C2200E05562 /* HKHTTPClientSpec.m in Sources */,
+				57AA0A9716A6A16300F9E033 /* HKKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
