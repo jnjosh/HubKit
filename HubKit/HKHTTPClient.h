@@ -25,8 +25,6 @@
 typedef void (^HKHTTPClientSuccess)(AFJSONRequestOperation *operation, id responseObject);
 typedef void (^HKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *error);
 
-@class HKRepo;
-
 @interface HKHTTPClient : AFHTTPClient
 
 /** Application Client ID for authorizing against Github
@@ -67,8 +65,8 @@ typedef void (^HKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *
 - (void)getUserReposWithSuccess:(HKHTTPClientSuccess)success
                         failure:(HKHTTPClientFailure)failure;
 
-- (void)getIssuesForRepo:(HKRepo *)repo
-                 success:(HKHTTPClientSuccess)success
-                 failure:(HKHTTPClientFailure)failure;
+//- (void)getIssuesForRepo:(HKRepo *)repo
+//                 success:(HKHTTPClientSuccess)success
+//                 failure:(HKHTTPClientFailure)failure;
 
 @end

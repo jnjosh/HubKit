@@ -20,39 +20,30 @@
  SOFTWARE.
  */
 
-#import "HKIssue.h"
-#import "HKRepo.h"
-#import "HKUser.h"
-#import "NSDictionary+HKExtensions.h"
+#import "HKKeychain.h"
+#import "SSKeychain.h"
 
-@implementation HKIssue
+NSString * const kHKHubKitKeychainDefaultAccount = @"GitHub";
+NSString * const kHKKeychainServiceName = @"com.hubkit.security.keychain";
 
-@dynamic title;
-@dynamic rawBody;
-@dynamic state;
-@dynamic number;
-@dynamic commentCount;
-@dynamic user;
-@dynamic assignee;
-@dynamic repo;
+@implementation HKKeychain
 
-+ (NSString *)entityName
++ (BOOL)storeAuthenticationToken:(NSString *)token userAccount:(NSString *)userAccount
 {
-    return @"Issue";
+    NSString *account = userAccount ?: kHKHubKitKeychainDefaultAccount;
+    return [SSKeychain setPassword:token
+                        forService:kHKKeychainServiceName
+                           account:account];
 }
 
-- (void)unpackDictionary:(NSDictionary *)dictionary
++ (NSString *)authenticationTokenForAccount:(NSString *)account
 {
-    [super unpackDictionary:dictionary];
-    
-    self.title = [dictionary safeObjectForKey:@"title"];
-    self.rawBody = [dictionary safeObjectForKey:@"body"];
-    self.state = [dictionary safeObjectForKey:@"state"];
-    self.number = [dictionary safeObjectForKey:@"number"];
-    self.commentCount = [dictionary safeObjectForKey:@"comments"];
-    
-    self.user = [HKUser objectWithDictionary:[dictionary safeObjectForKey:@"user"]];
-    self.assignee = [HKUser objectWithDictionary:[dictionary safeObjectForKey:@"assignee"]];
+    return [SSKeychain passwordForService:kHKKeychainServiceName account:account];
+}
+
++ (void)removeAuthenticationTokenForAccount:(NSString *)account
+{
+    [SSKeychain deletePasswordForService:kHKKeychainServiceName account:account];
 }
 
 @end

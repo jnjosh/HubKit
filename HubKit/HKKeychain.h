@@ -20,32 +20,17 @@
  SOFTWARE.
  */
 
-#import <CoreData/CoreData.h>
+#import <Foundation/Foundation.h>
 
-@interface HKManagedObject : NSManagedObject
+@interface HKKeychain : NSObject
 
-// Accessing the Main Context
-+ (NSManagedObjectContext *)mainContext;
-+ (BOOL)hasMainContext;
+/** Store the Authorization Token in the keychain */
++ (BOOL)storeAuthenticationToken:(NSString *)token userAccount:(NSString *)userAccount;
 
-// Configuring the Persistent Store
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
-+ (NSDictionary *)persistentStoreOptions;
-+ (void)setPersistentStoreOptions:(NSDictionary *)options;
-+ (NSManagedObjectModel *)managedObjectModel;
-+ (void)setManagedObjectModel:(NSManagedObjectModel *)model;
-+ (NSURL *)persistentStoreURL;
-+ (void)setPersistentStoreURL:(NSURL *)url;
+/** Retrieve the Authorization Token from the keychain */
++ (NSString *)authenticationTokenForAccount:(NSString *)account;
 
-// Getting Entity Information
-+ (NSString *)entityName;
-+ (NSEntityDescription *)entity;
-+ (NSEntityDescription *)entityWithContext:(NSManagedObjectContext *)context;
-+ (NSArray *)defaultSortDescriptors;
-
-// Initializing
-- (instancetype)initWithContext:(NSManagedObjectContext *)context;
-
-- (void)save;
+/** Remove the authorization token from the keychain */
++ (void)removeAuthenticationTokenForAccount:(NSString *)account;
 
 @end

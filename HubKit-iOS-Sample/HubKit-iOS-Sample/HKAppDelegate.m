@@ -23,6 +23,9 @@
 #import "HKAppDelegate.h"
 #import "HKRepositoryViewController.h"
 
+#import "HubKit.h"
+#import "HKGitHubAPIKeys.h"
+
 @interface HKAppDelegate ()
 
 @property (nonatomic, strong) HKRepositoryViewController *repositoryViewController;
@@ -34,10 +37,30 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[HKRepositoryViewController alloc] initWithNibName:nil bundle:nil];
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = self.repositoryViewController;
+
+    self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+#pragma mark - Sample Setup
+
+- (HKRepositoryViewController *)repositoryViewController
+{
+    if (! _repositoryViewController) {
+        _repositoryViewController = [[HKRepositoryViewController alloc] initWithNibName:nil bundle:nil];
+        
+        HKHTTPClient *githubClient = [[HKHTTPClient alloc] init];
+        githubClient.authorizationClientId = kHKGtHubClientID;
+        githubClient.authorizationClientSecret = kHKGtHubClientSecret;
+        githubClient.authorizationScopes = @[
+            HKGithubAuthorizationScopes.user,
+            HKGithubAuthorizationScopes.repo
+        ];
+        _repositoryViewController.githubClient = githubClient;
+    }
+    return _repositoryViewController;
 }
 
 @end

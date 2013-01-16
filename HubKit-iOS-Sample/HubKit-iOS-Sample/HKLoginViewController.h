@@ -1,5 +1,5 @@
 //
-//  HKRepositoryViewController.h
+//  HKLoginViewController.h
 //  HubKit-iOS-Sample
 //
 //  Created by Josh Johnson on 1/15/13.
@@ -10,8 +10,8 @@
 
 @class HKHTTPClient;
 
-@interface HKRepositoryViewController : UIViewController
+@interface HKLoginViewController : UIViewController
 
-@property (nonatomic, strong) HKHTTPClient *githubClient;
+@property (nonatomic, weak) HKHTTPClient *githubClient;
 
 @end

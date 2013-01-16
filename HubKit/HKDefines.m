@@ -28,11 +28,7 @@ NSString * const kHKGithubAPIBaseURLString = @"https://api.github.com";
 
 #pragma mark - User Defaults Keys
 
-NSString *const kHKCurrentUserIDKey = @"HKCurrentUserID";
-
-#pragma mark - Keychain
-
-NSString *const kHKKeychainServiceName = @"Repos";
+NSString * const kHKCurrentUserIDKey = @"HKCurrentUserID";
 
 #pragma mark - Authorization Scopes
 

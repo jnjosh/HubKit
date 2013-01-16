@@ -20,13 +20,5 @@
  SOFTWARE.
  */
 
-#import "OKDefines.h"
-
-#import "OKHTTPClient.h"
-
-#import "OKManagedObject.h"
-#import "OKRemoteManagedObject.h"
-
-#import "OKUser.h"
-#import "OKRepo.h"
-#import "OKIssue.h"
+#import "HKDefines.h"
+#import "HKHTTPClient.h"

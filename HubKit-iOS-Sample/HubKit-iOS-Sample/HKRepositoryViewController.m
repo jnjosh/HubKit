@@ -21,10 +21,14 @@
  */
 
 #import "HKRepositoryViewController.h"
+#import "HKLoginViewController.h"
 
 @interface HKRepositoryViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *tableItems;
+
+
 
 @end
 
@@ -43,6 +47,48 @@
 {
     [super viewDidLoad];
     
+    [self.view addSubview:self.tableView];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self loadRepositories];
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+#pragma mark - UITableViewDelegate
+
+#pragma mark - Table Data
+
+- (void)loadRepositories
+{
+    HKLoginViewController *loginViewController = [[HKLoginViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    loginViewController.githubClient = self.githubClient;
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+#pragma mark - Properties
+
+- (UITableView *)tableView
+{
+    if (! _tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        [_tableView setDataSource:self];
+        [_tableView setDelegate:self];
+    }
+    return _tableView;
 }
 
 @end

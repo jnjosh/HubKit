@@ -33,10 +33,6 @@ extern NSString * const kHKGithubAPIBaseURLString;
 
 extern NSString * const kHKCurrentUserIDKey;
 
-#pragma mark - Keychain
-
-extern NSString * const kHKKeychainServiceName;
-
 #pragma mark - Authorization Scopes
 
 /** Authorization Scope Types
