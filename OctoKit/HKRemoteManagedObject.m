@@ -20,9 +20,9 @@
  SOFTWARE.
  */
 
-#import "OKRemoteManagedObject.h"
+#import "HKRemoteManagedObject.h"
 
-@implementation OKRemoteManagedObject
+@implementation HKRemoteManagedObject
 
 @dynamic remoteID;
 @dynamic createdAt;
@@ -35,7 +35,7 @@
 
 + (instancetype)objectWithRemoteID:(NSNumber *)remoteID context:(NSManagedObjectContext *)context
 {
-    OKRemoteManagedObject *object = [self existingObjectWithRemoteID:remoteID context:context];
+    HKRemoteManagedObject *object = [self existingObjectWithRemoteID:remoteID context:context];
     
     if (object == nil) {
         object = [[self alloc] initWithContext:context];
@@ -91,7 +91,7 @@
         context = [self mainContext];
     }
     
-    OKRemoteManagedObject *object = [self objectWithRemoteID:remoteID context:context];
+    HKRemoteManagedObject *object = [self objectWithRemoteID:remoteID context:context];
     
     if ([object shouldUnpackDictionary:dictionary]) {
         [object unpackDictionary:dictionary];
@@ -121,7 +121,7 @@
         context = [self mainContext];
     }
     
-    OKRemoteManagedObject *object = [self existingObjectWithRemoteID:remoteID context:context];
+    HKRemoteManagedObject *object = [self existingObjectWithRemoteID:remoteID context:context];
     
     
     if (object == nil) {

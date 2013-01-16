@@ -20,21 +20,17 @@
  SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
-#import "OKRemoteManagedObject.h"
+#import "NSDictionary+HKExtensions.h"
 
-@class OKRepo, OKUser;
+@implementation NSDictionary (HKExtensions)
 
-@interface OKIssue : OKRemoteManagedObject
-
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * rawBody;
-@property (nonatomic, retain) NSString * state;
-@property (nonatomic, retain) NSNumber * number;
-@property (nonatomic, retain) NSNumber * commentCount;
-@property (nonatomic, retain) OKUser *user;
-@property (nonatomic, retain) OKUser *assignee;
-@property (nonatomic, retain) OKRepo *repo;
+- (id)safeObjectForKey:(NSString *)key
+{
+	id obj = [self objectForKey:key];
+	if ([obj isEqual:[NSNull null]]) {
+		obj = nil;
+	}
+	return obj;
+}
 
 @end

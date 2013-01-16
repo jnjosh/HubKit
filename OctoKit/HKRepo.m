@@ -20,14 +20,14 @@
  SOFTWARE.
  */
 
-#import "OKRepo.h"
-#import "OKIssue.h"
-#import "OKRepo.h"
-#import "OKUser.h"
-#import "NSDictionary+OKExtensions.h"
+#import "HKRepo.h"
+#import "HKIssue.h"
+#import "HKRepo.h"
+#import "HKUser.h"
+#import "NSDictionary+HKExtensions.h"
 
 
-@implementation OKRepo
+@implementation HKRepo
 
 @dynamic byline;
 @dynamic cloneURL;
@@ -88,8 +88,8 @@
     self.hasWiki = [dictionary safeObjectForKey:@"has_wiki"];
     self.hasDownloads = [dictionary safeObjectForKey:@"has_downloads"];
     
-    self.owner = [OKUser objectWithDictionary:dictionary[@"owner"]];
-    self.parent = [OKRepo objectWithDictionary:dictionary[@"parent"]];
+    self.owner = [HKUser objectWithDictionary:dictionary[@"owner"]];
+    self.parent = [HKRepo objectWithDictionary:dictionary[@"parent"]];
 }
 
 @end

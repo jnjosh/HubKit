@@ -20,17 +20,32 @@
  SOFTWARE.
  */
 
-#import "NSDictionary+OKExtensions.h"
+#import <CoreData/CoreData.h>
 
-@implementation NSDictionary (OKExtensions)
+@interface HKManagedObject : NSManagedObject
 
-- (id)safeObjectForKey:(NSString *)key
-{
-	id obj = [self objectForKey:key];
-	if ([obj isEqual:[NSNull null]]) {
-		obj = nil;
-	}
-	return obj;
-}
+// Accessing the Main Context
++ (NSManagedObjectContext *)mainContext;
++ (BOOL)hasMainContext;
+
+// Configuring the Persistent Store
++ (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
++ (NSDictionary *)persistentStoreOptions;
++ (void)setPersistentStoreOptions:(NSDictionary *)options;
++ (NSManagedObjectModel *)managedObjectModel;
++ (void)setManagedObjectModel:(NSManagedObjectModel *)model;
++ (NSURL *)persistentStoreURL;
++ (void)setPersistentStoreURL:(NSURL *)url;
+
+// Getting Entity Information
++ (NSString *)entityName;
++ (NSEntityDescription *)entity;
++ (NSEntityDescription *)entityWithContext:(NSManagedObjectContext *)context;
++ (NSArray *)defaultSortDescriptors;
+
+// Initializing
+- (instancetype)initWithContext:(NSManagedObjectContext *)context;
+
+- (void)save;
 
 @end

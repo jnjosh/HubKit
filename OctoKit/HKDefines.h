@@ -22,23 +22,23 @@
 
 #import <Foundation/Foundation.h>
 
-#ifndef OKDEFINES
-#define OKDEFINES
+#ifndef HKDEFINES
+#define HKDEFINES
 
 #pragma mark - User Defaults Keys
 
-extern NSString *const kOKCurrentUserIDKey;
+extern NSString *const kHKCurrentUserIDKey;
 
 #pragma mark - Keychain
 
-extern NSString *const kOKKeychainServiceName;
+extern NSString *const kHKKeychainServiceName;
 
 #pragma mark - Authorization Scopes
 
 /** Authorization Scope Types
  @see: http://developer.github.com/v3/oauth/#scopes
  */
-extern const struct OKGithubAuthorizationScopes {
+extern const struct HKGithubAuthorizationScopes {
 	__unsafe_unretained NSString *user; // Read/write access to profile info only. Note: this scope includes user:email and user:follow.
 	__unsafe_unretained NSString *userEmail; // Read access to a user’s email addresses.
 	__unsafe_unretained NSString *userFollow; // Access to follow or unfollow other users.
@@ -48,7 +48,7 @@ extern const struct OKGithubAuthorizationScopes {
 	__unsafe_unretained NSString *deleteRepo; // Delete access to adminable repositories.
 	__unsafe_unretained NSString *notifications; // Read access to a user’s notifications. repo is accepted too.
 	__unsafe_unretained NSString *gist; // Write access to gists.
-} OKGithubAuthorizationScopes;
+} HKGithubAuthorizationScopes;
 
 
 #endif

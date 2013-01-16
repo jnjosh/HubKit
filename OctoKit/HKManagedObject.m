@@ -20,14 +20,14 @@
  SOFTWARE.
  */
 
-#import "OKManagedObject.h"
+#import "HKManagedObject.h"
 
 static NSManagedObjectContext *__managedObjectContext = nil;
 static NSDictionary *__persistentStoreOptions = nil;
 static NSManagedObjectModel *__managedObjectModel = nil;
 static NSURL *__persistentStoreURL;
 
-@implementation OKManagedObject
+@implementation HKManagedObject
 
 + (NSManagedObjectContext *)mainContext
 {

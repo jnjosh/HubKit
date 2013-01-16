@@ -20,26 +20,21 @@
  SOFTWARE.
  */
 
-#import "OKDefines.h"
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "HKRemoteManagedObject.h"
 
-#pragma mark - User Defaults Keys
+@class HKRepo, HKUser;
 
-NSString *const kOKCurrentUserIDKey = @"OKCurrentUserID";
+@interface HKIssue : HKRemoteManagedObject
 
-#pragma mark - Keychain
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * rawBody;
+@property (nonatomic, retain) NSString * state;
+@property (nonatomic, retain) NSNumber * number;
+@property (nonatomic, retain) NSNumber * commentCount;
+@property (nonatomic, retain) HKUser *user;
+@property (nonatomic, retain) HKUser *assignee;
+@property (nonatomic, retain) HKRepo *repo;
 
-NSString *const kOKKeychainServiceName = @"Repos";
-
-#pragma mark - Authorization Scopes
-
-const struct OKGithubAuthorizationScopes OKGithubAuthorizationScopes = {
-	.user = @"user",
-	.userEmail = @"user:email",
-	.userFollow = @"user:follow",
-	.publicRepo = @"public_repo",
-	.repo = @"repo",
-	.repoStatus = @"repo:status",
-	.deleteRepo = @"delete_repo",
-	.notifications = @"notifications",
-	.gist = @"gist"
-};
+@end

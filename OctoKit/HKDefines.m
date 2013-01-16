@@ -20,10 +20,26 @@
  SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
+#import "HKDefines.h"
 
-@interface NSDictionary (OKExtensions)
+#pragma mark - User Defaults Keys
 
-- (id)safeObjectForKey:(NSString *)key;
+NSString *const kHKCurrentUserIDKey = @"OKCurrentUserID";
 
-@end
+#pragma mark - Keychain
+
+NSString *const kHKKeychainServiceName = @"Repos";
+
+#pragma mark - Authorization Scopes
+
+const struct HKGithubAuthorizationScopes HKGithubAuthorizationScopes = {
+	.user = @"user",
+	.userEmail = @"user:email",
+	.userFollow = @"user:follow",
+	.publicRepo = @"public_repo",
+	.repo = @"repo",
+	.repoStatus = @"repo:status",
+	.deleteRepo = @"delete_repo",
+	.notifications = @"notifications",
+	.gist = @"gist"
+};
