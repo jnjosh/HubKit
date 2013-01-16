@@ -23,11 +23,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "OKRemoteManagedObject.h"
+#import "HKRemoteManagedObject.h"
 
-@class OKIssue, OKRepo, OKUser;
+@class HKIssue, HKRepo, HKUser;
 
-@interface OKRepo : OKRemoteManagedObject
+@interface HKRepo : HKRemoteManagedObject
 
 @property (nonatomic, retain) NSString * byline;
 @property (nonatomic, retain) NSString * cloneURL;
@@ -51,16 +51,16 @@
 @property (nonatomic, retain) NSNumber * stargazers;
 @property (nonatomic, retain) NSString * svnURL;
 @property (nonatomic, retain) NSNumber * watchers;
-@property (nonatomic, retain) OKRepo *child;
-@property (nonatomic, retain) OKUser *owner;
-@property (nonatomic, retain) OKRepo *parent;
+@property (nonatomic, retain) HKRepo *child;
+@property (nonatomic, retain) HKUser *owner;
+@property (nonatomic, retain) HKRepo *parent;
 @property (nonatomic, retain) NSSet *issues;
 @end
 
-@interface OKRepo (CoreDataGeneratedAccessors)
+@interface HKRepo (CoreDataGeneratedAccessors)
 
-- (void)addIssuesObject:(OKIssue *)value;
-- (void)removeIssuesObject:(OKIssue *)value;
+- (void)addIssuesObject:(HKIssue *)value;
+- (void)removeIssuesObject:(HKIssue *)value;
 - (void)addIssues:(NSSet *)values;
 - (void)removeIssues:(NSSet *)values;
 

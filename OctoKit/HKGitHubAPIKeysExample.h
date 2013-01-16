@@ -8,5 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const kOKGtHubClientID;
-extern NSString *const kOKGtHubClientSecret;
+extern NSString *const kHKGtHubClientID;
+extern NSString *const kHKGtHubClientSecret;

@@ -26,7 +26,7 @@
 #import "Expecta.h"
 
 #import <OCMock/OCMock.h>
-#import "OKHTTPClient.h"
+#import "HKHTTPClient.h"
 
 SpecBegin(OKHTTPClientSpec)
 
@@ -37,7 +37,7 @@ describe(@"OKHTTPClient", ^{
 		__block OCMockObject *mockClient = nil;
 		
 		beforeAll(^{
-			mockClient = [OCMockObject mockForClass:[OKHTTPClient class]];
+			mockClient = [OCMockObject mockForClass:[HKHTTPClient class]];
 		});
 		
 		it(@"should send login", ^{

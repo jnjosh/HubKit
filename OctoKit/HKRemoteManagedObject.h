@@ -20,9 +20,9 @@
  SOFTWARE.
  */
 
-#import "OKManagedObject.h"
+#import "HKManagedObject.h"
 
-@interface OKRemoteManagedObject : OKManagedObject
+@interface HKRemoteManagedObject : HKManagedObject
 
 @property (nonatomic, strong) NSNumber *remoteID;
 @property (nonatomic, strong) NSDate *createdAt;

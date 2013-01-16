@@ -20,12 +20,12 @@
  SOFTWARE.
  */
 
-#import "OKIssue.h"
-#import "OKRepo.h"
-#import "OKUser.h"
-#import "NSDictionary+OKExtensions.h"
+#import "HKIssue.h"
+#import "HKRepo.h"
+#import "HKUser.h"
+#import "NSDictionary+HKExtensions.h"
 
-@implementation OKIssue
+@implementation HKIssue
 
 @dynamic title;
 @dynamic rawBody;
@@ -51,8 +51,8 @@
     self.number = [dictionary safeObjectForKey:@"number"];
     self.commentCount = [dictionary safeObjectForKey:@"comments"];
     
-    self.user = [OKUser objectWithDictionary:[dictionary safeObjectForKey:@"user"]];
-    self.assignee = [OKUser objectWithDictionary:[dictionary safeObjectForKey:@"assignee"]];
+    self.user = [HKUser objectWithDictionary:[dictionary safeObjectForKey:@"user"]];
+    self.assignee = [HKUser objectWithDictionary:[dictionary safeObjectForKey:@"assignee"]];
 }
 
 @end

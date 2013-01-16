@@ -20,22 +20,22 @@
  SOFTWARE.
  */
 
-#import "OKHTTPClient.h"
-#import "OKGitHubAPIKeys.h"
+#import "HKHTTPClient.h"
+#import "HKGitHubAPIKeys.h"
 #import "SSKeychain.h"
-#import "OKUser.h"
-#import "OKRepo.h"
-#import "OKDefines.h"
+#import "HKUser.h"
+#import "HKRepo.h"
+#import "HKDefines.h"
 
-@implementation OKHTTPClient
+@implementation HKHTTPClient
 
 + (instancetype)sharedClient
 {
-    static OKHTTPClient *sharedClient;
+    static HKHTTPClient *sharedClient;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedClient = [[OKHTTPClient alloc] init];
+        sharedClient = [[HKHTTPClient alloc] init];
     });
     
     return sharedClient;
@@ -50,8 +50,8 @@
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
         [self setDefaultHeader:@"Accept" value:@"application/json"];
         [self setParameterEncoding:AFJSONParameterEncoding];
-        [self setAuthorizationHeaderWithToken:[[OKUser currentUser] accessToken]];
-		[self setAuthorizationScopes:@[OKGithubAuthorizationScopes.user, OKGithubAuthorizationScopes.repo]];
+        [self setAuthorizationHeaderWithToken:[[HKUser currentUser] accessToken]];
+		[self setAuthorizationScopes:@[HKGithubAuthorizationScopes.user, HKGithubAuthorizationScopes.repo]];
     }
     
     return self;
@@ -69,15 +69,15 @@
 {
     NSString *authPath = @"authorizations";
     NSDictionary *params = @{
-        @"client_id"     : kOKGtHubClientID,
-        @"client_secret" : kOKGtHubClientSecret,
+        @"client_id"     : kHKGtHubClientID,
+        @"client_secret" : kHKGtHubClientSecret,
         @"scopes"        : self.authorizationScopes
     };
     
     [self setAuthorizationHeaderWithUsername:username password:password];
     [self postPath:authPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *responseDict = (NSDictionary *)responseObject;
-        if ([SSKeychain setPassword:responseDict[@"token"] forService:kOKKeychainServiceName account:@"GitHub"]) {
+        if ([SSKeychain setPassword:responseDict[@"token"] forService:kHKKeychainServiceName account:@"GitHub"]) {
             NSLog(@"Saved token %@", responseDict[@"token"]);
             [self setAuthorizationHeaderWithToken:responseDict[@"token"]];
         }
@@ -97,9 +97,9 @@
 {
     [self setAuthorizationHeaderWithToken:accessToken];
     [self getPath:@"user" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        OKUser *user = [OKUser objectWithDictionary:responseObject];
+        HKUser *user = [HKUser objectWithDictionary:responseObject];
         user.accessToken = accessToken;
-        [OKUser setCurrentUser:user];
+        [HKUser setCurrentUser:user];
         [user save];
         
         if (success) {
@@ -155,7 +155,7 @@
     }];
 }
 
-- (void)getIssuesForRepo:(OKRepo *)repo success:(OKHTTPClientSuccess)success failure:(OKHTTPClientFailure)failure
+- (void)getIssuesForRepo:(HKRepo *)repo success:(OKHTTPClientSuccess)success failure:(OKHTTPClientFailure)failure
 {
     NSString *path = [NSString stringWithFormat:@"/repos/%@/%@/issues", repo.owner.login, repo.name];
     

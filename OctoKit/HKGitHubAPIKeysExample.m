@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Rhys Powell. All rights reserved.
 //
 
-#import "OKGitHubAPIKeys.h"
+#import "HKGitHubAPIKeys.h"
 
 #error Configure your API keys
-NSString *const kOKGtHubClientID = @"YOUR_CLIENT_ID";
-NSString *const kOKGtHubClientSecret = @"YOUR_CLIENT_SECRET";
+NSString *const kHKGtHubClientID = @"YOUR_CLIENT_ID";
+NSString *const kHKGtHubClientSecret = @"YOUR_CLIENT_SECRET";

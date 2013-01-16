@@ -17,5 +17,5 @@ DerivedData
 .idea/
 
 # API Keys
-OKGitHubAPIKeys.*
+HKGitHubAPIKeys.*
 test-reports

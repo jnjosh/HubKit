@@ -23,13 +23,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "OKRemoteManagedObject.h"
+#import "HKRemoteManagedObject.h"
 
-@class OKIssue, OKRepo;
+@class HKIssue, HKRepo;
 
 extern NSString *const kOKCurrentUserChangedNotificationName;
 
-@interface OKUser : OKRemoteManagedObject
+@interface HKUser : HKRemoteManagedObject
 
 @property (nonatomic, retain) NSString * avatarURL;
 @property (nonatomic, retain) NSString * blogURL;
@@ -44,25 +44,25 @@ extern NSString *const kOKCurrentUserChangedNotificationName;
 @property (nonatomic, retain) NSSet *assignedIssues;
 @property (nonatomic, strong) NSString *accessToken;
 
-+ (OKUser *)currentUser;
-+ (void)setCurrentUser:(OKUser *)user;
++ (HKUser *)currentUser;
++ (void)setCurrentUser:(HKUser *)user;
 
 @end
 
-@interface OKUser (CoreDataGeneratedAccessors)
+@interface HKUser (CoreDataGeneratedAccessors)
 
-- (void)addReposObject:(OKRepo *)value;
-- (void)removeReposObject:(OKRepo *)value;
+- (void)addReposObject:(HKRepo *)value;
+- (void)removeReposObject:(HKRepo *)value;
 - (void)addRepos:(NSSet *)values;
 - (void)removeRepos:(NSSet *)values;
 
-- (void)addIssuesObject:(OKIssue *)value;
-- (void)removeIssuesObject:(OKIssue *)value;
+- (void)addIssuesObject:(HKIssue *)value;
+- (void)removeIssuesObject:(HKIssue *)value;
 - (void)addIssues:(NSSet *)values;
 - (void)removeIssues:(NSSet *)values;
 
-- (void)addAssignedIssuesObject:(OKIssue *)value;
-- (void)removeAssignedIssuesObject:(OKIssue *)value;
+- (void)addAssignedIssuesObject:(HKIssue *)value;
+- (void)removeAssignedIssuesObject:(HKIssue *)value;
 - (void)addAssignedIssues:(NSSet *)values;
 - (void)removeAssignedIssues:(NSSet *)values;
 

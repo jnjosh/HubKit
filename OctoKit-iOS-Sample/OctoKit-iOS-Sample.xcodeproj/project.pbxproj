@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57C55CB016A62B2C0094DF4F /* HKIssue.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C55CAF16A62B2C0094DF4F /* HKIssue.m */; };
+		57C55CB116A62B2C0094DF4F /* HKIssue.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C55CAF16A62B2C0094DF4F /* HKIssue.m */; };
 		A42E5E0C16A278A200BB5907 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0B16A278A200BB5907 /* UIKit.framework */; };
 		A42E5E0E16A278A200BB5907 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0D16A278A200BB5907 /* Foundation.framework */; };
 		A42E5E1016A278A200BB5907 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0F16A278A200BB5907 /* CoreGraphics.framework */; };
@@ -16,14 +18,14 @@
 		A42E5E1E16A278A200BB5907 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E5E1D16A278A200BB5907 /* Default.png */; };
 		A42E5E2016A278A200BB5907 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E5E1F16A278A200BB5907 /* Default@2x.png */; };
 		A42E5E2216A278A200BB5907 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E5E2116A278A200BB5907 /* Default-568h@2x.png */; };
-		A42E5E4216A27B0A00BB5907 /* OctoKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3216A27B0A00BB5907 /* OctoKit.xcdatamodeld */; };
-		A42E5E4316A27B0A00BB5907 /* OKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3516A27B0A00BB5907 /* OKDefines.m */; };
-		A42E5E4516A27B0A00BB5907 /* OKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3916A27B0A00BB5907 /* OKHTTPClient.m */; };
-		A42E5E4616A27B0A00BB5907 /* OKManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3B16A27B0A00BB5907 /* OKManagedObject.m */; };
-		A42E5E4716A27B0A00BB5907 /* OKRemoteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3D16A27B0A00BB5907 /* OKRemoteManagedObject.m */; };
-		A42E5E4816A27B0A00BB5907 /* OKRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3F16A27B0A00BB5907 /* OKRepo.m */; };
-		A42E5E4916A27B0A00BB5907 /* OKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E4116A27B0A00BB5907 /* OKUser.m */; };
-		A42E5E4C16A27B2900BB5907 /* OKGitHubAPIKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E4B16A27B2900BB5907 /* OKGitHubAPIKeys.m */; };
+		A42E5E4216A27B0A00BB5907 /* HubKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3216A27B0A00BB5907 /* HubKit.xcdatamodeld */; };
+		A42E5E4316A27B0A00BB5907 /* HKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3516A27B0A00BB5907 /* HKDefines.m */; };
+		A42E5E4516A27B0A00BB5907 /* HKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3916A27B0A00BB5907 /* HKHTTPClient.m */; };
+		A42E5E4616A27B0A00BB5907 /* HKManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3B16A27B0A00BB5907 /* HKManagedObject.m */; };
+		A42E5E4716A27B0A00BB5907 /* HKRemoteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3D16A27B0A00BB5907 /* HKRemoteManagedObject.m */; };
+		A42E5E4816A27B0A00BB5907 /* HKRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3F16A27B0A00BB5907 /* HKRepo.m */; };
+		A42E5E4916A27B0A00BB5907 /* HKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E4116A27B0A00BB5907 /* HKUser.m */; };
+		A42E5E4C16A27B2900BB5907 /* HKGitHubAPIKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E4B16A27B2900BB5907 /* HKGitHubAPIKeys.m */; };
 		A42E5E5216A27BA300BB5907 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E5116A27BA300BB5907 /* SSKeychain.m */; };
 		A42E5E6616A27BAF00BB5907 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E5416A27BAF00BB5907 /* AFHTTPClient.m */; };
 		A42E5E6716A27BAF00BB5907 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E5616A27BAF00BB5907 /* AFHTTPRequestOperation.m */; };
@@ -34,7 +36,7 @@
 		A42E5E6C16A27BAF00BB5907 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E6116A27BAF00BB5907 /* AFURLConnectionOperation.m */; };
 		A42E5E6D16A27BAF00BB5907 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E6316A27BAF00BB5907 /* AFXMLRequestOperation.m */; };
 		A42E5E6E16A27BAF00BB5907 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E6516A27BAF00BB5907 /* UIImageView+AFNetworking.m */; };
-		A42E5E7116A27BEE00BB5907 /* NSDictionary+OKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E7016A27BEE00BB5907 /* NSDictionary+OKExtensions.m */; };
+		A42E5E7116A27BEE00BB5907 /* NSDictionary+HKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E7016A27BEE00BB5907 /* NSDictionary+HKExtensions.m */; };
 		A42E5E7316A27D1A00BB5907 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7216A27D1A00BB5907 /* SystemConfiguration.framework */; };
 		A42E5E7516A27D1F00BB5907 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7416A27D1F00BB5907 /* MobileCoreServices.framework */; };
 		A42E5E7716A27D8A00BB5907 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7616A27D8A00BB5907 /* Security.framework */; };
@@ -56,14 +58,14 @@
 		A4A3928216A51B74004A2878 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E6116A27BAF00BB5907 /* AFURLConnectionOperation.m */; };
 		A4A3928316A51B74004A2878 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E6316A27BAF00BB5907 /* AFXMLRequestOperation.m */; };
 		A4A3928416A51B74004A2878 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E6516A27BAF00BB5907 /* UIImageView+AFNetworking.m */; };
-		A4A3928C16A51B9A004A2878 /* OKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3916A27B0A00BB5907 /* OKHTTPClient.m */; };
-		A4A3928D16A51B9A004A2878 /* OKGitHubAPIKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E4B16A27B2900BB5907 /* OKGitHubAPIKeys.m */; };
-		A4A3928E16A51B9A004A2878 /* OKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3516A27B0A00BB5907 /* OKDefines.m */; };
-		A4A3928F16A51B9A004A2878 /* OKManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3B16A27B0A00BB5907 /* OKManagedObject.m */; };
-		A4A3929016A51B9A004A2878 /* OKRemoteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3D16A27B0A00BB5907 /* OKRemoteManagedObject.m */; };
-		A4A3929116A51B9A004A2878 /* OKRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3F16A27B0A00BB5907 /* OKRepo.m */; };
-		A4A3929216A51B9A004A2878 /* OKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E4116A27B0A00BB5907 /* OKUser.m */; };
-		A4A3929316A51B9A004A2878 /* NSDictionary+OKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E7016A27BEE00BB5907 /* NSDictionary+OKExtensions.m */; };
+		A4A3928C16A51B9A004A2878 /* HKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3916A27B0A00BB5907 /* HKHTTPClient.m */; };
+		A4A3928D16A51B9A004A2878 /* HKGitHubAPIKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E4B16A27B2900BB5907 /* HKGitHubAPIKeys.m */; };
+		A4A3928E16A51B9A004A2878 /* HKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3516A27B0A00BB5907 /* HKDefines.m */; };
+		A4A3928F16A51B9A004A2878 /* HKManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3B16A27B0A00BB5907 /* HKManagedObject.m */; };
+		A4A3929016A51B9A004A2878 /* HKRemoteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3D16A27B0A00BB5907 /* HKRemoteManagedObject.m */; };
+		A4A3929116A51B9A004A2878 /* HKRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3F16A27B0A00BB5907 /* HKRepo.m */; };
+		A4A3929216A51B9A004A2878 /* HKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E4116A27B0A00BB5907 /* HKUser.m */; };
+		A4A3929316A51B9A004A2878 /* NSDictionary+HKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E7016A27BEE00BB5907 /* NSDictionary+HKExtensions.m */; };
 		A4A3929416A51BA9004A2878 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E5116A27BA300BB5907 /* SSKeychain.m */; };
 		A4A3929516A51BD8004A2878 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7816A27D9100BB5907 /* CoreData.framework */; };
 		A4A3929616A51BD8004A2878 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7616A27D8A00BB5907 /* Security.framework */; };
@@ -72,6 +74,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57C55CAE16A62B2C0094DF4F /* HKIssue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKIssue.h; path = ../OctoKit/HKIssue.h; sourceTree = "<group>"; };
+		57C55CAF16A62B2C0094DF4F /* HKIssue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKIssue.m; path = ../OctoKit/HKIssue.m; sourceTree = "<group>"; };
 		A42E5E0716A278A200BB5907 /* OctoKit-iOS-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OctoKit-iOS-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A42E5E0B16A278A200BB5907 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A42E5E0D16A278A200BB5907 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,21 +89,21 @@
 		A42E5E1D16A278A200BB5907 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A42E5E1F16A278A200BB5907 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A42E5E2116A278A200BB5907 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		A42E5E3316A27B0A00BB5907 /* OctoKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OctoKit.xcdatamodel; sourceTree = "<group>"; };
-		A42E5E3416A27B0A00BB5907 /* OKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKDefines.h; path = ../OctoKit/OKDefines.h; sourceTree = "<group>"; };
-		A42E5E3516A27B0A00BB5907 /* OKDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKDefines.m; path = ../OctoKit/OKDefines.m; sourceTree = "<group>"; };
-		A42E5E3816A27B0A00BB5907 /* OKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKHTTPClient.h; path = ../OctoKit/OKHTTPClient.h; sourceTree = "<group>"; };
-		A42E5E3916A27B0A00BB5907 /* OKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OKHTTPClient.m; path = ../OctoKit/OKHTTPClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A42E5E3A16A27B0A00BB5907 /* OKManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKManagedObject.h; path = ../OctoKit/OKManagedObject.h; sourceTree = "<group>"; };
-		A42E5E3B16A27B0A00BB5907 /* OKManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKManagedObject.m; path = ../OctoKit/OKManagedObject.m; sourceTree = "<group>"; };
-		A42E5E3C16A27B0A00BB5907 /* OKRemoteManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKRemoteManagedObject.h; path = ../OctoKit/OKRemoteManagedObject.h; sourceTree = "<group>"; };
-		A42E5E3D16A27B0A00BB5907 /* OKRemoteManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKRemoteManagedObject.m; path = ../OctoKit/OKRemoteManagedObject.m; sourceTree = "<group>"; };
-		A42E5E3E16A27B0A00BB5907 /* OKRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKRepo.h; path = ../OctoKit/OKRepo.h; sourceTree = "<group>"; };
-		A42E5E3F16A27B0A00BB5907 /* OKRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKRepo.m; path = ../OctoKit/OKRepo.m; sourceTree = "<group>"; };
-		A42E5E4016A27B0A00BB5907 /* OKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKUser.h; path = ../OctoKit/OKUser.h; sourceTree = "<group>"; };
-		A42E5E4116A27B0A00BB5907 /* OKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKUser.m; path = ../OctoKit/OKUser.m; sourceTree = "<group>"; };
-		A42E5E4A16A27B2900BB5907 /* OKGitHubAPIKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = OKGitHubAPIKeys.h; path = ../OctoKit/OKGitHubAPIKeys.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A42E5E4B16A27B2900BB5907 /* OKGitHubAPIKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OKGitHubAPIKeys.m; path = ../OctoKit/OKGitHubAPIKeys.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A42E5E3316A27B0A00BB5907 /* HubKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HubKit.xcdatamodel; sourceTree = "<group>"; };
+		A42E5E3416A27B0A00BB5907 /* HKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKDefines.h; path = ../OctoKit/HKDefines.h; sourceTree = "<group>"; };
+		A42E5E3516A27B0A00BB5907 /* HKDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKDefines.m; path = ../OctoKit/HKDefines.m; sourceTree = "<group>"; };
+		A42E5E3816A27B0A00BB5907 /* HKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKHTTPClient.h; path = ../OctoKit/HKHTTPClient.h; sourceTree = "<group>"; };
+		A42E5E3916A27B0A00BB5907 /* HKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HKHTTPClient.m; path = ../OctoKit/HKHTTPClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A42E5E3A16A27B0A00BB5907 /* HKManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKManagedObject.h; path = ../OctoKit/HKManagedObject.h; sourceTree = "<group>"; };
+		A42E5E3B16A27B0A00BB5907 /* HKManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKManagedObject.m; path = ../OctoKit/HKManagedObject.m; sourceTree = "<group>"; };
+		A42E5E3C16A27B0A00BB5907 /* HKRemoteManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKRemoteManagedObject.h; path = ../OctoKit/HKRemoteManagedObject.h; sourceTree = "<group>"; };
+		A42E5E3D16A27B0A00BB5907 /* HKRemoteManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKRemoteManagedObject.m; path = ../OctoKit/HKRemoteManagedObject.m; sourceTree = "<group>"; };
+		A42E5E3E16A27B0A00BB5907 /* HKRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKRepo.h; path = ../OctoKit/HKRepo.h; sourceTree = "<group>"; };
+		A42E5E3F16A27B0A00BB5907 /* HKRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKRepo.m; path = ../OctoKit/HKRepo.m; sourceTree = "<group>"; };
+		A42E5E4016A27B0A00BB5907 /* HKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKUser.h; path = ../OctoKit/HKUser.h; sourceTree = "<group>"; };
+		A42E5E4116A27B0A00BB5907 /* HKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKUser.m; path = ../OctoKit/HKUser.m; sourceTree = "<group>"; };
+		A42E5E4A16A27B2900BB5907 /* HKGitHubAPIKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = HKGitHubAPIKeys.h; path = ../OctoKit/HKGitHubAPIKeys.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A42E5E4B16A27B2900BB5907 /* HKGitHubAPIKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HKGitHubAPIKeys.m; path = ../OctoKit/HKGitHubAPIKeys.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A42E5E5016A27BA300BB5907 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = ../Vendor/SSKeychain/SSKeychain.h; sourceTree = "<group>"; };
 		A42E5E5116A27BA300BB5907 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSKeychain.m; path = ../Vendor/SSKeychain/SSKeychain.m; sourceTree = "<group>"; };
 		A42E5E5316A27BAF00BB5907 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = ../Vendor/AFNetworking/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
@@ -121,13 +125,13 @@
 		A42E5E6316A27BAF00BB5907 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFXMLRequestOperation.m; path = ../Vendor/AFNetworking/AFNetworking/AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		A42E5E6416A27BAF00BB5907 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "../Vendor/AFNetworking/AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		A42E5E6516A27BAF00BB5907 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "../Vendor/AFNetworking/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		A42E5E6F16A27BEE00BB5907 /* NSDictionary+OKExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+OKExtensions.h"; path = "../OctoKit/NSDictionary+OKExtensions.h"; sourceTree = "<group>"; };
-		A42E5E7016A27BEE00BB5907 /* NSDictionary+OKExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+OKExtensions.m"; path = "../OctoKit/NSDictionary+OKExtensions.m"; sourceTree = "<group>"; };
+		A42E5E6F16A27BEE00BB5907 /* NSDictionary+HKExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+HKExtensions.h"; path = "../OctoKit/NSDictionary+HKExtensions.h"; sourceTree = "<group>"; };
+		A42E5E7016A27BEE00BB5907 /* NSDictionary+HKExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+HKExtensions.m"; path = "../OctoKit/NSDictionary+HKExtensions.m"; sourceTree = "<group>"; };
 		A42E5E7216A27D1A00BB5907 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A42E5E7416A27D1F00BB5907 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A42E5E7616A27D8A00BB5907 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A42E5E7816A27D9100BB5907 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		A43711EA16A521C00084D675 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libOCMock.a; path = "../Vendor/OCMock/Source/build/Release-iphoneos/libOCMock.a"; sourceTree = "<group>"; };
+		A43711EA16A521C00084D675 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = "../Vendor/OCMock/Source/build/Release-iphoneos/libOCMock.a"; sourceTree = "<group>"; };
 		A43711EE16A52C9F0084D675 /* libSpecta-ios-universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSpecta-ios-universal.a"; path = "../Vendor/Specta/products/libSpecta-ios-universal.a"; sourceTree = "<group>"; };
 		A43711EF16A52C9F0084D675 /* Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Specta.h; path = ../Vendor/Specta/products/Specta.h; sourceTree = "<group>"; };
 		A43711F016A52C9F0084D675 /* SpectaSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpectaSupport.h; path = ../Vendor/Specta/products/SpectaSupport.h; sourceTree = "<group>"; };
@@ -278,23 +282,25 @@
 		A42E5E3016A27AFE00BB5907 /* OctoKit */ = {
 			isa = PBXGroup;
 			children = (
-				A42E5E3816A27B0A00BB5907 /* OKHTTPClient.h */,
-				A42E5E3916A27B0A00BB5907 /* OKHTTPClient.m */,
-				A42E5E4A16A27B2900BB5907 /* OKGitHubAPIKeys.h */,
-				A42E5E4B16A27B2900BB5907 /* OKGitHubAPIKeys.m */,
-				A42E5E3416A27B0A00BB5907 /* OKDefines.h */,
-				A42E5E3516A27B0A00BB5907 /* OKDefines.m */,
-				A42E5E3A16A27B0A00BB5907 /* OKManagedObject.h */,
-				A42E5E3B16A27B0A00BB5907 /* OKManagedObject.m */,
-				A42E5E3C16A27B0A00BB5907 /* OKRemoteManagedObject.h */,
-				A42E5E3D16A27B0A00BB5907 /* OKRemoteManagedObject.m */,
-				A42E5E3E16A27B0A00BB5907 /* OKRepo.h */,
-				A42E5E3F16A27B0A00BB5907 /* OKRepo.m */,
-				A42E5E4016A27B0A00BB5907 /* OKUser.h */,
-				A42E5E4116A27B0A00BB5907 /* OKUser.m */,
-				A42E5E6F16A27BEE00BB5907 /* NSDictionary+OKExtensions.h */,
-				A42E5E7016A27BEE00BB5907 /* NSDictionary+OKExtensions.m */,
-				A42E5E3216A27B0A00BB5907 /* OctoKit.xcdatamodeld */,
+				A42E5E3816A27B0A00BB5907 /* HKHTTPClient.h */,
+				A42E5E3916A27B0A00BB5907 /* HKHTTPClient.m */,
+				A42E5E4A16A27B2900BB5907 /* HKGitHubAPIKeys.h */,
+				A42E5E4B16A27B2900BB5907 /* HKGitHubAPIKeys.m */,
+				A42E5E3416A27B0A00BB5907 /* HKDefines.h */,
+				A42E5E3516A27B0A00BB5907 /* HKDefines.m */,
+				A42E5E3A16A27B0A00BB5907 /* HKManagedObject.h */,
+				A42E5E3B16A27B0A00BB5907 /* HKManagedObject.m */,
+				A42E5E3C16A27B0A00BB5907 /* HKRemoteManagedObject.h */,
+				A42E5E3D16A27B0A00BB5907 /* HKRemoteManagedObject.m */,
+				A42E5E3E16A27B0A00BB5907 /* HKRepo.h */,
+				A42E5E3F16A27B0A00BB5907 /* HKRepo.m */,
+				A42E5E4016A27B0A00BB5907 /* HKUser.h */,
+				A42E5E4116A27B0A00BB5907 /* HKUser.m */,
+				57C55CAE16A62B2C0094DF4F /* HKIssue.h */,
+				57C55CAF16A62B2C0094DF4F /* HKIssue.m */,
+				A42E5E6F16A27BEE00BB5907 /* NSDictionary+HKExtensions.h */,
+				A42E5E7016A27BEE00BB5907 /* NSDictionary+HKExtensions.m */,
+				A42E5E3216A27B0A00BB5907 /* HubKit.xcdatamodeld */,
 			);
 			name = OctoKit;
 			sourceTree = "<group>";
@@ -532,14 +538,14 @@
 			files = (
 				A42E5E1816A278A200BB5907 /* main.m in Sources */,
 				A42E5E1C16A278A200BB5907 /* OKAppDelegate.m in Sources */,
-				A42E5E4216A27B0A00BB5907 /* OctoKit.xcdatamodeld in Sources */,
-				A42E5E4316A27B0A00BB5907 /* OKDefines.m in Sources */,
-				A42E5E4516A27B0A00BB5907 /* OKHTTPClient.m in Sources */,
-				A42E5E4616A27B0A00BB5907 /* OKManagedObject.m in Sources */,
-				A42E5E4716A27B0A00BB5907 /* OKRemoteManagedObject.m in Sources */,
-				A42E5E4816A27B0A00BB5907 /* OKRepo.m in Sources */,
-				A42E5E4916A27B0A00BB5907 /* OKUser.m in Sources */,
-				A42E5E4C16A27B2900BB5907 /* OKGitHubAPIKeys.m in Sources */,
+				A42E5E4216A27B0A00BB5907 /* HubKit.xcdatamodeld in Sources */,
+				A42E5E4316A27B0A00BB5907 /* HKDefines.m in Sources */,
+				A42E5E4516A27B0A00BB5907 /* HKHTTPClient.m in Sources */,
+				A42E5E4616A27B0A00BB5907 /* HKManagedObject.m in Sources */,
+				A42E5E4716A27B0A00BB5907 /* HKRemoteManagedObject.m in Sources */,
+				A42E5E4816A27B0A00BB5907 /* HKRepo.m in Sources */,
+				A42E5E4916A27B0A00BB5907 /* HKUser.m in Sources */,
+				A42E5E4C16A27B2900BB5907 /* HKGitHubAPIKeys.m in Sources */,
 				A42E5E5216A27BA300BB5907 /* SSKeychain.m in Sources */,
 				A42E5E6616A27BAF00BB5907 /* AFHTTPClient.m in Sources */,
 				A42E5E6716A27BAF00BB5907 /* AFHTTPRequestOperation.m in Sources */,
@@ -550,7 +556,8 @@
 				A42E5E6C16A27BAF00BB5907 /* AFURLConnectionOperation.m in Sources */,
 				A42E5E6D16A27BAF00BB5907 /* AFXMLRequestOperation.m in Sources */,
 				A42E5E6E16A27BAF00BB5907 /* UIImageView+AFNetworking.m in Sources */,
-				A42E5E7116A27BEE00BB5907 /* NSDictionary+OKExtensions.m in Sources */,
+				A42E5E7116A27BEE00BB5907 /* NSDictionary+HKExtensions.m in Sources */,
+				57C55CB016A62B2C0094DF4F /* HKIssue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,16 +574,17 @@
 				A4A3928216A51B74004A2878 /* AFURLConnectionOperation.m in Sources */,
 				A4A3928316A51B74004A2878 /* AFXMLRequestOperation.m in Sources */,
 				A4A3928416A51B74004A2878 /* UIImageView+AFNetworking.m in Sources */,
-				A4A3928C16A51B9A004A2878 /* OKHTTPClient.m in Sources */,
-				A4A3928D16A51B9A004A2878 /* OKGitHubAPIKeys.m in Sources */,
-				A4A3928E16A51B9A004A2878 /* OKDefines.m in Sources */,
-				A4A3928F16A51B9A004A2878 /* OKManagedObject.m in Sources */,
-				A4A3929016A51B9A004A2878 /* OKRemoteManagedObject.m in Sources */,
-				A4A3929116A51B9A004A2878 /* OKRepo.m in Sources */,
-				A4A3929216A51B9A004A2878 /* OKUser.m in Sources */,
-				A4A3929316A51B9A004A2878 /* NSDictionary+OKExtensions.m in Sources */,
+				A4A3928C16A51B9A004A2878 /* HKHTTPClient.m in Sources */,
+				A4A3928D16A51B9A004A2878 /* HKGitHubAPIKeys.m in Sources */,
+				A4A3928E16A51B9A004A2878 /* HKDefines.m in Sources */,
+				A4A3928F16A51B9A004A2878 /* HKManagedObject.m in Sources */,
+				A4A3929016A51B9A004A2878 /* HKRemoteManagedObject.m in Sources */,
+				A4A3929116A51B9A004A2878 /* HKRepo.m in Sources */,
+				A4A3929216A51B9A004A2878 /* HKUser.m in Sources */,
+				A4A3929316A51B9A004A2878 /* NSDictionary+HKExtensions.m in Sources */,
 				A4A3929416A51BA9004A2878 /* SSKeychain.m in Sources */,
 				A437121E16A52D0D0084D675 /* OKHTTPClientSpec.m in Sources */,
+				57C55CB116A62B2C0094DF4F /* HKIssue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,14 +769,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A42E5E3216A27B0A00BB5907 /* OctoKit.xcdatamodeld */ = {
+		A42E5E3216A27B0A00BB5907 /* HubKit.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A42E5E3316A27B0A00BB5907 /* OctoKit.xcdatamodel */,
+				A42E5E3316A27B0A00BB5907 /* HubKit.xcdatamodel */,
 			);
-			currentVersion = A42E5E3316A27B0A00BB5907 /* OctoKit.xcdatamodel */;
-			name = OctoKit.xcdatamodeld;
-			path = ../OctoKit/OctoKit.xcdatamodeld;
+			currentVersion = A42E5E3316A27B0A00BB5907 /* HubKit.xcdatamodel */;
+			name = HubKit.xcdatamodeld;
+			path = ../OctoKit/HubKit.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

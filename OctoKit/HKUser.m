@@ -20,17 +20,17 @@
  SOFTWARE.
  */
 
-#import "OKUser.h"
-#import "OKIssue.h"
-#import "OKRepo.h"
+#import "HKUser.h"
+#import "HKIssue.h"
+#import "HKRepo.h"
 #import "SSKeychain.h"
-#import "OKDefines.h"
-#import "NSDictionary+OKExtensions.h"
+#import "HKDefines.h"
+#import "NSDictionary+HKExtensions.h"
 
 NSString *const kOKCurrentUserChangedNotificationName = @"RPCurrentUserChangedNotification";
-static OKUser *__currentUser = nil;
+static HKUser *__currentUser = nil;
 
-@implementation OKUser
+@implementation HKUser
 
 @dynamic avatarURL;
 @dynamic blogURL;
@@ -51,14 +51,14 @@ static OKUser *__currentUser = nil;
     return @"User";
 }
 
-+ (OKUser *)currentUser
++ (HKUser *)currentUser
 {
     if (__currentUser) {
         return __currentUser;
     }
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSNumber *userID = [userDefaults objectForKey:kOKCurrentUserIDKey];
+    NSNumber *userID = [userDefaults objectForKey:kHKCurrentUserIDKey];
     if (!userID) {
         return nil;
     }
@@ -66,7 +66,7 @@ static OKUser *__currentUser = nil;
     __currentUser = [self existingObjectWithRemoteID:userID];
     
     NSError *error = nil;
-    NSString *accessToken = [SSKeychain passwordForService:kOKKeychainServiceName account:__currentUser.login error:&error];
+    NSString *accessToken = [SSKeychain passwordForService:kHKKeychainServiceName account:__currentUser.login error:&error];
     if (!accessToken) {
         NSLog(@"Unable to get access token: %@", error.localizedDescription);
     }
@@ -76,26 +76,26 @@ static OKUser *__currentUser = nil;
     return __currentUser;
 }
 
-+ (void)setCurrentUser:(OKUser *)user
++ (void)setCurrentUser:(HKUser *)user
 {
     if (__currentUser) {
-        [SSKeychain deletePasswordForService:kOKKeychainServiceName account:__currentUser.login];
+        [SSKeychain deletePasswordForService:kHKKeychainServiceName account:__currentUser.login];
     }
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     if (!user.remoteID || !user.accessToken) {
 		__currentUser = nil;
-		[userDefaults removeObjectForKey:kOKCurrentUserIDKey];
+		[userDefaults removeObjectForKey:kHKCurrentUserIDKey];
 	} else {
         NSError *error = nil;
-        [SSKeychain setPassword:user.accessToken forService:kOKKeychainServiceName account:user.login error:&error];
+        [SSKeychain setPassword:user.accessToken forService:kHKKeychainServiceName account:user.login error:&error];
         if (error) {
             NSLog(@"Failed to save access token: %@", error.localizedDescription);
         }
         
         __currentUser = user;
-        [userDefaults setObject:user.remoteID forKey:kOKCurrentUserIDKey];
+        [userDefaults setObject:user.remoteID forKey:kHKCurrentUserIDKey];
     }
     
     [userDefaults synchronize];
