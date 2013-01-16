@@ -20,39 +20,17 @@
  SOFTWARE.
  */
 
-#import "HKIssue.h"
-#import "HKRepo.h"
-#import "HKUser.h"
-#import "NSDictionary+HKExtensions.h"
+#import <Foundation/Foundation.h>
 
-@implementation HKIssue
+@interface HKKeychain : NSObject
 
-@dynamic title;
-@dynamic rawBody;
-@dynamic state;
-@dynamic number;
-@dynamic commentCount;
-@dynamic user;
-@dynamic assignee;
-@dynamic repo;
+/** Store the Authorization Token in the keychain */
++ (BOOL)storeAuthenticationToken:(NSString *)token userAccount:(NSString *)userAccount;
 
-+ (NSString *)entityName
-{
-    return @"Issue";
-}
+/** Retrieve the Authorization Token from the keychain */
++ (NSString *)authenticationTokenForAccount:(NSString *)account;
 
-- (void)unpackDictionary:(NSDictionary *)dictionary
-{
-    [super unpackDictionary:dictionary];
-    
-    self.title = [dictionary safeObjectForKey:@"title"];
-    self.rawBody = [dictionary safeObjectForKey:@"body"];
-    self.state = [dictionary safeObjectForKey:@"state"];
-    self.number = [dictionary safeObjectForKey:@"number"];
-    self.commentCount = [dictionary safeObjectForKey:@"comments"];
-    
-    self.user = [HKUser objectWithDictionary:[dictionary safeObjectForKey:@"user"]];
-    self.assignee = [HKUser objectWithDictionary:[dictionary safeObjectForKey:@"assignee"]];
-}
+/** Remove the authorization token from the keychain */
++ (void)removeAuthenticationTokenForAccount:(NSString *)account;
 
 @end

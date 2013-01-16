@@ -20,26 +20,10 @@
  SOFTWARE.
  */
 
-#import "HKDefines.h"
+#import <Foundation/Foundation.h>
 
-#pragma mark - Environment
+@interface NSArray (HKExtensions)
 
-NSString * const kHKGithubAPIBaseURLString = @"https://api.github.com";
+- (NSArray *)map:(id(^)(id object))block;
 
-#pragma mark - User Defaults Keys
-
-NSString * const kHKCurrentUserIDKey = @"HKCurrentUserID";
-
-#pragma mark - Authorization Scopes
-
-const struct HKGithubAuthorizationScopes HKGithubAuthorizationScopes = {
-	.user = @"user",
-	.userEmail = @"user:email",
-	.userFollow = @"user:follow",
-	.publicRepo = @"public_repo",
-	.repo = @"repo",
-	.repoStatus = @"repo:status",
-	.deleteRepo = @"delete_repo",
-	.notifications = @"notifications",
-	.gist = @"gist"
-};
+@end

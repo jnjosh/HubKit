@@ -21,13 +21,17 @@
  */
 
 #import "HKHTTPClient.h"
-#import "HKGitHubAPIKeys.h"
-#import "SSKeychain.h"
-#import "HKUser.h"
-#import "HKRepo.h"
 #import "HKDefines.h"
+#import "HKKeychain.h"
+#import "HKUser.h"
 
-@implementation HKHTTPClient
+@interface HKHTTPClient ()
+
+@end
+
+@implementation HKHTTPClient {}
+
+#pragma mark - Shared Instance
 
 + (instancetype)sharedClient
 {
@@ -41,21 +45,21 @@
     return sharedClient;
 }
 
+#pragma mark - Life Cycle
+
 - (id)init
 {
-    NSURL *base = [NSURL URLWithString:@"https://api.github.com/"];
+    NSURL *base = [NSURL URLWithString:kHKGithubAPIBaseURLString];
     
     if (self = [super initWithBaseURL:base]) {
-        // Use JSON
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
         [self setDefaultHeader:@"Accept" value:@"application/json"];
         [self setParameterEncoding:AFJSONParameterEncoding];
-        [self setAuthorizationHeaderWithToken:[[HKUser currentUser] accessToken]];
-		[self setAuthorizationScopes:@[HKGithubAuthorizationScopes.user, HKGithubAuthorizationScopes.repo]];
     }
-    
     return self;
 }
+
+#pragma mark - Authorization
 
 - (void)setAuthorizationHeaderWithToken:(NSString *)token
 {
@@ -69,22 +73,21 @@
 {
     NSString *authPath = @"authorizations";
     NSDictionary *params = @{
-        @"client_id"     : kHKGtHubClientID,
-        @"client_secret" : kHKGtHubClientSecret,
+        @"client_id"     : self.authorizationClientId,
+        @"client_secret" : self.authorizationClientSecret,
         @"scopes"        : self.authorizationScopes
     };
     
     [self setAuthorizationHeaderWithUsername:username password:password];
     [self postPath:authPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *responseDict = (NSDictionary *)responseObject;
-        if ([SSKeychain setPassword:responseDict[@"token"] forService:kHKKeychainServiceName account:@"GitHub"]) {
-            NSLog(@"Saved token %@", responseDict[@"token"]);
-            [self setAuthorizationHeaderWithToken:responseDict[@"token"]];
+
+        NSString *token = responseDict[@"token"];
+        if ([HKKeychain storeAuthenticationToken:token userAccount:username]) {
+            [self setAuthorizationHeaderWithToken:token];
         }
-        
-        if (success) {
-            success((AFJSONRequestOperation *)operation, responseObject);
-        }
+        [self logInUserWithAccessToken:token success:success failure:failure];
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failure) {
             failure((AFJSONRequestOperation *)operation, error);
@@ -97,10 +100,9 @@
 {
     [self setAuthorizationHeaderWithToken:accessToken];
     [self getPath:@"user" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        HKUser *user = [HKUser objectWithDictionary:responseObject];
+        HKUser *user = [HKUser userWithDictionaryRepresentation:responseObject];
         user.accessToken = accessToken;
         [HKUser setCurrentUser:user];
-        [user save];
         
         if (success) {
             success((AFJSONRequestOperation *)operation, responseObject);
@@ -144,6 +146,7 @@
 
 - (void)getUserReposWithSuccess:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
 {
+    [self setAuthorizationHeaderWithToken:[[HKUser currentUser] accessToken]];
     [self getPath:@"/user/repos" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             success((AFJSONRequestOperation *)operation, responseObject);
@@ -155,19 +158,22 @@
     }];
 }
 
-- (void)getIssuesForRepo:(HKRepo *)repo success:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
-{
-    NSString *path = [NSString stringWithFormat:@"/repos/%@/%@/issues", repo.owner.login, repo.name];
-    
-    [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (success) {
-            success((AFJSONRequestOperation *)operation, responseObject);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (failure) {
-            failure((AFJSONRequestOperation *)operation, error);
-        }
-    }];
-}
+
+// TODO (JNJ): Hidden until we add repos back
+
+//- (void)getIssuesForRepo:(HKRepo *)repo success:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
+//{
+//    NSString *path = [NSString stringWithFormat:@"/repos/%@/%@/issues", repo.owner.login, repo.name];
+//    
+//    [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        if (success) {
+//            success((AFJSONRequestOperation *)operation, responseObject);
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        if (failure) {
+//            failure((AFJSONRequestOperation *)operation, error);
+//        }
+//    }];
+//}
 
 @end

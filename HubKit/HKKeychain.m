@@ -20,26 +20,30 @@
  SOFTWARE.
  */
 
-#import "HKDefines.h"
+#import "HKKeychain.h"
+#import "SSKeychain.h"
 
-#pragma mark - Environment
+NSString * const kHKHubKitKeychainDefaultAccount = @"GitHub";
+NSString * const kHKKeychainServiceName = @"com.hubkit.security.keychain";
 
-NSString * const kHKGithubAPIBaseURLString = @"https://api.github.com";
+@implementation HKKeychain
 
-#pragma mark - User Defaults Keys
++ (BOOL)storeAuthenticationToken:(NSString *)token userAccount:(NSString *)userAccount
+{
+    NSString *account = userAccount ?: kHKHubKitKeychainDefaultAccount;
+    return [SSKeychain setPassword:token
+                        forService:kHKKeychainServiceName
+                           account:account];
+}
 
-NSString * const kHKCurrentUserIDKey = @"HKCurrentUserID";
++ (NSString *)authenticationTokenForAccount:(NSString *)account
+{
+    return [SSKeychain passwordForService:kHKKeychainServiceName account:account];
+}
 
-#pragma mark - Authorization Scopes
++ (void)removeAuthenticationTokenForAccount:(NSString *)account
+{
+    [SSKeychain deletePasswordForService:kHKKeychainServiceName account:account];
+}
 
-const struct HKGithubAuthorizationScopes HKGithubAuthorizationScopes = {
-	.user = @"user",
-	.userEmail = @"user:email",
-	.userFollow = @"user:follow",
-	.publicRepo = @"public_repo",
-	.repo = @"repo",
-	.repoStatus = @"repo:status",
-	.deleteRepo = @"delete_repo",
-	.notifications = @"notifications",
-	.gist = @"gist"
-};
+@end

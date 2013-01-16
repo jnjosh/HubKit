@@ -20,32 +20,5 @@
  SOFTWARE.
  */
 
-#import <CoreData/CoreData.h>
-
-@interface HKManagedObject : NSManagedObject
-
-// Accessing the Main Context
-+ (NSManagedObjectContext *)mainContext;
-+ (BOOL)hasMainContext;
-
-// Configuring the Persistent Store
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
-+ (NSDictionary *)persistentStoreOptions;
-+ (void)setPersistentStoreOptions:(NSDictionary *)options;
-+ (NSManagedObjectModel *)managedObjectModel;
-+ (void)setManagedObjectModel:(NSManagedObjectModel *)model;
-+ (NSURL *)persistentStoreURL;
-+ (void)setPersistentStoreURL:(NSURL *)url;
-
-// Getting Entity Information
-+ (NSString *)entityName;
-+ (NSEntityDescription *)entity;
-+ (NSEntityDescription *)entityWithContext:(NSManagedObjectContext *)context;
-+ (NSArray *)defaultSortDescriptors;
-
-// Initializing
-- (instancetype)initWithContext:(NSManagedObjectContext *)context;
-
-- (void)save;
-
-@end
+#import "HKDefines.h"
+#import "HKHTTPClient.h"

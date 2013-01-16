@@ -20,21 +20,20 @@
  SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
-#import "HKRemoteManagedObject.h"
+#import "NSArray+HKExtensions.h"
 
-@class HKRepo, HKUser;
+@implementation NSArray (HKExtensions)
 
-@interface HKIssue : HKRemoteManagedObject
-
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * rawBody;
-@property (nonatomic, retain) NSString * state;
-@property (nonatomic, retain) NSNumber * number;
-@property (nonatomic, retain) NSNumber * commentCount;
-@property (nonatomic, retain) HKUser *user;
-@property (nonatomic, retain) HKUser *assignee;
-@property (nonatomic, retain) HKRepo *repo;
+- (NSArray *)map:(id(^)(id object))block
+{
+    NSParameterAssert(block);
+    
+    NSMutableArray *mappedArray = [NSMutableArray arrayWithCapacity:[self count]];
+    for (id obj in self) {
+        [mappedArray addObject:block(obj)];
+    }
+    
+    return mappedArray;
+}
 
 @end

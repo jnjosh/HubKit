@@ -25,11 +25,20 @@
 typedef void (^HKHTTPClientSuccess)(AFJSONRequestOperation *operation, id responseObject);
 typedef void (^HKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *error);
 
-@class HKRepo;
-
 @interface HKHTTPClient : AFHTTPClient
 
+/** Application Client ID for authorizing against Github
+ * @see https://github.com/settings/applications
+ */
+@property (nonatomic, copy) NSString *authorizationClientId;
+
+/** Application Client Secret for authorizing against Github
+ * @see https://github.com/settings/applications
+ */
+@property (nonatomic, copy) NSString *authorizationClientSecret;
+
 /** Authorization Scope specifying the access you are asking for on the user's github account
+ * @see http://developer.github.com/v3/oauth/#scopes
  */
 @property (nonatomic, strong) NSArray *authorizationScopes;
 
@@ -56,8 +65,8 @@ typedef void (^HKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *
 - (void)getUserReposWithSuccess:(HKHTTPClientSuccess)success
                         failure:(HKHTTPClientFailure)failure;
 
-- (void)getIssuesForRepo:(HKRepo *)repo
-                 success:(HKHTTPClientSuccess)success
-                 failure:(HKHTTPClientFailure)failure;
+//- (void)getIssuesForRepo:(HKRepo *)repo
+//                 success:(HKHTTPClientSuccess)success
+//                 failure:(HKHTTPClientFailure)failure;
 
 @end
