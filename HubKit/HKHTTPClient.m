@@ -146,6 +146,7 @@
 
 - (void)getUserReposWithSuccess:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
 {
+    [self setAuthorizationHeaderWithToken:[[HKUser currentUser] accessToken]];
     [self getPath:@"/user/repos" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             success((AFJSONRequestOperation *)operation, responseObject);
@@ -156,6 +157,9 @@
         }
     }];
 }
+
+
+// TODO (JNJ): Hidden until we add repos back
 
 //- (void)getIssuesForRepo:(HKRepo *)repo success:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
 //{
