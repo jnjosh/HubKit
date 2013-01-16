@@ -27,7 +27,7 @@
 
 @class HKIssue, HKRepo;
 
-extern NSString *const kOKCurrentUserChangedNotificationName;
+extern NSString *const kHKCurrentUserChangedNotificationName;
 
 @interface HKUser : HKRemoteManagedObject
 

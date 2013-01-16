@@ -24,7 +24,7 @@
 
 #pragma mark - User Defaults Keys
 
-NSString *const kHKCurrentUserIDKey = @"OKCurrentUserID";
+NSString *const kHKCurrentUserIDKey = @"HKCurrentUserID";
 
 #pragma mark - Keychain
 

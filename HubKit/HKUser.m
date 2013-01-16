@@ -27,7 +27,7 @@
 #import "HKDefines.h"
 #import "NSDictionary+HKExtensions.h"
 
-NSString *const kOKCurrentUserChangedNotificationName = @"RPCurrentUserChangedNotification";
+NSString *const kHKCurrentUserChangedNotificationName = @"HKCurrentUserChangedNotification";
 static HKUser *__currentUser = nil;
 
 @implementation HKUser
@@ -99,7 +99,7 @@ static HKUser *__currentUser = nil;
     }
     
     [userDefaults synchronize];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kOKCurrentUserChangedNotificationName object:user];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kHKCurrentUserChangedNotificationName object:user];
 }
 
 - (void)unpackDictionary:(NSDictionary *)dictionary

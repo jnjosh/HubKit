@@ -20,39 +20,10 @@
  SOFTWARE.
  */
 
-#import "Specta.h"
+#import <UIKit/UIKit.h>
 
-#define EXP_SHORTHAND
-#import "Expecta.h"
+@interface HKAppDelegate : UIResponder <UIApplicationDelegate>
 
-#import <OCMock/OCMock.h>
-#import "HKHTTPClient.h"
+@property (strong, nonatomic) UIWindow *window;
 
-SpecBegin(OKHTTPClientSpec)
-
-describe(@"OKHTTPClient", ^{
-	
-	// stub out sample for now
-	context(@"when testing with a mock object", ^{
-		__block OCMockObject *mockClient = nil;
-		
-		beforeAll(^{
-			mockClient = [OCMockObject mockForClass:[HKHTTPClient class]];
-		});
-		
-		it(@"should send login", ^{
-			[[mockClient stub] logInUserWithUsername:@"XXXX" password:@"XXXX" success:nil failure:nil];
-			[mockClient verify];
-		});
-		
-		// sample to verify setup
-		it(@"should not fail", ^{
-			expect(1).to.equal(1);
-			//expect(1).to.equal(2);
-		});
-		
-	});
-	
-});
-
-SpecEnd
+@end
