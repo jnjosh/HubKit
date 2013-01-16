@@ -29,7 +29,18 @@ typedef void (^HKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *
 
 @interface HKHTTPClient : AFHTTPClient
 
+/** Application Client ID for authorizing against Github
+ * @see https://github.com/settings/applications
+ */
+@property (nonatomic, copy) NSString *authorizationClientId;
+
+/** Application Client Secret for authorizing against Github
+ * @see https://github.com/settings/applications
+ */
+@property (nonatomic, copy) NSString *authorizationClientSecret;
+
 /** Authorization Scope specifying the access you are asking for on the user's github account
+ * @see http://developer.github.com/v3/oauth/#scopes
  */
 @property (nonatomic, strong) NSArray *authorizationScopes;
 

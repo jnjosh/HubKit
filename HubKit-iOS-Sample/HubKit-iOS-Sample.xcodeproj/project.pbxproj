@@ -176,6 +176,7 @@
 		A437121816A52CB90084D675 /* NSObject+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Expecta.h"; path = "../Vendor/Expecta/products/NSObject+Expecta.h"; sourceTree = "<group>"; };
 		A437121916A52CB90084D675 /* NSValue+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+Expecta.h"; path = "../Vendor/Expecta/products/NSValue+Expecta.h"; sourceTree = "<group>"; };
 		A43E971C16A64C2200E05562 /* HKHTTPClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKHTTPClientSpec.m; sourceTree = "<group>"; };
+		A43E972916A6565E00E05562 /* HubKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubKit.h; sourceTree = "<group>"; };
 		A4A3924C16A4D528004A2878 /* HubKit-iOS-UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HubKit-iOS-UnitTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A3924D16A4D528004A2878 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A4A3925316A4D528004A2878 /* HubKit-iOS-UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HubKit-iOS-UnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -282,6 +283,7 @@
 		A42E5E3016A27AFE00BB5907 /* HubKit */ = {
 			isa = PBXGroup;
 			children = (
+				A43E972916A6565E00E05562 /* HubKit.h */,
 				A42E5E3816A27B0A00BB5907 /* HKHTTPClient.h */,
 				A42E5E3916A27B0A00BB5907 /* HKHTTPClient.m */,
 				A42E5E4A16A27B2900BB5907 /* HKGitHubAPIKeys.h */,

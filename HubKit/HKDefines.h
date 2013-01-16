@@ -25,13 +25,17 @@
 #ifndef HKDEFINES
 #define HKDEFINES
 
+#pragma mark - Environment
+
+extern NSString * const kHKGithubAPIBaseURLString;
+
 #pragma mark - User Defaults Keys
 
-extern NSString *const kHKCurrentUserIDKey;
+extern NSString * const kHKCurrentUserIDKey;
 
 #pragma mark - Keychain
 
-extern NSString *const kHKKeychainServiceName;
+extern NSString * const kHKKeychainServiceName;
 
 #pragma mark - Authorization Scopes
 
@@ -49,6 +53,5 @@ extern const struct HKGithubAuthorizationScopes {
 	__unsafe_unretained NSString *notifications; // Read access to a user’s notifications. repo is accepted too.
 	__unsafe_unretained NSString *gist; // Write access to gists.
 } HKGithubAuthorizationScopes;
-
 
 #endif

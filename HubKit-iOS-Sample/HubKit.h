@@ -20,30 +20,13 @@
  SOFTWARE.
  */
 
-#import "HKDefines.h"
+#import "OKDefines.h"
 
-#pragma mark - Environment
+#import "OKHTTPClient.h"
 
-NSString * const kHKGithubAPIBaseURLString = @"https://api.github.com";
+#import "OKManagedObject.h"
+#import "OKRemoteManagedObject.h"
 
-#pragma mark - User Defaults Keys
-
-NSString *const kHKCurrentUserIDKey = @"HKCurrentUserID";
-
-#pragma mark - Keychain
-
-NSString *const kHKKeychainServiceName = @"Repos";
-
-#pragma mark - Authorization Scopes
-
-const struct HKGithubAuthorizationScopes HKGithubAuthorizationScopes = {
-	.user = @"user",
-	.userEmail = @"user:email",
-	.userFollow = @"user:follow",
-	.publicRepo = @"public_repo",
-	.repo = @"repo",
-	.repoStatus = @"repo:status",
-	.deleteRepo = @"delete_repo",
-	.notifications = @"notifications",
-	.gist = @"gist"
-};
+#import "OKUser.h"
+#import "OKRepo.h"
+#import "OKIssue.h"

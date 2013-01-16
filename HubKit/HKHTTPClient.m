@@ -21,13 +21,21 @@
  */
 
 #import "HKHTTPClient.h"
-#import "HKGitHubAPIKeys.h"
-#import "SSKeychain.h"
 #import "HKUser.h"
 #import "HKRepo.h"
 #import "HKDefines.h"
 
-@implementation HKHTTPClient
+#import "SSKeychain.h"
+
+@interface HKHTTPClient ()
+
+
+
+@end
+
+@implementation HKHTTPClient {}
+
+#pragma mark - Shared Instance
 
 + (instancetype)sharedClient
 {
@@ -43,15 +51,12 @@
 
 - (id)init
 {
-    NSURL *base = [NSURL URLWithString:@"https://api.github.com/"];
+    NSURL *base = [NSURL URLWithString:kHKGithubAPIBaseURLString];
     
     if (self = [super initWithBaseURL:base]) {
-        // Use JSON
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
         [self setDefaultHeader:@"Accept" value:@"application/json"];
         [self setParameterEncoding:AFJSONParameterEncoding];
-        [self setAuthorizationHeaderWithToken:[[HKUser currentUser] accessToken]];
-		[self setAuthorizationScopes:@[HKGithubAuthorizationScopes.user, HKGithubAuthorizationScopes.repo]];
     }
     
     return self;
@@ -69,8 +74,8 @@
 {
     NSString *authPath = @"authorizations";
     NSDictionary *params = @{
-        @"client_id"     : kHKGtHubClientID,
-        @"client_secret" : kHKGtHubClientSecret,
+        @"client_id"     : self.authorizationClientId,
+        @"client_secret" : self.authorizationClientSecret,
         @"scopes"        : self.authorizationScopes
     };
     
