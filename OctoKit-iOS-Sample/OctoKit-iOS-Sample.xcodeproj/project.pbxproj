@@ -18,7 +18,7 @@
 		A42E5E1E16A278A200BB5907 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E5E1D16A278A200BB5907 /* Default.png */; };
 		A42E5E2016A278A200BB5907 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E5E1F16A278A200BB5907 /* Default@2x.png */; };
 		A42E5E2216A278A200BB5907 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A42E5E2116A278A200BB5907 /* Default-568h@2x.png */; };
-		A42E5E4216A27B0A00BB5907 /* OctoKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3216A27B0A00BB5907 /* OctoKit.xcdatamodeld */; };
+		A42E5E4216A27B0A00BB5907 /* HubKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3216A27B0A00BB5907 /* HubKit.xcdatamodeld */; };
 		A42E5E4316A27B0A00BB5907 /* HKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3516A27B0A00BB5907 /* HKDefines.m */; };
 		A42E5E4516A27B0A00BB5907 /* HKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3916A27B0A00BB5907 /* HKHTTPClient.m */; };
 		A42E5E4616A27B0A00BB5907 /* HKManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E5E3B16A27B0A00BB5907 /* HKManagedObject.m */; };
@@ -89,7 +89,7 @@
 		A42E5E1D16A278A200BB5907 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A42E5E1F16A278A200BB5907 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A42E5E2116A278A200BB5907 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		A42E5E3316A27B0A00BB5907 /* OctoKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OctoKit.xcdatamodel; sourceTree = "<group>"; };
+		A42E5E3316A27B0A00BB5907 /* HubKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HubKit.xcdatamodel; sourceTree = "<group>"; };
 		A42E5E3416A27B0A00BB5907 /* HKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKDefines.h; path = ../OctoKit/HKDefines.h; sourceTree = "<group>"; };
 		A42E5E3516A27B0A00BB5907 /* HKDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKDefines.m; path = ../OctoKit/HKDefines.m; sourceTree = "<group>"; };
 		A42E5E3816A27B0A00BB5907 /* HKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKHTTPClient.h; path = ../OctoKit/HKHTTPClient.h; sourceTree = "<group>"; };
@@ -300,7 +300,7 @@
 				57C55CAF16A62B2C0094DF4F /* HKIssue.m */,
 				A42E5E6F16A27BEE00BB5907 /* NSDictionary+HKExtensions.h */,
 				A42E5E7016A27BEE00BB5907 /* NSDictionary+HKExtensions.m */,
-				A42E5E3216A27B0A00BB5907 /* OctoKit.xcdatamodeld */,
+				A42E5E3216A27B0A00BB5907 /* HubKit.xcdatamodeld */,
 			);
 			name = OctoKit;
 			sourceTree = "<group>";
@@ -538,7 +538,7 @@
 			files = (
 				A42E5E1816A278A200BB5907 /* main.m in Sources */,
 				A42E5E1C16A278A200BB5907 /* OKAppDelegate.m in Sources */,
-				A42E5E4216A27B0A00BB5907 /* OctoKit.xcdatamodeld in Sources */,
+				A42E5E4216A27B0A00BB5907 /* HubKit.xcdatamodeld in Sources */,
 				A42E5E4316A27B0A00BB5907 /* HKDefines.m in Sources */,
 				A42E5E4516A27B0A00BB5907 /* HKHTTPClient.m in Sources */,
 				A42E5E4616A27B0A00BB5907 /* HKManagedObject.m in Sources */,
@@ -769,14 +769,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A42E5E3216A27B0A00BB5907 /* OctoKit.xcdatamodeld */ = {
+		A42E5E3216A27B0A00BB5907 /* HubKit.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A42E5E3316A27B0A00BB5907 /* OctoKit.xcdatamodel */,
+				A42E5E3316A27B0A00BB5907 /* HubKit.xcdatamodel */,
 			);
-			currentVersion = A42E5E3316A27B0A00BB5907 /* OctoKit.xcdatamodel */;
-			name = OctoKit.xcdatamodeld;
-			path = ../OctoKit/OctoKit.xcdatamodeld;
+			currentVersion = A42E5E3316A27B0A00BB5907 /* HubKit.xcdatamodel */;
+			name = HubKit.xcdatamodeld;
+			path = ../OctoKit/HubKit.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

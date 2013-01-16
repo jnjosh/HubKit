@@ -61,8 +61,8 @@
         <relationship name="repos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Repo" inverseName="owner" inverseEntity="Repo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Issue" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Repo" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Issue" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="Repo" positionX="0" positionY="0" width="128" height="480"/>
+        <element name="User" positionX="0" positionY="0" width="128" height="255"/>
     </elements>
 </model>
