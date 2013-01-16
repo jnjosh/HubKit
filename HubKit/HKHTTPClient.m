@@ -23,6 +23,7 @@
 #import "HKHTTPClient.h"
 #import "HKDefines.h"
 #import "HKKeychain.h"
+#import "HKUser.h"
 
 @interface HKHTTPClient ()
 
@@ -99,12 +100,9 @@
 {
     [self setAuthorizationHeaderWithToken:accessToken];
     [self getPath:@"user" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        HKUser *user = [HKUser objectWithDictionary:responseObject];
-//        user.accessToken = accessToken;
-//        [HKUser setCurrentUser:user];
-//        [user save];
-        
-        NSLog(@"%@", responseObject);
+        HKUser *user = [HKUser userWithDictionaryRepresentation:responseObject];
+        user.accessToken = accessToken;
+        [HKUser setCurrentUser:user];
         
         if (success) {
             success((AFJSONRequestOperation *)operation, responseObject);

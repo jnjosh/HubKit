@@ -42,6 +42,8 @@
 		A43E973116A660BE00E05562 /* HKKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E973016A660BE00E05562 /* HKKeychain.m */; };
 		A43E973516A6657F00E05562 /* HKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E973316A6657F00E05562 /* HKLoginViewController.m */; };
 		A43E973616A6657F00E05562 /* HKLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43E973416A6657F00E05562 /* HKLoginViewController.xib */; };
+		A43E978016A67E5500E05562 /* HKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E977F16A67E5500E05562 /* HKUser.m */; };
+		A43E978416A6820800E05562 /* NSArray+HKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E978316A6820800E05562 /* NSArray+HKExtensions.m */; };
 		A4A3924E16A4D528004A2878 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A3924D16A4D528004A2878 /* SenTestingKit.framework */; };
 		A4A3924F16A4D528004A2878 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0B16A278A200BB5907 /* UIKit.framework */; };
 		A4A3925016A4D528004A2878 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0D16A278A200BB5907 /* Foundation.framework */; };
@@ -166,6 +168,10 @@
 		A43E973216A6657F00E05562 /* HKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKLoginViewController.h; sourceTree = "<group>"; };
 		A43E973316A6657F00E05562 /* HKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKLoginViewController.m; sourceTree = "<group>"; };
 		A43E973416A6657F00E05562 /* HKLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKLoginViewController.xib; sourceTree = "<group>"; };
+		A43E977E16A67E5500E05562 /* HKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKUser.h; path = ../HubKit/HKUser.h; sourceTree = "<group>"; };
+		A43E977F16A67E5500E05562 /* HKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKUser.m; path = ../HubKit/HKUser.m; sourceTree = "<group>"; };
+		A43E978216A6820800E05562 /* NSArray+HKExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+HKExtensions.h"; path = "../HubKit/NSArray+HKExtensions.h"; sourceTree = "<group>"; };
+		A43E978316A6820800E05562 /* NSArray+HKExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+HKExtensions.m"; path = "../HubKit/NSArray+HKExtensions.m"; sourceTree = "<group>"; };
 		A4A3924C16A4D528004A2878 /* HubKit-iOS-UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HubKit-iOS-UnitTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A3924D16A4D528004A2878 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A4A3925316A4D528004A2878 /* HubKit-iOS-UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HubKit-iOS-UnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -280,14 +286,18 @@
 				A43E972916A6565E00E05562 /* HubKit.h */,
 				A42E5E3816A27B0A00BB5907 /* HKHTTPClient.h */,
 				A42E5E3916A27B0A00BB5907 /* HKHTTPClient.m */,
-				A42E5E4A16A27B2900BB5907 /* HKGitHubAPIKeys.h */,
-				A42E5E4B16A27B2900BB5907 /* HKGitHubAPIKeys.m */,
+				A43E977E16A67E5500E05562 /* HKUser.h */,
+				A43E977F16A67E5500E05562 /* HKUser.m */,
 				A42E5E3416A27B0A00BB5907 /* HKDefines.h */,
 				A42E5E3516A27B0A00BB5907 /* HKDefines.m */,
 				A43E972F16A660BE00E05562 /* HKKeychain.h */,
 				A43E973016A660BE00E05562 /* HKKeychain.m */,
 				A42E5E6F16A27BEE00BB5907 /* NSDictionary+HKExtensions.h */,
 				A42E5E7016A27BEE00BB5907 /* NSDictionary+HKExtensions.m */,
+				A43E978216A6820800E05562 /* NSArray+HKExtensions.h */,
+				A43E978316A6820800E05562 /* NSArray+HKExtensions.m */,
+				A42E5E4A16A27B2900BB5907 /* HKGitHubAPIKeys.h */,
+				A42E5E4B16A27B2900BB5907 /* HKGitHubAPIKeys.m */,
 			);
 			name = HubKit;
 			sourceTree = "<group>";
@@ -543,6 +553,8 @@
 				A43E972E16A65A6100E05562 /* HKRepositoryViewController.m in Sources */,
 				A43E973116A660BE00E05562 /* HKKeychain.m in Sources */,
 				A43E973516A6657F00E05562 /* HKLoginViewController.m in Sources */,
+				A43E978016A67E5500E05562 /* HKUser.m in Sources */,
+				A43E978416A6820800E05562 /* NSArray+HKExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

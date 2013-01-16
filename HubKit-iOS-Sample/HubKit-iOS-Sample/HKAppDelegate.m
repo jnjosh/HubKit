@@ -37,7 +37,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.repositoryViewController;
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.repositoryViewController];
+    self.window.rootViewController = navController;
 
     self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];

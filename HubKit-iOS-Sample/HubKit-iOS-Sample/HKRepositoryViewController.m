@@ -22,13 +22,14 @@
 
 #import "HKRepositoryViewController.h"
 #import "HKLoginViewController.h"
+#import "HKHTTPClient.h"
+#import "HKUser.h"
+#import "NSArray+HKExtensions.h"
 
 @interface HKRepositoryViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *tableItems;
-
-
 
 @end
 
@@ -38,8 +39,9 @@
 
 - (void)loadView
 {
-    self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     [self.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+    [self.view setAutoresizesSubviews:YES];
     [self.view setBackgroundColor:[UIColor viewFlipsideBackgroundColor]];
 }
 
@@ -47,7 +49,12 @@
 {
     [super viewDidLoad];
     
+    self.title = @"Repositories";
+    self.tableItems = @[];
+    
     [self.view addSubview:self.tableView];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(didTapLogoutButton:)];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -59,24 +66,60 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [self.tableItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
-}
+    static NSString *cellIdentifier = @"com.hubkit.repoCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (! cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
 
-#pragma mark - UITableViewDelegate
+    cell.textLabel.text = [self.tableItems objectAtIndex:indexPath.row];
+    
+    return cell;
+}
 
 #pragma mark - Table Data
 
 - (void)loadRepositories
 {
+    if (! [HKUser currentUser]) {
+        [self loginUser];
+    } else {
+        [self.githubClient getUserReposWithSuccess:^(AFJSONRequestOperation *operation, id responseObject) {
+            NSArray *repos = responseObject;
+            self.tableItems = [repos map:^id(id object) {
+                NSDictionary *repo = object;
+                return [repo objectForKey:@"name"];
+            }];
+            
+            [self.tableView reloadData];
+        } failure:^(AFJSONRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+    }
+}
+
+- (void)loginUser
+{
     HKLoginViewController *loginViewController = [[HKLoginViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
     loginViewController.githubClient = self.githubClient;
     [self presentViewController:navController animated:YES completion:nil];
+}
+
+#pragma mark - Actions
+
+- (void)didTapLogoutButton:(id)sender
+{
+    self.tableItems = @[];
+    [self.tableView reloadData];
+    
+    [HKUser setCurrentUser:nil];
+    [self loginUser];
 }
 
 #pragma mark - Properties
@@ -87,6 +130,7 @@
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         [_tableView setDataSource:self];
         [_tableView setDelegate:self];
+        [_tableView setAutoresizingMask:self.view.autoresizingMask];
     }
     return _tableView;
 }
