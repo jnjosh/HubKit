@@ -22,8 +22,8 @@
 
 #import "AFNetworking.h"
 
-typedef void (^OKHTTPClientSuccess)(AFJSONRequestOperation *operation, id responseObject);
-typedef void (^OKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *error);
+typedef void (^HKHTTPClientSuccess)(AFJSONRequestOperation *operation, id responseObject);
+typedef void (^HKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *error);
 
 @class HKRepo;
 
@@ -37,27 +37,27 @@ typedef void (^OKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *
 
 - (void)logInUserWithUsername:(NSString *)username
                      password:(NSString *)password
-                      success:(OKHTTPClientSuccess)success
-                      failure:(OKHTTPClientFailure)failure;
+                      success:(HKHTTPClientSuccess)success
+                      failure:(HKHTTPClientFailure)failure;
 
 - (void)logInUserWithAccessToken:(NSString *)accessToken
-                         success:(OKHTTPClientSuccess)success
-                         failure:(OKHTTPClientFailure)failure;
+                         success:(HKHTTPClientSuccess)success
+                         failure:(HKHTTPClientFailure)failure;
 
 - (void)getRepoWithName:(NSString *)name
                    user:(NSString *)user
-                success:(OKHTTPClientSuccess)success
-                failure:(OKHTTPClientFailure)failure;
+                success:(HKHTTPClientSuccess)success
+                failure:(HKHTTPClientFailure)failure;
 
-- (void)getStarredReposWithSuccess:(OKHTTPClientSuccess)success
-                           failure:(OKHTTPClientFailure)failure;
+- (void)getStarredReposWithSuccess:(HKHTTPClientSuccess)success
+                           failure:(HKHTTPClientFailure)failure;
 
 
-- (void)getUserReposWithSuccess:(OKHTTPClientSuccess)success
-                        failure:(OKHTTPClientFailure)failure;
+- (void)getUserReposWithSuccess:(HKHTTPClientSuccess)success
+                        failure:(HKHTTPClientFailure)failure;
 
 - (void)getIssuesForRepo:(HKRepo *)repo
-                 success:(OKHTTPClientSuccess)success
-                 failure:(OKHTTPClientFailure)failure;
+                 success:(HKHTTPClientSuccess)success
+                 failure:(HKHTTPClientFailure)failure;
 
 @end

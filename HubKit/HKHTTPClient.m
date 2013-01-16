@@ -64,8 +64,8 @@
 
 - (void)logInUserWithUsername:(NSString *)username
                      password:(NSString *)password
-                      success:(OKHTTPClientSuccess)success
-                      failure:(OKHTTPClientFailure)failure
+                      success:(HKHTTPClientSuccess)success
+                      failure:(HKHTTPClientFailure)failure
 {
     NSString *authPath = @"authorizations";
     NSDictionary *params = @{
@@ -93,7 +93,7 @@
     [self clearAuthorizationHeader];
 }
 
-- (void)logInUserWithAccessToken:(NSString *)accessToken success:(OKHTTPClientSuccess)success failure:(OKHTTPClientFailure)failure
+- (void)logInUserWithAccessToken:(NSString *)accessToken success:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
 {
     [self setAuthorizationHeaderWithToken:accessToken];
     [self getPath:@"user" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -114,7 +114,7 @@
 
 #pragma mark - Repos
 
-- (void)getRepoWithName:(NSString *)name user:(NSString *)user success:(OKHTTPClientSuccess)success failure:(OKHTTPClientFailure)failure
+- (void)getRepoWithName:(NSString *)name user:(NSString *)user success:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
 {
     NSString *repoPath = [NSString stringWithFormat:@"/repos/%@/%@", user, name];
     [self getPath:repoPath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -128,7 +128,7 @@
     }];
 }
 
-- (void)getStarredReposWithSuccess:(OKHTTPClientSuccess)success failure:(OKHTTPClientFailure)failure
+- (void)getStarredReposWithSuccess:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
 {
     [self getPath:@"/user/starred" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
@@ -142,7 +142,7 @@
 }
 
 
-- (void)getUserReposWithSuccess:(OKHTTPClientSuccess)success failure:(OKHTTPClientFailure)failure
+- (void)getUserReposWithSuccess:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
 {
     [self getPath:@"/user/repos" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
@@ -155,7 +155,7 @@
     }];
 }
 
-- (void)getIssuesForRepo:(HKRepo *)repo success:(OKHTTPClientSuccess)success failure:(OKHTTPClientFailure)failure
+- (void)getIssuesForRepo:(HKRepo *)repo success:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
 {
     NSString *path = [NSString stringWithFormat:@"/repos/%@/%@/issues", repo.owner.login, repo.name];
     

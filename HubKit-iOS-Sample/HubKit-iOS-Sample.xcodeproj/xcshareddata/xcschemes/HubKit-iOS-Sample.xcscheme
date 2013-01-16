@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0460"
+   LastUpgradeVersion = "0450"
    version = "1.3">
    <BuildAction
-      parallelizeBuildables = "NO"
+      parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A42E5E0616A278A200BB5907"
-               BuildableName = "OctoKit-iOS-Sample.app"
-               BlueprintName = "OctoKit-iOS-Sample"
-               ReferencedContainer = "container:OctoKit-iOS-Sample.xcodeproj">
+               BuildableName = "HubKit-iOS-Sample.app"
+               BlueprintName = "HubKit-iOS-Sample"
+               ReferencedContainer = "container:HubKit-iOS-Sample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A4A3924B16A4D528004A2878"
-               BuildableName = "OctoKit-iOS-UnitTests.octest"
-               BlueprintName = "OctoKit-iOS-UnitTests"
-               ReferencedContainer = "container:OctoKit-iOS-Sample.xcodeproj">
+               BuildableName = "HubKit-iOS-UnitTests.octest"
+               BlueprintName = "HubKit-iOS-UnitTests"
+               ReferencedContainer = "container:HubKit-iOS-Sample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A42E5E0616A278A200BB5907"
-            BuildableName = "OctoKit-iOS-Sample.app"
-            BlueprintName = "OctoKit-iOS-Sample"
-            ReferencedContainer = "container:OctoKit-iOS-Sample.xcodeproj">
+            BuildableName = "HubKit-iOS-Sample.app"
+            BlueprintName = "HubKit-iOS-Sample"
+            ReferencedContainer = "container:HubKit-iOS-Sample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A42E5E0616A278A200BB5907"
-            BuildableName = "OctoKit-iOS-Sample.app"
-            BlueprintName = "OctoKit-iOS-Sample"
-            ReferencedContainer = "container:OctoKit-iOS-Sample.xcodeproj">
+            BuildableName = "HubKit-iOS-Sample.app"
+            BlueprintName = "HubKit-iOS-Sample"
+            ReferencedContainer = "container:HubKit-iOS-Sample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A42E5E0616A278A200BB5907"
-            BuildableName = "OctoKit-iOS-Sample.app"
-            BlueprintName = "OctoKit-iOS-Sample"
-            ReferencedContainer = "container:OctoKit-iOS-Sample.xcodeproj">
+            BuildableName = "HubKit-iOS-Sample.app"
+            BlueprintName = "HubKit-iOS-Sample"
+            ReferencedContainer = "container:HubKit-iOS-Sample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

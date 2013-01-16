@@ -12,9 +12,9 @@ namespace :tools do
     puts '* Cloning Git Submodules...'.cyan
     `git submodule update --init --recursive`
     
-    puts '* Copying example RPGitHubAPIKeys into place...'.cyan
-    `cp OctoKit/OKGitHubAPIKeysExample.h OctoKit/OKGitHubAPIKeys.h`
-    `cp OctoKit/OKGitHubAPIKeysExample.m OctoKit/OKGitHubAPIKeys.m`
+    puts '* Copying example HKGitHubAPIKeys into place...'.cyan
+    `cp HubKit/HKGitHubAPIKeysExample.h HubKit/HKGitHubAPIKeys.h`
+    `cp HubKit/HKGitHubAPIKeysExample.m HubKit/HKGitHubAPIKeys.m`
 
     puts '* Configuring Testing Libraries (Specta/Expecta)'.cyan
     `cd \"Vendor/Specta\" ; rake`
@@ -31,7 +31,7 @@ namespace :test do
   desc "iOS Unit Tests"
   task :ios do
     puts 'Running Unit Tests for iOS'.green
-    config = Xcode.project("OctoKit-iOS-Sample").target("OctoKit-iOS-UnitTests").config(:Debug)
+    config = Xcode.project("HubKit-iOS-Sample").target("HubKit-iOS-UnitTests").config(:Debug)
     builder = config.builder
     builder.clean
     builder.test(:sdk => 'iphonesimulator')

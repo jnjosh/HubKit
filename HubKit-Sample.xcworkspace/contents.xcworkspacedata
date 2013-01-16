@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:OctoKit-iOS-Sample/OctoKit-iOS-Sample.xcodeproj">
+      location = "group:HubKit-iOS-Sample/HubKit-iOS-Sample.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Vendor/OCMock/Source/OCMock.xcodeproj">

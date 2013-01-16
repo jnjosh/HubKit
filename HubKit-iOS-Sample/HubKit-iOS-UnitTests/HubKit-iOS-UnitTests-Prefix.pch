@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'OctoKit-iOS-UnitTests' target in the 'OctoKit-iOS-UnitTests' project
+// Prefix header for all source files of the 'HubKit-iOS-UnitTests' target in the 'HubKit-iOS-UnitTests' project
 //
 
 #ifdef __OBJC__
