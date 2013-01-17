@@ -72,6 +72,11 @@
              password:(NSString *)password
            completion:(HKGenericCompletionHandler)completion
 {
+    NSAssert(self.authorizationClientId != nil, @"Authorization Client ID is required");
+    NSAssert(self.authorizationClientSecret != nil, @"Authorization Client ID is required");
+    
+    if ([self.authorizationClientId length] == 0 || [self.authorizationClientSecret length] == 0) return;
+    
     [self.httpClient setAuthorizationHeaderWithUsername:username password:password];
     [self.httpClient postPath:@"authorizations" parameters:[self authorizationDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *responseDict = (NSDictionary *)responseObject;

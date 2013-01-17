@@ -21,31 +21,40 @@
  */
 
 #import "Specta.h"
-
 #define EXP_SHORTHAND
 #import "Expecta.h"
-
 #import <OCMock/OCMock.h>
-#import "HKHTTPClient.h"
+#import "HubKit+HKExtensions.h"
+#import "HKFixtures.h"
 
-SpecBegin(HKHTTPClient)
+SpecBegin(HubKitRepository)
 
-describe(@"HKHTTPClient", ^{
-	
-	// stub out sample for now
-	context(@"when testing with a mock object", ^{
+describe(@"HubKit Repository", ^{
+   
+    context(@"when getting the authenticated user's repository", ^{
+       
+        __block id client = nil;
+        
+        beforeEach(^{
+            client = [OCMockObject mockForClass:[HKHTTPClient class]];
+            [[client stub] defaultValueForHeader:OCMOCK_ANY];
+            [[client stub] setDefaultHeader:OCMOCK_ANY value:OCMOCK_ANY];
+        });
 		
-		it(@"should send login", ^{
-            id client = [OCMockObject mockForClass:[HKHTTPClient class]];
-            [[client expect] logInUserWithUsername:OCMOCK_ANY password:OCMOCK_ANY success:nil failure:nil];
+        it(@"should send request to user/repos", ^{
+            [[client expect] getPath:[OCMArg checkWithBlock:^BOOL(id argument) {
+                return [argument isEqualToString:@"user/repos"];
+            }] parameters:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY];
             
-            [client logInUserWithUsername:@"xxx" password:@"xxx" success:nil failure:nil];
+            HubKit *github = [HKFixtures hubKit];
+            [github setHttpClient:client];
+            
+            [github getAuthenticatedUserReposWithCompletion:nil];
             [client verify];
-            
-		});
-		
-	});
-	
+        });
+        
+    });
+    
 });
 
 SpecEnd

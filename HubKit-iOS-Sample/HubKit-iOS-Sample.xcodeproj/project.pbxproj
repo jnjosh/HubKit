@@ -39,7 +39,7 @@
 		A43711EB16A521C00084D675 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A43711EA16A521C00084D675 /* libOCMock.a */; };
 		A43711F916A52C9F0084D675 /* libSpecta-ios-universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A43711EE16A52C9F0084D675 /* libSpecta-ios-universal.a */; };
 		A437121A16A52CB90084D675 /* libExpecta-ios-universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A437121716A52CB90084D675 /* libExpecta-ios-universal.a */; };
-		A43E971D16A64C2200E05562 /* HKHTTPClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E971C16A64C2200E05562 /* HKHTTPClientSpec.m */; };
+		A43E971D16A64C2200E05562 /* HubKitAuthorizationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E971C16A64C2200E05562 /* HubKitAuthorizationSpec.m */; };
 		A43E972E16A65A6100E05562 /* HKRepositoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E972D16A65A6100E05562 /* HKRepositoryViewController.m */; };
 		A43E973116A660BE00E05562 /* HKKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E973016A660BE00E05562 /* HKKeychain.m */; };
 		A43E973516A6657F00E05562 /* HKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E973316A6657F00E05562 /* HKLoginViewController.m */; };
@@ -71,6 +71,9 @@
 		A4B3C0F916A78DE000643BF3 /* HKKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E973016A660BE00E05562 /* HKKeychain.m */; };
 		A4B3C0FB16A78DE400643BF3 /* HKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E977F16A67E5500E05562 /* HKUser.m */; };
 		A4B3C0FE16A7B38A00643BF3 /* HubKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3C0FD16A7B38A00643BF3 /* HubKit.m */; };
+		A4B3C0FF16A7C67C00643BF3 /* HubKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3C0FD16A7B38A00643BF3 /* HubKit.m */; };
+		A4B3C10116A7C9F300643BF3 /* HubKitRepositorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3C10016A7C9F300643BF3 /* HubKitRepositorySpec.m */; };
+		A4B3C10616A7CE3700643BF3 /* HKFixtures.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3C10516A7CE3700643BF3 /* HKFixtures.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,7 +167,7 @@
 		A437121716A52CB90084D675 /* libExpecta-ios-universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libExpecta-ios-universal.a"; path = "../Vendor/Expecta/products/libExpecta-ios-universal.a"; sourceTree = "<group>"; };
 		A437121816A52CB90084D675 /* NSObject+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Expecta.h"; path = "../Vendor/Expecta/products/NSObject+Expecta.h"; sourceTree = "<group>"; };
 		A437121916A52CB90084D675 /* NSValue+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+Expecta.h"; path = "../Vendor/Expecta/products/NSValue+Expecta.h"; sourceTree = "<group>"; };
-		A43E971C16A64C2200E05562 /* HKHTTPClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKHTTPClientSpec.m; sourceTree = "<group>"; };
+		A43E971C16A64C2200E05562 /* HubKitAuthorizationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubKitAuthorizationSpec.m; sourceTree = "<group>"; };
 		A43E972C16A65A6100E05562 /* HKRepositoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKRepositoryViewController.h; sourceTree = "<group>"; };
 		A43E972D16A65A6100E05562 /* HKRepositoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKRepositoryViewController.m; sourceTree = "<group>"; };
 		A43E972F16A660BE00E05562 /* HKKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKKeychain.h; path = ../HubKit/HKKeychain.h; sourceTree = "<group>"; };
@@ -183,6 +186,10 @@
 		A4A3925A16A4D528004A2878 /* HubKit-iOS-UnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HubKit-iOS-UnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		A4B3C0FC16A7B38A00643BF3 /* HubKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HubKit.h; path = ../HubKit/HubKit.h; sourceTree = "<group>"; };
 		A4B3C0FD16A7B38A00643BF3 /* HubKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HubKit.m; path = ../HubKit/HubKit.m; sourceTree = "<group>"; };
+		A4B3C10016A7C9F300643BF3 /* HubKitRepositorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubKitRepositorySpec.m; sourceTree = "<group>"; };
+		A4B3C10316A7CBD400643BF3 /* HubKit+HKExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HubKit+HKExtensions.h"; sourceTree = "<group>"; };
+		A4B3C10416A7CE3700643BF3 /* HKFixtures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKFixtures.h; sourceTree = "<group>"; };
+		A4B3C10516A7CE3700643BF3 /* HKFixtures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKFixtures.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,8 +422,10 @@
 		A4A3925116A4D528004A2878 /* HubKit-iOS-UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				A43E971C16A64C2200E05562 /* HKHTTPClientSpec.m */,
+				A4B3C10216A7CBAB00643BF3 /* Fixtures */,
 				A4A3925216A4D528004A2878 /* Supporting Files */,
+				A43E971C16A64C2200E05562 /* HubKitAuthorizationSpec.m */,
+				A4B3C10016A7C9F300643BF3 /* HubKitRepositorySpec.m */,
 			);
 			path = "HubKit-iOS-UnitTests";
 			sourceTree = "<group>";
@@ -429,6 +438,16 @@
 				A4A3925A16A4D528004A2878 /* HubKit-iOS-UnitTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4B3C10216A7CBAB00643BF3 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				A4B3C10316A7CBD400643BF3 /* HubKit+HKExtensions.h */,
+				A4B3C10416A7CE3700643BF3 /* HKFixtures.h */,
+				A4B3C10516A7CE3700643BF3 /* HKFixtures.m */,
+			);
+			name = Fixtures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -585,9 +604,12 @@
 				A4A3928E16A51B9A004A2878 /* HKDefines.m in Sources */,
 				A4A3929316A51B9A004A2878 /* NSDictionary+HKExtensions.m in Sources */,
 				A4A3929416A51BA9004A2878 /* SSKeychain.m in Sources */,
-				A43E971D16A64C2200E05562 /* HKHTTPClientSpec.m in Sources */,
+				A43E971D16A64C2200E05562 /* HubKitAuthorizationSpec.m in Sources */,
 				A4B3C0F916A78DE000643BF3 /* HKKeychain.m in Sources */,
 				A4B3C0FB16A78DE400643BF3 /* HKUser.m in Sources */,
+				A4B3C0FF16A7C67C00643BF3 /* HubKit.m in Sources */,
+				A4B3C10116A7C9F300643BF3 /* HubKitRepositorySpec.m in Sources */,
+				A4B3C10616A7CE3700643BF3 /* HKFixtures.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
