@@ -20,14 +20,79 @@
  SOFTWARE.
  */
 
-#import "OKDefines.h"
+#import <Foundation/Foundation.h>
+#import "HKDefines.h"
+#import "HKUser.h"
+#import "NSArray+HKExtensions.h"
+#import "NSDictionary+HKExtensions.h"
 
-#import "OKGitHubAPIKeys.h"
-#import "OKHTTPClient.h"
+typedef void(^HKGenericCompletionHandler)(NSError *error);
+typedef void(^HKObjectCompletionHandler)(id object, NSError *error);
+typedef void(^HKArrayCompletionHandler)(NSArray *collection, NSError *error);
 
-#import "OKManagedObject.h"
-#import "OKRemoteManagedObject.h"
+@class AFHTTPClient;
 
-#import "OKUser.h"
-#import "OKRepo.h"
-#import "OKIssue.h"
+@interface HubKit : NSObject
+
+/** Application Client ID for authorizing against Github
+ * @see https://github.com/settings/applications
+ */
+@property (nonatomic, copy) NSString *authorizationClientId;
+
+/** Application Client Secret for authorizing against Github
+ * @see https://github.com/settings/applications
+ */
+@property (nonatomic, copy) NSString *authorizationClientSecret;
+
+/** Authorization Scope specifying the access you are asking for on the user's github account
+ * @see http://developer.github.com/v3/oauth/#scopes
+ */
+@property (nonatomic, strong) NSArray *authorizationScopes;
+
+/** HTTP Client for connecting to web resources */
+@property (nonatomic, strong, readonly) AFHTTPClient *httpClient;
+
+/** Use Basic Authorization to obtain a scoped access token from the GitHub authorization API
+ * @discussion This method is part of the non-web authorization flow discussed in the GitHub
+ *             API documentation.
+ * @endpoint /authorizations
+ */
+- (void)loginWithUser:(NSString *)username
+             password:(NSString *)password
+           completion:(HKGenericCompletionHandler)completion;
+
+/** Use an access token to get the currently authenticated user
+ * @param token The token retrieved from loginWithUser:password:completion:
+ * @param completion A single object style completion block that is sent an instance of class HKUser on completion
+ * @endpoint /user
+ */
+- (void)getAuthenticatedUserWithToken:(NSString *)token
+                           completion:(HKObjectCompletionHandler)completion;
+
+/** Use an the access token in the keychain to get the currently authenticated user
+ * @param completion A single object style completion block that is sent an instance of class HKUser on completion
+ * @endpoint /user
+ */
+- (void)getAuthenticatedUserWithCompletion:(HKObjectCompletionHandler)completion;
+
+/** Get all repositories for the currently authenticated user
+ * @param completion An array style completion block that is sent a collection of repository dictionaries
+ * @endpoint /user/repos
+ */
+- (void)getAuthenticatedUserReposWithCompletion:(HKArrayCompletionHandler)completion;
+
+/** Get all starred repositories for the currently authenticated user
+ * @param completion An array style completion block that is sent a collection of repository dictionaries
+ * @endpoint /user/starred
+ */
+- (void)getAuthenticatedUserStarredReposWithCompletion:(HKArrayCompletionHandler)completion;
+
+/** Get the specified repository for the specified user
+ * @param completion An single object style completion block that is sent the repository dictionary
+ * @endpoint /repos/{user}/{repo}
+ */
+- (void)getRepositoryWithName:(NSString *)repositoryName
+                         user:(NSString *)userName
+                   completion:(HKObjectCompletionHandler)completion;
+
+@end

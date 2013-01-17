@@ -7,7 +7,7 @@
 //
 
 #import "HKLoginViewController.h"
-#import "HKHTTPClient.h"
+#import "HubKit.h"
 
 @interface HKLoginViewController ()
 
@@ -34,12 +34,13 @@
 {
     if ([self.usernameField.text length] > 0 &&
         [self.passwordField.text length] > 0) {
-
-        [self.githubClient logInUserWithUsername:self.usernameField.text password:self.passwordField.text success:^(AFJSONRequestOperation *operation, id responseObject) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        } failure:^(AFJSONRequestOperation *operation, NSError *error) {
-            self.usernameField.text = nil;
-            self.passwordField.text = nil;
+        __weak typeof(self) weak_self = self;
+        [self.githubClient loginWithUser:self.usernameField.text password:self.passwordField.text completion:^(NSError *error) {
+            if (! error) {
+                [weak_self dismissViewControllerAnimated:YES completion:nil];
+            }
+            weak_self.usernameField.text = nil;
+            weak_self.passwordField.text = nil;
         }];
     }
 }

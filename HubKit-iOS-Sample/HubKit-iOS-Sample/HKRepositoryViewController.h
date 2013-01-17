@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class HKHTTPClient;
+@class HubKit;
 
 @interface HKRepositoryViewController : UIViewController
 
-@property (nonatomic, strong) HKHTTPClient *githubClient;
+@property (nonatomic, strong) HubKit *githubClient;
 
 @end
