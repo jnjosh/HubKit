@@ -22,6 +22,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kHKHubKitKeychainDefaultAccount;
+
 @interface HKKeychain : NSObject
 
 /** Store the Authorization Token in the keychain */

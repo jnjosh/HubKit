@@ -20,5 +20,11 @@
  SOFTWARE.
  */
 
-#import "HKDefines.h"
+#import "HubKit.h"
 #import "HKHTTPClient.h"
+
+@interface HubKit (HKTestingExtension)
+
+@property (nonatomic, strong, readwrite) HKHTTPClient *httpClient;
+
+@end

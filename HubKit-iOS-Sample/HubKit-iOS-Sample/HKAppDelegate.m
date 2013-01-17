@@ -53,14 +53,15 @@
     if (! _repositoryViewController) {
         _repositoryViewController = [[HKRepositoryViewController alloc] initWithNibName:nil bundle:nil];
         
-        HKHTTPClient *githubClient = [[HKHTTPClient alloc] init];
-        githubClient.authorizationClientId = kHKGtHubClientID;
-        githubClient.authorizationClientSecret = kHKGtHubClientSecret;
-        githubClient.authorizationScopes = @[
+        HubKit *github = [HubKit new];
+        github.authorizationClientId = kHKGtHubClientID;
+        github.authorizationClientSecret = kHKGtHubClientSecret;
+        github.authorizationScopes = @[
             HKGithubAuthorizationScopes.user,
             HKGithubAuthorizationScopes.repo
         ];
-        _repositoryViewController.githubClient = githubClient;
+        
+        _repositoryViewController.githubClient = github;
     }
     return _repositoryViewController;
 }

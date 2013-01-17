@@ -25,6 +25,7 @@
 #pragma mark - Environment
 
 NSString * const kHKGithubAPIBaseURLString = @"https://api.github.com";
+NSString * const kHKHubKitErrorDomain = @"com.hubkit.error";
 
 #pragma mark - User Defaults Keys
 

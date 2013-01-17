@@ -22,51 +22,8 @@
 
 #import "AFNetworking.h"
 
-typedef void (^HKHTTPClientSuccess)(AFJSONRequestOperation *operation, id responseObject);
-typedef void (^HKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *error);
-
 @interface HKHTTPClient : AFHTTPClient
 
-/** Application Client ID for authorizing against Github
- * @see https://github.com/settings/applications
- */
-@property (nonatomic, copy) NSString *authorizationClientId;
-
-/** Application Client Secret for authorizing against Github
- * @see https://github.com/settings/applications
- */
-@property (nonatomic, copy) NSString *authorizationClientSecret;
-
-/** Authorization Scope specifying the access you are asking for on the user's github account
- * @see http://developer.github.com/v3/oauth/#scopes
- */
-@property (nonatomic, strong) NSArray *authorizationScopes;
-
 + (instancetype)sharedClient;
-
-- (void)logInUserWithUsername:(NSString *)username
-                     password:(NSString *)password
-                      success:(HKHTTPClientSuccess)success
-                      failure:(HKHTTPClientFailure)failure;
-
-- (void)logInUserWithAccessToken:(NSString *)accessToken
-                         success:(HKHTTPClientSuccess)success
-                         failure:(HKHTTPClientFailure)failure;
-
-- (void)getRepoWithName:(NSString *)name
-                   user:(NSString *)user
-                success:(HKHTTPClientSuccess)success
-                failure:(HKHTTPClientFailure)failure;
-
-- (void)getStarredReposWithSuccess:(HKHTTPClientSuccess)success
-                           failure:(HKHTTPClientFailure)failure;
-
-
-- (void)getUserReposWithSuccess:(HKHTTPClientSuccess)success
-                        failure:(HKHTTPClientFailure)failure;
-
-//- (void)getIssuesForRepo:(HKRepo *)repo
-//                 success:(HKHTTPClientSuccess)success
-//                 failure:(HKHTTPClientFailure)failure;
 
 @end
