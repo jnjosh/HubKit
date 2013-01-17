@@ -34,21 +34,14 @@ describe(@"HKHTTPClient", ^{
 	
 	// stub out sample for now
 	context(@"when testing with a mock object", ^{
-		__block OCMockObject *mockClient = nil;
-		
-		beforeAll(^{
-			mockClient = [OCMockObject mockForClass:[HKHTTPClient class]];
-		});
 		
 		it(@"should send login", ^{
-			[[mockClient stub] logInUserWithUsername:@"XXXX" password:@"XXXX" success:nil failure:nil];
-			[mockClient verify];
-		});
-		
-		// sample to verify setup
-		it(@"should not fail", ^{
-			expect(1).to.equal(1);
-			//expect(1).to.equal(2);
+            id client = [OCMockObject mockForClass:[HKHTTPClient class]];
+            [[client expect] logInUserWithUsername:OCMOCK_ANY password:OCMOCK_ANY success:nil failure:nil];
+            
+            [client logInUserWithUsername:@"xxx" password:@"xxx" success:nil failure:nil];
+            [client verify];
+            
 		});
 		
 	});

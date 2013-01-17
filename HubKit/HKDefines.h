@@ -28,6 +28,7 @@
 #pragma mark - Environment
 
 extern NSString * const kHKGithubAPIBaseURLString;
+extern NSString * const kHKHubKitErrorDomain;
 
 #pragma mark - User Defaults Keys
 

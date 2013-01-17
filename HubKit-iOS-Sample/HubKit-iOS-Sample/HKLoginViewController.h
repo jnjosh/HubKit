@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class HKHTTPClient;
+@class HubKit;
 
 @interface HKLoginViewController : UIViewController
 
-@property (nonatomic, weak) HKHTTPClient *githubClient;
+@property (nonatomic, weak) HubKit *githubClient;
 
 @end
