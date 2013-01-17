@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57AA0A9716A6A16300F9E033 /* HKKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E973016A660BE00E05562 /* HKKeychain.m */; };
 		57AA0A9816A6A17A00F9E033 /* HKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E977F16A67E5500E05562 /* HKUser.m */; };
 		A42E5E0C16A278A200BB5907 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0B16A278A200BB5907 /* UIKit.framework */; };
 		A42E5E0E16A278A200BB5907 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0D16A278A200BB5907 /* Foundation.framework */; };
@@ -69,7 +68,6 @@
 		A4A3929716A51BD8004A2878 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7416A27D1F00BB5907 /* MobileCoreServices.framework */; };
 		A4A3929816A51BD8004A2878 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E7216A27D1A00BB5907 /* SystemConfiguration.framework */; };
 		A4B3C0F916A78DE000643BF3 /* HKKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E973016A660BE00E05562 /* HKKeychain.m */; };
-		A4B3C0FB16A78DE400643BF3 /* HKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E977F16A67E5500E05562 /* HKUser.m */; };
 		A4B3C0FE16A7B38A00643BF3 /* HubKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3C0FD16A7B38A00643BF3 /* HubKit.m */; };
 		A4B3C0FF16A7C67C00643BF3 /* HubKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3C0FD16A7B38A00643BF3 /* HubKit.m */; };
 		A4B3C10116A7C9F300643BF3 /* HubKitRepositorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3C10016A7C9F300643BF3 /* HubKitRepositorySpec.m */; };
@@ -606,7 +604,6 @@
 				A4A3929416A51BA9004A2878 /* SSKeychain.m in Sources */,
 				A43E971D16A64C2200E05562 /* HubKitAuthorizationSpec.m in Sources */,
 				A4B3C0F916A78DE000643BF3 /* HKKeychain.m in Sources */,
-				A4B3C0FB16A78DE400643BF3 /* HKUser.m in Sources */,
 				A4B3C0FF16A7C67C00643BF3 /* HubKit.m in Sources */,
 				A4B3C10116A7C9F300643BF3 /* HubKitRepositorySpec.m in Sources */,
 				A4B3C10616A7CE3700643BF3 /* HKFixtures.m in Sources */,
