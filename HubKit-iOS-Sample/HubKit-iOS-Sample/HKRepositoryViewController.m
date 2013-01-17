@@ -22,9 +22,7 @@
 
 #import "HKRepositoryViewController.h"
 #import "HKLoginViewController.h"
-#import "HKHTTPClient.h"
-#import "HKUser.h"
-#import "NSArray+HKExtensions.h"
+#import "HubKit.h"
 
 @interface HKRepositoryViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -89,16 +87,17 @@
     if (! [HKUser currentUser]) {
         [self loginUser];
     } else {
-        [self.githubClient getUserReposWithSuccess:^(AFJSONRequestOperation *operation, id responseObject) {
-            NSArray *repos = responseObject;
-            self.tableItems = [repos map:^id(id object) {
-                NSDictionary *repo = object;
-                return [repo objectForKey:@"name"];
-            }];
-            
-            [self.tableView reloadData];
-        } failure:^(AFJSONRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
+        [self.githubClient getAuthenticatedUserReposWithCompletion:^(NSArray *collection, NSError *error) {
+            if (! error) {
+                self.tableItems = [collection map:^id(id object) {
+                    NSDictionary *repo = object;
+                    return [repo objectForKey:@"name"];
+                }];
+                
+                [self.tableView reloadData];
+            } else {
+                NSLog(@"Error: %@", error);
+            }
         }];
     }
 }
