@@ -18,4 +18,8 @@ DerivedData
 
 # API Keys
 HKGitHubAPIKeys.*
+
+# Tests
 test-reports
+Documentation
+
