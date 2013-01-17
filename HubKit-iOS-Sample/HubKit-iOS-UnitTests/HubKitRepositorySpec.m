@@ -41,7 +41,7 @@ describe(@"HubKit Repository", ^{
             [[client stub] setDefaultHeader:OCMOCK_ANY value:OCMOCK_ANY];
         });
 		
-        it(@"should send request to user/repos", ^{
+        it(@"should send request for user's repositories to user/repos", ^{
             [[client expect] getPath:[OCMArg checkWithBlock:^BOOL(id argument) {
                 return [argument isEqualToString:@"user/repos"];
             }] parameters:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY];
@@ -53,6 +53,40 @@ describe(@"HubKit Repository", ^{
             [client verify];
         });
         
+        pending(@"should get a collection of dictionaries when requesting user's repos");
+        
+        it(@"should send request for starred repositories", ^{
+            [[client expect] getPath:[OCMArg checkWithBlock:^BOOL(id argument) {
+                return [argument isEqualToString:@"user/starred"];
+            }] parameters:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY];
+            
+            HubKit *github = [HKFixtures hubKit];
+            [github setHttpClient:client];
+            
+            [github getAuthenticatedUserStarredReposWithCompletion:nil];
+            [client verify];
+        });
+        
+        pending(@"should get a collection of dictionaries when requesting user's starred repos");
+        
+        it(@"should send request for named repositories properly", ^{
+            NSString *sampleRepoName = @"HubKit";
+            NSString *sampleUserName = @"jnjosh";
+            
+            [[client expect] getPath:[OCMArg checkWithBlock:^BOOL(id argument) {
+                NSString *expectedPath = [NSString stringWithFormat:@"repos/%@/%@", sampleUserName, sampleRepoName];
+                return [argument isEqualToString:expectedPath];
+            }] parameters:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY];
+            
+            HubKit *github = [HKFixtures hubKit];
+            [github setHttpClient:client];
+            
+            [github getRepositoryWithName:sampleRepoName user:sampleUserName completion:nil];
+            [client verify];
+        });
+        
+        pending(@"should get a single dictionary when requesting a specific repo");
+
     });
     
 });

@@ -150,36 +150,36 @@
     }];
 }
 
+- (void)getRepositoryWithName:(NSString *)repositoryName user:(NSString *)userName completion:(HKObjectCompletionHandler)completion
+{
+    NSString *repoPath = [NSString stringWithFormat:@"repos/%@/%@", userName, repositoryName];
+    [self.httpClient getPath:repoPath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+       if (completion) {
+           completion(responseObject, nil);
+       }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (completion) {
+            completion(nil, error);
+        }
+    }];
+}
+
+- (void)getAuthenticatedUserStarredReposWithCompletion:(HKArrayCompletionHandler)completion
+{
+    [self.httpClient getPath:@"user/starred" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (completion) {
+            completion(responseObject, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (completion) {
+            completion(nil, error);
+        }
+    }];
+}
+
 #pragma mark - TODO
 
-// TODO (JNJ): Hidden until we add repos back
-
-//- (void)getRepoWithName:(NSString *)name user:(NSString *)user success:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
-//{
-//    NSString *repoPath = [NSString stringWithFormat:@"/repos/%@/%@", user, name];
-//    [self getPath:repoPath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        if (success) {
-//            success((AFJSONRequestOperation *)operation, responseObject);
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        if (failure) {
-//            failure((AFJSONRequestOperation *)operation, error);
-//        }
-//    }];
-//}
-//
-//- (void)getStarredReposWithSuccess:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
-//{
-//    [self getPath:@"/user/starred" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        if (success) {
-//            success((AFJSONRequestOperation *)operation, responseObject);
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        if (failure) {
-//            failure((AFJSONRequestOperation *)operation, error);
-//        }
-//    }];
-//}
+// TODO (JNJ): Hidden until we add repos model object back
 
 //- (void)getIssuesForRepo:(HKRepo *)repo success:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
 //{

@@ -81,4 +81,18 @@ typedef void(^HKArrayCompletionHandler)(NSArray *collection, NSError *error);
  */
 - (void)getAuthenticatedUserReposWithCompletion:(HKArrayCompletionHandler)completion;
 
+/** Get all starred repositories for the currently authenticated user
+ * @param completion An array style completion block that is sent a collection of repository dictionaries
+ * @endpoint /user/starred
+ */
+- (void)getAuthenticatedUserStarredReposWithCompletion:(HKArrayCompletionHandler)completion;
+
+/** Get the specified repository for the specified user
+ * @param completion An single object style completion block that is sent the repository dictionary
+ * @endpoint /repos/{user}/{repo}
+ */
+- (void)getRepositoryWithName:(NSString *)repositoryName
+                         user:(NSString *)userName
+                   completion:(HKObjectCompletionHandler)completion;
+
 @end
