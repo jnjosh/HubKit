@@ -20,38 +20,26 @@
  SOFTWARE.
  */
 
-#import "HKHTTPClient.h"
+#import "HKAuthorization.h"
 
-@implementation HKHTTPClient {}
+NSString * const kHKAuthorizationKeyClientId = @"client_id";
+NSString * const kHKAuthorizationKeyClientSecret = @"client_secret";
+NSString * const kHKAuthorizationKeyClientScopes = @"scopes";
 
-#pragma mark - Shared Instance
+@implementation HKAuthorization
 
-+ (instancetype)sharedClient
+- (NSDictionary *)dictionaryRepresentation
 {
-    static HKHTTPClient *sharedClient;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedClient = [[HKHTTPClient alloc] init];
-    });
-    
-    return sharedClient;
-}
-
-#pragma mark - Life Cycle
-
-- (id)init
-{
-    NSURL *base = [NSURL URLWithString:kHKGithubAPIBaseURLString];
-    
-    if (self = [super initWithBaseURL:base]) {
-        [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-        [self setDefaultHeader:@"Accept" value:@"application/json"];
-        [self setParameterEncoding:AFJSONParameterEncoding];
+    NSDictionary *representation = nil;
+    if ([self.clientId length] > 0 &&
+        [self.clientSecret length] > 0 && self.scopes) {
+        representation = @{
+            kHKAuthorizationKeyClientId : self.clientId,
+            kHKAuthorizationKeyClientSecret : self.clientSecret,
+            kHKAuthorizationKeyClientScopes : self.scopes
+        };
     }
-    return self;
+    return representation;
 }
-
-
 
 @end

@@ -21,9 +21,31 @@
  */
 
 #import "AFNetworking.h"
+#import "HKDefines.h"
+
+@class HKAuthorization;
 
 @interface HKHTTPClient : AFHTTPClient
 
+@property (nonatomic, strong) HKAuthorization *authorization;
+
 + (instancetype)sharedClient;
+
+//- (void)createAuthorization:(HKAuthorization *)authorization
+//                   username:(NSString *)username 
+//                   password:(NSString *)password
+//                 completion:(HKObjectCompletionHandler)completion;
+//
+//
+///** Use Basic Authorization to obtain a scoped access token from the GitHub authorization API
+// * @discussion This method is part of the non-web authorization flow discussed in the GitHub
+// *             API documentation.
+// * @see http://developer.github.com/v3/oauth/#create-a-new-authorization
+// */
+//- (void)loginWithUser:(NSString *)username
+//             password:(NSString *)password
+//           completion:(HKGenericCompletionHandler)completion;
+
+
 
 @end

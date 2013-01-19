@@ -72,6 +72,9 @@
 		A4B3C0FF16A7C67C00643BF3 /* HubKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3C0FD16A7B38A00643BF3 /* HubKit.m */; };
 		A4B3C10116A7C9F300643BF3 /* HubKitRepositorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3C10016A7C9F300643BF3 /* HubKitRepositorySpec.m */; };
 		A4B3C10616A7CE3700643BF3 /* HKFixtures.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3C10516A7CE3700643BF3 /* HKFixtures.m */; };
+		A4D2278316AA8D3700BDE006 /* HKAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2278216AA8D3700BDE006 /* HKAuthorization.m */; };
+		A4D2278416AA918800BDE006 /* HKAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2278216AA8D3700BDE006 /* HKAuthorization.m */; };
+		A4D2278616AA932600BDE006 /* HKAuthorizationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2278516AA932600BDE006 /* HKAuthorizationSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -188,6 +191,9 @@
 		A4B3C10316A7CBD400643BF3 /* HubKit+HKExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HubKit+HKExtensions.h"; sourceTree = "<group>"; };
 		A4B3C10416A7CE3700643BF3 /* HKFixtures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKFixtures.h; sourceTree = "<group>"; };
 		A4B3C10516A7CE3700643BF3 /* HKFixtures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKFixtures.m; sourceTree = "<group>"; };
+		A4D2278116AA8D3600BDE006 /* HKAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKAuthorization.h; path = ../HubKit/HKAuthorization.h; sourceTree = "<group>"; };
+		A4D2278216AA8D3700BDE006 /* HKAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKAuthorization.m; path = ../HubKit/HKAuthorization.m; sourceTree = "<group>"; };
+		A4D2278516AA932600BDE006 /* HKAuthorizationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKAuthorizationSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +319,8 @@
 				A43E978316A6820800E05562 /* NSArray+HKExtensions.m */,
 				A42E5E4A16A27B2900BB5907 /* HKGitHubAPIKeys.h */,
 				A42E5E4B16A27B2900BB5907 /* HKGitHubAPIKeys.m */,
+				A4D2278116AA8D3600BDE006 /* HKAuthorization.h */,
+				A4D2278216AA8D3700BDE006 /* HKAuthorization.m */,
 			);
 			name = HubKit;
 			sourceTree = "<group>";
@@ -423,10 +431,11 @@
 		A4A3925116A4D528004A2878 /* HubKit-iOS-UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				A4B3C10216A7CBAB00643BF3 /* Fixtures */,
 				A4A3925216A4D528004A2878 /* Supporting Files */,
+				A4B3C10216A7CBAB00643BF3 /* Fixtures */,
 				A43E971C16A64C2200E05562 /* HubKitAuthorizationSpec.m */,
 				A4B3C10016A7C9F300643BF3 /* HubKitRepositorySpec.m */,
+				A4D2278516AA932600BDE006 /* HKAuthorizationSpec.m */,
 			);
 			path = "HubKit-iOS-UnitTests";
 			sourceTree = "<group>";
@@ -598,6 +607,7 @@
 				A43E978016A67E5500E05562 /* HKUser.m in Sources */,
 				A43E978416A6820800E05562 /* NSArray+HKExtensions.m in Sources */,
 				A4B3C0FE16A7B38A00643BF3 /* HubKit.m in Sources */,
+				A4D2278316AA8D3700BDE006 /* HKAuthorization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +635,8 @@
 				A4B3C0FF16A7C67C00643BF3 /* HubKit.m in Sources */,
 				A4B3C10116A7C9F300643BF3 /* HubKitRepositorySpec.m in Sources */,
 				A4B3C10616A7CE3700643BF3 /* HKFixtures.m in Sources */,
+				A4D2278416AA918800BDE006 /* HKAuthorization.m in Sources */,
+				A4D2278616AA932600BDE006 /* HKAuthorizationSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

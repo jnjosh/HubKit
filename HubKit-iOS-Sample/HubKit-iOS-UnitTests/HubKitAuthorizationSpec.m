@@ -36,9 +36,7 @@ describe(@"HubKit", ^{
         __block id client = nil;
         
         beforeEach(^{
-            client = [OCMockObject mockForClass:[HKHTTPClient class]];
-            [[client stub] setAuthorizationHeaderWithUsername:[OCMArg any] password:[OCMArg any]];
-            [[client stub] clearAuthorizationHeader];
+            client = [OCMockObject niceMockForClass:[HKHTTPClient class]];
         });
         
         it(@"should send request to authorizations", ^{
@@ -66,18 +64,6 @@ describe(@"HubKit", ^{
             
 		});
         
-        it(@"should not send to github if empty client id or secret is available", ^{
-           
-            [[client reject] postPath:OCMOCK_ANY parameters:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY];
- 
-            HubKit *github = [HKFixtures hubKitWithEmptyAuthorization];
-            [github setHttpClient:client];
-            
-            [github loginWithUser:@"user" password:@"password" completion:nil];
-            [client verify];
-            
-        });
-		
 	});
 	
 });

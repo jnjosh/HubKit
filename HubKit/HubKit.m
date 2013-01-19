@@ -23,10 +23,11 @@
 #import "HubKit.h"
 #import "HKHTTPClient.h"
 #import "HKKeychain.h"
+#import "HKAuthorization.h"
 
 @interface HubKit ()
 
-@property (nonatomic, strong, readwrite) AFHTTPClient *httpClient;
+@property (nonatomic, strong, readwrite) HKHTTPClient *httpClient;
 
 @end
 
@@ -34,7 +35,7 @@
 
 #pragma mark - Properties
 
-- (AFHTTPClient *)httpClient
+- (HKHTTPClient *)httpClient
 {
     if (! _httpClient) {
         _httpClient = [[HKHTTPClient alloc] init];
@@ -44,13 +45,15 @@
 
 #pragma mark - Authorization
 
-- (NSDictionary *)authorizationDictionary
+- (void)setAuthorizationClientId:(NSString *)clientId
+                          secret:(NSString *)clientSecret
+                 requestedScopes:(NSArray *)scopes
 {
-    return @{
-        @"client_id"     : self.authorizationClientId,
-        @"client_secret" : self.authorizationClientSecret,
-        @"scopes"        : self.authorizationScopes
-    };
+    HKAuthorization *authorization = [HKAuthorization new];
+    [authorization setClientId:clientId];
+    [authorization setClientSecret:clientSecret];
+    [authorization setScopes:scopes];
+    [self.httpClient setAuthorization:authorization];
 }
 
 - (void)setAuthorizationHeaderWithToken:(NSString *)token
@@ -72,13 +75,8 @@
              password:(NSString *)password
            completion:(HKGenericCompletionHandler)completion
 {
-    NSAssert(self.authorizationClientId != nil, @"Authorization Client ID is required");
-    NSAssert(self.authorizationClientSecret != nil, @"Authorization Client ID is required");
-    
-    if ([self.authorizationClientId length] == 0 || [self.authorizationClientSecret length] == 0) return;
-    
     [self.httpClient setAuthorizationHeaderWithUsername:username password:password];
-    [self.httpClient postPath:@"authorizations" parameters:[self authorizationDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.httpClient postPath:@"authorizations" parameters:[self.httpClient.authorization dictionaryRepresentation] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         NSString *token = responseDict[@"token"];
         
@@ -122,7 +120,7 @@
             completion(user, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (completion) {
+        if (completion) {   
             completion(nil, error);
         }
     }];

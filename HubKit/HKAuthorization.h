@@ -20,38 +20,30 @@
  SOFTWARE.
  */
 
-#import "HKHTTPClient.h"
+#import <Foundation/Foundation.h>
 
-@implementation HKHTTPClient {}
+extern NSString * const kHKAuthorizationKeyClientId;
+extern NSString * const kHKAuthorizationKeyClientSecret;
+extern NSString * const kHKAuthorizationKeyClientScopes;
 
-#pragma mark - Shared Instance
+@interface HKAuthorization : NSObject
 
-+ (instancetype)sharedClient
-{
-    static HKHTTPClient *sharedClient;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedClient = [[HKHTTPClient alloc] init];
-    });
-    
-    return sharedClient;
-}
+/** Application Client ID for authorizing against Github
+ * @see https://github.com/settings/applications
+ */
+@property (nonatomic, copy) NSString *clientId;
 
-#pragma mark - Life Cycle
+/** Application Client Secret for authorizing against Github
+ * @see https://github.com/settings/applications
+ */
+@property (nonatomic, copy) NSString *clientSecret;
 
-- (id)init
-{
-    NSURL *base = [NSURL URLWithString:kHKGithubAPIBaseURLString];
-    
-    if (self = [super initWithBaseURL:base]) {
-        [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-        [self setDefaultHeader:@"Accept" value:@"application/json"];
-        [self setParameterEncoding:AFJSONParameterEncoding];
-    }
-    return self;
-}
+/** Authorization Scope specifying the access you are asking for on the user's github account
+ * @see http://developer.github.com/v3/oauth/#scopes
+ */
+@property (nonatomic, strong) NSArray *scopes;
 
-
+/** Authorization represented as a dictionary **/
+- (NSDictionary *)dictionaryRepresentation;
 
 @end

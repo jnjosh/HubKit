@@ -30,6 +30,12 @@
 extern NSString * const kHKGithubAPIBaseURLString;
 extern NSString * const kHKHubKitErrorDomain;
 
+#pragma mark - Types
+
+typedef void(^HKGenericCompletionHandler)(NSError *error);
+typedef void(^HKObjectCompletionHandler)(id object, NSError *error);
+typedef void(^HKArrayCompletionHandler)(NSArray *collection, NSError *error);
+
 #pragma mark - User Defaults Keys
 
 extern NSString * const kHKCurrentUserIDKey;

@@ -26,31 +26,19 @@
 #import "NSArray+HKExtensions.h"
 #import "NSDictionary+HKExtensions.h"
 
-typedef void(^HKGenericCompletionHandler)(NSError *error);
-typedef void(^HKObjectCompletionHandler)(id object, NSError *error);
-typedef void(^HKArrayCompletionHandler)(NSArray *collection, NSError *error);
-
-@class AFHTTPClient;
+@class HKHTTPClient;
 
 @interface HubKit : NSObject
 
-/** Application Client ID for authorizing against Github
- * @see https://github.com/settings/applications
- */
-@property (nonatomic, copy) NSString *authorizationClientId;
-
-/** Application Client Secret for authorizing against Github
- * @see https://github.com/settings/applications
- */
-@property (nonatomic, copy) NSString *authorizationClientSecret;
-
-/** Authorization Scope specifying the access you are asking for on the user's github account
- * @see http://developer.github.com/v3/oauth/#scopes
- */
-@property (nonatomic, strong) NSArray *authorizationScopes;
-
 /** HTTP Client for connecting to web resources */
-@property (nonatomic, strong, readonly) AFHTTPClient *httpClient;
+@property (nonatomic, strong, readonly) HKHTTPClient *httpClient;
+
+/** Setup HubKit with the required client configuration to make authenticated requests against GitHub
+ * @discussion These values are required
+ */
+- (void)setAuthorizationClientId:(NSString *)clientId
+                          secret:(NSString *)clientSecret
+                 requestedScopes:(NSArray *)scopes;
 
 /** Use Basic Authorization to obtain a scoped access token from the GitHub authorization API
  * @discussion This method is part of the non-web authorization flow discussed in the GitHub
