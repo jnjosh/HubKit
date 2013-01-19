@@ -4,7 +4,7 @@
 
 HubKit is a GitHub API client written in Objective-C, intended for use on iOS. It provides a native wrapper around the GitHub API based on [AFNetworking][afn].
 
-## Setting up for Develompent / Contributing
+## Setting up for Development / Contributing
 
 HubKit uses several RubyGems an Rakefiles to perform command line setup of the project, automated unit testing, and tools for building and installing documentation. To run these scripts, you'll need to have several tools installed. 
 
