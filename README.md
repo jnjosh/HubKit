@@ -2,32 +2,54 @@
 
 *A GitHub API wrapper from [rpwll](http://github.com/rpwll) and [jnjosh](http://github.com/jnjosh).*
 
-HubKit is a GitHub API client written in Objective-C, intended for use on iOS. It provides a native wrapper around the GitHub API based on [AFNetworking][afn] as well as offline data persistence using Core Data.
+HubKit is a GitHub API client written in Objective-C, intended for use on iOS. It provides a native wrapper around the GitHub API based on [AFNetworking][afn].
 
 ## Setting up for Develompent / Contributing
 
-HubKit uses Ruby's Rakefile to perform command line setup of the project and therefore requires Ruby. If you don't already have Bundler, install it via RubyGems:
+HubKit uses several RubyGems an Rakefiles to perform command line setup of the project, automated unit testing, and tools for building and installing documentation. To run these scripts, you'll need to have several tools installed. 
 
-    gem install bundler
+### I've heard of Ruby, but haven't used it. How do I get these tools setup? ###
 
-Once you have bundler installed, you can continue to run the tools to setup your development environment:
+If you identify yourself as a Rubyist or already have Ruby configured feel free to skip ahead to the [next section](#rubyist).
 
-Clone the repository from Github:
+Luckily, you already have Ruby installed on your Mac.
+
+You should also have [Homebrew](http://mxcl.github.com/homebrew) installed. It is good for you and we'll be using it to install some tools later. It is a package manager for OS X and will help get you setup. To install run the following command in terminal:
+
+    $> ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+
+You will now be able to install and manage many great packages. You'll have a good time. Check out the [Homebrew website](http://mxcl.github.com/homebrew/) for more.
+
+<a name="#rubyist" /a>
+### Configure for Contributing, Testing, or Development
+
+If you don't already have Bundler, install it via RubyGems:
+
+    $> gem install bundler
+
+Bundler will allow make sure you have all the required libraries used so you don't have to. Once you have bundler installed, you can continue to run the tools to setup your development environment.
+
+First, you need the code! Clone the HubKit repository from Github:
     
-    https://github.com/HubKit/HubKit.git
+    $> git clone https://github.com/HubKit/HubKit.git
 
-Install all the gems required.
+Next, tell bundler to install all the gems required. If you are curious which we are using, check out `Gemfile` in the project directory. Paste this in your Terminal:
 
-    bundle install
+    $> bundle install
 
-Install all submodules and prepare for development:
+Next, we'll use the `rake` to setup you project for Xcode. This will install all the required git submodules, configure the testing environment and more. To begin, paste this in your Terminal:
 
-    rake setup
+    $> rake setup
 
-### Be sure to open the project from the workspace file: OctoKit-Sample.xcworkspace
+__Congrats! You are all ready to go. A couple things to keep in mind:__
 
-Additional Rake task:
+Be sure to open the project from the workspace file: 
 
+    HubKit-Sample.xcworkspace
+
+Rake isn't there just to setup, you can use it to do more. Here are all the additional Rake tasks:
+
+    rake docs:generate  # Generate and install Xcode documentation
     rake test:all     # All Unit Tests
     rake test:ios     # iOS Unit Tests
     rake tools:setup  # Setup For Development
@@ -36,30 +58,61 @@ Additional Rake task:
 
 Testing can be performed in Xcode using the ⌘U keyboard shortcut from within Xcode or using the `rake test` script from the project directory
 
-## Setting up OctoKit
+## Setting up HubKit for your project
 
-First you're going to need AFNetworking, so visit [their repo's page][afn] and follow the setup instructions.
+You'll need to have [AFNetworking](http://afnetworking.com) installed in your project. To set that up, you can add it as a submodule from the [github repository][afn] or by using [CocoaPods](http://cocoapods.org).
 
-With that done, you'll need to clone HubKit into your project's directory, I recommend using git submodules for this, keeping the code in a *Vendor* directory:
+### Setting up via Git Submodule
 
+Clone the project as a submodule with git. The following command will install HubKit in the `Vendor/HubKit` directory.
+
+    $> git submodule add git://github.com/HubKit/HubKit.git Vendor/HubKit
+
+After cloning the submodule, you'll need to add HubKit's project files to your Xcode project. You can find these files under the 'HubKit' directory.
+
+With that all done, you should be ready to use HubKit, see the [usage](#usage) section to see how to use it.
+
+### Setting up via CocoaPods
+
+TODO - We are still in development so adding to CocoaPods right now doesn't make sense. 
+
+## Usage
+
+Create an instance of HubKit, setup the required fields for authorization:
+
+```objective-c
+HubKit *github = [HubKit new];
+github.authorizationClientId = <# Client ID #>;
+github.authorizationClientSecret = <# Client Secret #>;
+github.authorizationScopes = @[
+    HKGithubAuthorizationScopes.user,
+    HKGithubAuthorizationScopes.repo
+];
 ```
-$ mkdir Vendor
-$ git submodule add git://github.com/HubKit/HubKit.git Vendor/HubKit
+
+When logging in, send the `-[HubKit loginWithUser:password:completion:]` message to the github client:
+
+```objective-c
+[github loginWithUser:@"user" password:@"password" completion:^(NSError *error) {
+    // Logged in and ready to ask for GitHub resources. The error argument is sent if something goes wrong, otherwise it is nil.
+}];
 ```
 
-With the repository cloned, `cd` into HubKit's directory and run the included Rakefile to setup dummy API key files:
+Now that you are logged in, you can access resources on GitHub:
 
+```objective-c
+[github getAuthenticatedUserReposWithCompletion:^(NSArray *collection, NSError *error) {
+    // Access the repos via collections
+}];
 ```
-$ cd Vendor/HubKit
-$ rake
-```
 
-**Note:** These next few steps are a little convoluted, we're working to improve HubKit's setup process.
+## Contact
 
-With those files generated, you can add OctoKit to your project. You'll want to add every file in the *HubKit* directory to your project **except** for `HKGitHubAPIKeysExample.h` and `HKGitHubAPIKeysExample.m`. Also ensure that you add these files to the desired build target.
+- [Rhys Powell](http://github.com/rpwll)
+- [Josh Johnson](http://github.com/jnjosh)
 
-Finally, you'll need to open `HubKit.xcdatamodeld` in Xcode, open the File inspector (⌥⌘1) and under *Target Membership*, check your project's build target.
+## License
 
-With that all done, you should be ready to use HubKit.
+HubKit is MIT Licensed. See the LICENSE file for more information.
 
 [afn]: https://github.com/AFNetworking/AFNetworking

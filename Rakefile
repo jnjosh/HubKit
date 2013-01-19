@@ -13,8 +13,8 @@ namespace :tools do
     `git submodule update --init --recursive`
 
     puts '* Copying example HKGitHubAPIKeys into place...'.cyan
-    `cp HubKit/HKGitHubAPIKeysExample.h HubKit/HKGitHubAPIKeys.h`
-    `cp HubKit/HKGitHubAPIKeysExample.m HubKit/HKGitHubAPIKeys.m`
+    `cp Scripts/HKGitHubAPIKeysExample.h HubKit/HKGitHubAPIKeys.h`
+    `cp Scripts/HKGitHubAPIKeysExample.m HubKit/HKGitHubAPIKeys.m`
 
     puts '* Configuring Testing Libraries (Specta/Expecta)'.cyan
     `cd \"Vendor/Specta\" ; rake`
