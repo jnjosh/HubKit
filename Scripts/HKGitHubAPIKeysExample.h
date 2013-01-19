@@ -19,12 +19,8 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
  */
+ 
+#import <Foundation/Foundation.h>
 
-#import "HubKit.h"
-#import "HKHTTPClient.h"
-
-@interface HubKit (HKTestingExtension)
-
-@property (nonatomic, strong, readwrite) HKHTTPClient *httpClient;
-
-@end
+extern NSString * const kHKGtHubClientID;
+extern NSString * const kHKGtHubClientSecret;

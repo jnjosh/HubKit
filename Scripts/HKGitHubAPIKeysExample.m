@@ -20,11 +20,9 @@
  SOFTWARE.
  */
 
-#import "HubKit.h"
-#import "HKHTTPClient.h"
+#import "HKGitHubAPIKeys.h"
 
-@interface HubKit (HKTestingExtension)
+#error Github will require your application's client id and secret. You can create these at https://github.com/settings/applications
 
-@property (nonatomic, strong, readwrite) HKHTTPClient *httpClient;
-
-@end
+NSString * const kHKGtHubClientID = @"YOUR_CLIENT_ID";
+NSString * const kHKGtHubClientSecret = @"YOUR_CLIENT_SECRET";
