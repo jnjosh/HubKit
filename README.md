@@ -41,6 +41,10 @@ Next, we'll use the `rake` to setup you project for Xcode. This will install all
 
     $> rake setup
 
+Finally, to create and install documentation you'll need the appledoc tool installed. To install, run this command:
+
+    $> brew install appledoc
+
 __Congrats! You are all ready to go. A couple things to keep in mind:__
 
 Be sure to open the project from the workspace file: 
