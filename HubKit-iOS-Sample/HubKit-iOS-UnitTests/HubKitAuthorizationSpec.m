@@ -40,10 +40,7 @@ describe(@"HubKit", ^{
         });
         
         it(@"should send request to authorizations", ^{
-            
-            [[client expect] postPath:[OCMArg checkWithBlock:^BOOL(id argument) {
-                return [argument isEqualToString:@"authorizations"];
-            }] parameters:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY];
+            [[client expect] createAuthorizationWithUsername:OCMOCK_ANY password:OCMOCK_ANY completion:OCMOCK_ANY];
             
             HubKit *github = [HKFixtures hubKit];
             [github setHttpClient:client];
@@ -53,15 +50,13 @@ describe(@"HubKit", ^{
         });
 		
 		it(@"should send request to github", ^{
-            
-            [[client expect] postPath:OCMOCK_ANY parameters:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY];
+            [[client expect] createAuthorizationWithUsername:OCMOCK_ANY password:OCMOCK_ANY completion:OCMOCK_ANY];
 
             HubKit *github = [HKFixtures hubKit];
             [github setHttpClient:client];
             
             [github loginWithUser:@"user" password:@"password" completion:nil];
             [client verify];
-            
 		});
         
 	});
