@@ -87,7 +87,7 @@
     if (! [HKUser currentUser]) {
         [self loginUser];
     } else {
-        [self.githubClient getAuthenticatedUserReposWithCompletion:^(NSArray *collection, NSError *error) {
+        [self.githubClient getCurrentUserReposWithCompletion:^(NSArray *collection, NSError *error) {
             if (! error) {
                 self.tableItems = [collection map:^id(id object) {
                     NSDictionary *repo = object;

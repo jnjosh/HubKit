@@ -75,7 +75,7 @@
                 [[NSUserDefaults standardUserDefaults] setObject:username forKey:kHKCurrentUserIDKey];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 
-                [self getAuthenticatedUserWithCompletion:^(id userObject, NSError *userError) {
+                [self getCurrentUserWithCompletion:^(id userObject, NSError *userError) {
                     if (completion) {
                         completion(userError);
                     }
@@ -94,7 +94,7 @@
 
 #pragma mark - GitHub API User
 
-- (void)getAuthenticatedUserWithCompletion:(HKObjectCompletionHandler)completion
+- (void)getCurrentUserWithCompletion:(HKObjectCompletionHandler)completion
 {
     [self.httpClient getAuthenticatedUserWithCompletion:^(id object, NSError *error) {
         if (! error) {
@@ -114,9 +114,20 @@
 
 #pragma mark - GitHub API Repos
 
-- (void)getAuthenticatedUserReposWithCompletion:(HKArrayCompletionHandler)completion
+- (void)getCurrentUserReposWithCompletion:(HKArrayCompletionHandler)completion
 {
     [self.httpClient getAuthenticatedUserReposWithCompletion:^(NSArray *collection, NSError *error) {
+        // TODO: Needs to be mapped to model objects
+        
+        if (completion) {
+            completion(collection, error);
+        }
+    }];
+}
+
+- (void)getCurrentUserStarredReposWithCompletion:(HKArrayCompletionHandler)completion
+{
+    [self.httpClient getAuthenticatedUserStarredReposWithCompletion:^(NSArray *collection, NSError *error) {
         // TODO: Needs to be mapped to model objects
         
         if (completion) {
@@ -132,17 +143,6 @@
 
         if (completion) {
             completion(object, error);
-        }
-    }];
-}
-
-- (void)getAuthenticatedUserStarredReposWithCompletion:(HKArrayCompletionHandler)completion
-{
-    [self.httpClient getAuthenticatedUserStarredReposWithCompletion:^(NSArray *collection, NSError *error) {
-        // TODO: Needs to be mapped to model objects
-
-        if (completion) {
-            completion(collection, error);
         }
     }];
 }

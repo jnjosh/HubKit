@@ -51,17 +51,17 @@
 /** Use an the access token in the keychain to get the currently authenticated user
  * @param completion A single object style completion block that is sent an instance of class HKUser on completion
  */
-- (void)getAuthenticatedUserWithCompletion:(HKObjectCompletionHandler)completion;
+- (void)getCurrentUserWithCompletion:(HKObjectCompletionHandler)completion;
 
 /** Get all repositories for the currently authenticated user
  * @param completion An array style completion block that is sent a collection of repository dictionaries
  */
-- (void)getAuthenticatedUserReposWithCompletion:(HKArrayCompletionHandler)completion;
+- (void)getCurrentUserReposWithCompletion:(HKArrayCompletionHandler)completion;
 
 /** Get all starred repositories for the currently authenticated user
  * @param completion An array style completion block that is sent a collection of repository dictionaries
  */
-- (void)getAuthenticatedUserStarredReposWithCompletion:(HKArrayCompletionHandler)completion;
+- (void)getCurrentUserStarredReposWithCompletion:(HKArrayCompletionHandler)completion;
 
 /** Get the specified repository for the specified user
  * @param completion An single object style completion block that is sent the repository dictionary

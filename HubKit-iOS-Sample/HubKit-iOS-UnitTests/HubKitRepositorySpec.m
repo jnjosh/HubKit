@@ -45,7 +45,7 @@ describe(@"HubKit Repository", ^{
             HubKit *github = [HKFixtures hubKit];
             [github setHttpClient:client];
             
-            [github getAuthenticatedUserReposWithCompletion:nil];
+            [github getCurrentUserReposWithCompletion:nil];
 
             expect([^{ [client verify]; } copy]).toNot.raiseAny();
         });
@@ -58,7 +58,7 @@ describe(@"HubKit Repository", ^{
             HubKit *github = [HKFixtures hubKit];
             [github setHttpClient:client];
             
-            [github getAuthenticatedUserStarredReposWithCompletion:nil];
+            [github getCurrentUserStarredReposWithCompletion:nil];
             
             expect([^{ [client verify]; } copy]).toNot.raiseAny();
         });
