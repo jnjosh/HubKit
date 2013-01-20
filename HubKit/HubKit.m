@@ -33,6 +33,18 @@
 
 @implementation HubKit {}
 
+#pragma mark - Shared Instance
+
++ (instancetype)sharedInstance
+{
+    static dispatch_once_t onceToken;
+    static HubKit *hk_sharedInstance = nil;
+    dispatch_once(&onceToken, ^{
+        hk_sharedInstance = [[HubKit alloc] init];
+    });
+    return hk_sharedInstance;
+}
+
 #pragma mark - Properties
 
 - (HKHTTPClient *)httpClient

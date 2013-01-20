@@ -26,20 +26,6 @@
 
 @implementation HKHTTPClient {}
 
-#pragma mark - Shared Instance
-
-+ (instancetype)sharedClient
-{
-    static HKHTTPClient *sharedClient;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedClient = [[HKHTTPClient alloc] init];
-    });
-    
-    return sharedClient;
-}
-
 #pragma mark - Life Cycle
 
 - (id)init

@@ -30,6 +30,9 @@
 
 @interface HubKit : NSObject
 
+/** Shared Instance of HubKit */
++ (instancetype)sharedInstance;
+
 /** HTTP Client for connecting to web resources */
 @property (nonatomic, strong, readonly) HKHTTPClient *httpClient;
 

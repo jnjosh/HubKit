@@ -25,11 +25,18 @@
 
 @class HKAuthorization;
 
+/** HTTP Client for communicating directly resources in the GitHub v3 API. 
+ *
+ * @discussion The pattern for naming methods should be along the lines of:
+ *
+ *  -- create<ResourceName><Arguments> for actions that POST
+ *  -- get<ResourceName><Arguments> for actions that GET
+ *  -- update<ResourceName><Arguments> for actions the PATCH
+ *  -- delete<ResourceName><Arguments> for actions the DELETE
+ */
 @interface HKHTTPClient : AFHTTPClient
 
 @property (nonatomic, strong) HKAuthorization *authorization;
-
-+ (instancetype)sharedClient;
 
 /** Use Basic Authorization to obtain a scoped access token from the GitHub authorization API
  * @discussion This method is part of the non-web authorization flow discussed in the GitHub
