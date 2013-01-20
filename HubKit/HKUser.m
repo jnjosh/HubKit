@@ -8,7 +8,6 @@
 
 #import "HKUser.h"
 #import "HKDefines.h"
-#import "HKKeychain.h"
 
 static HKUser *hk_sharedUser = nil;
 
@@ -24,10 +23,6 @@ static HKUser *hk_sharedUser = nil;
 
 + (void)setCurrentUser:(HKUser *)user
 {
-    [[NSUserDefaults standardUserDefaults] setObject:user.login forKey:kHKCurrentUserIDKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [HKKeychain storeAuthenticationToken:user.accessToken userAccount:user.login];
     hk_sharedUser = user;
 }
 
@@ -36,9 +31,7 @@ static HKUser *hk_sharedUser = nil;
     if (! hk_sharedUser) {
         NSString *login = [[NSUserDefaults standardUserDefaults] objectForKey:kHKCurrentUserIDKey];
         if (login) {
-            NSString *token = [HKKeychain authenticationTokenForAccount:login];
             hk_sharedUser = [HKUser userWithDictionaryRepresentation:@{ @"login" : login }];
-            [hk_sharedUser setAccessToken:token];
         }
     }
     return hk_sharedUser;

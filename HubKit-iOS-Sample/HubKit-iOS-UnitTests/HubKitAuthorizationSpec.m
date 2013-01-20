@@ -20,8 +20,8 @@
  SOFTWARE.
  */
 
-#import "Specta.h"
 #define EXP_SHORTHAND
+#import "Specta.h"
 #import "Expecta.h"
 #import <OCMock/OCMock.h>
 #import "HubKit+HKExtensions.h"

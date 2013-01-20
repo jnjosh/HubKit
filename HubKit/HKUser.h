@@ -24,7 +24,6 @@
 
 @interface HKUser : NSObject
 
-@property (nonatomic, copy) NSString *accessToken;
 @property (nonatomic, readonly) NSString *login;
 
 + (instancetype)userWithDictionaryRepresentation:(NSDictionary *)dictionary;

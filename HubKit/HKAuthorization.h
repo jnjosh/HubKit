@@ -26,6 +26,11 @@ extern NSString * const kHKAuthorizationKeyClientId;
 extern NSString * const kHKAuthorizationKeyClientSecret;
 extern NSString * const kHKAuthorizationKeyClientScopes;
 
+/** HKAuthorization represents a GitHub authorization object and the authorizations API.
+ * This API, according to the documentation can only be accessed through Basic authorization 
+ * meaning any request to this API will need a user name and password
+ * @see http://developer.github.com/v3/oauth/#oauth-authorizations-api
+ */
 @interface HKAuthorization : NSObject
 
 /** Application Client ID for authorizing against Github
@@ -38,12 +43,15 @@ extern NSString * const kHKAuthorizationKeyClientScopes;
  */
 @property (nonatomic, copy) NSString *clientSecret;
 
+/** Access token required to make future requests against the GitHub API */
+@property (nonatomic, copy) NSString *token;
+
 /** Authorization Scope specifying the access you are asking for on the user's github account
  * @see http://developer.github.com/v3/oauth/#scopes
  */
 @property (nonatomic, strong) NSArray *scopes;
 
-/** Authorization represented as a dictionary **/
+/** Dictionary representing the authorization request **/
 - (NSDictionary *)dictionaryRepresentation;
 
 @end

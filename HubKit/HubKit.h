@@ -34,50 +34,37 @@
 @property (nonatomic, strong, readonly) HKHTTPClient *httpClient;
 
 /** Setup HubKit with the required client configuration to make authenticated requests against GitHub
- * @discussion These values are required
+ * @discussion These values are required.
  */
-- (void)setAuthorizationClientId:(NSString *)clientId
-                          secret:(NSString *)clientSecret
-                 requestedScopes:(NSArray *)scopes;
+- (void)setApplicationClientId:(NSString *)clientId
+                        secret:(NSString *)clientSecret
+               requestedScopes:(NSArray *)scopes;
 
 /** Use Basic Authorization to obtain a scoped access token from the GitHub authorization API
  * @discussion This method is part of the non-web authorization flow discussed in the GitHub
  *             API documentation.
- * @endpoint /authorizations
  */
 - (void)loginWithUser:(NSString *)username
              password:(NSString *)password
            completion:(HKGenericCompletionHandler)completion;
 
-/** Use an access token to get the currently authenticated user
- * @param token The token retrieved from loginWithUser:password:completion:
- * @param completion A single object style completion block that is sent an instance of class HKUser on completion
- * @endpoint /user
- */
-- (void)getAuthenticatedUserWithToken:(NSString *)token
-                           completion:(HKObjectCompletionHandler)completion;
-
 /** Use an the access token in the keychain to get the currently authenticated user
  * @param completion A single object style completion block that is sent an instance of class HKUser on completion
- * @endpoint /user
  */
 - (void)getAuthenticatedUserWithCompletion:(HKObjectCompletionHandler)completion;
 
 /** Get all repositories for the currently authenticated user
  * @param completion An array style completion block that is sent a collection of repository dictionaries
- * @endpoint /user/repos
  */
 - (void)getAuthenticatedUserReposWithCompletion:(HKArrayCompletionHandler)completion;
 
 /** Get all starred repositories for the currently authenticated user
  * @param completion An array style completion block that is sent a collection of repository dictionaries
- * @endpoint /user/starred
  */
 - (void)getAuthenticatedUserStarredReposWithCompletion:(HKArrayCompletionHandler)completion;
 
 /** Get the specified repository for the specified user
  * @param completion An single object style completion block that is sent the repository dictionary
- * @endpoint /repos/{user}/{repo}
  */
 - (void)getRepositoryWithName:(NSString *)repositoryName
                          user:(NSString *)userName

@@ -20,8 +20,8 @@
  SOFTWARE.
  */
 
-#import "Specta.h"
 #define EXP_SHORTHAND
+#import "Specta.h"
 #import "Expecta.h"
 #import "HKAuthorization.h"
 
@@ -78,7 +78,7 @@ describe(@"HKAuthorization", ^{
             expect([authorization dictionaryRepresentation]).toNot.beNil();
         });
         
-        it(@"should create a dictionary properly keyed", ^{
+        it(@"should create properly keyed dictionary representation", ^{
             NSDictionary *actualDictionary = [authorization dictionaryRepresentation];
             expect([actualDictionary objectForKey:kHKAuthorizationKeyClientId]).to.equal(expectedId);
             expect([actualDictionary objectForKey:kHKAuthorizationKeyClientSecret]).to.equal(expectedSecret);

@@ -14,14 +14,14 @@
 + (HubKit *)hubKit
 {
     HubKit *github = [HubKit new];
-    [github setAuthorizationClientId:@"testing-id" secret:@"testing-secret" requestedScopes:@[]];
+    [github setApplicationClientId:@"testing-id" secret:@"testing-secret" requestedScopes:@[]];
     return github;
 }
 
 + (HubKit *)hubKitWithEmptyAuthorization
 {
     HubKit *github = [HubKit new];
-    [github setAuthorizationClientId:@"" secret:@"" requestedScopes:@[]];
+    [github setApplicationClientId:@"" secret:@"" requestedScopes:@[]];
     return github;
 }
 
