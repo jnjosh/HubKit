@@ -24,4 +24,12 @@
 
 @implementation HKCannedDataSource
 
+- (id)init
+{
+    if (self = [super init]) {
+        _statusCode = 200;
+    }
+    return self;
+}
+
 @end

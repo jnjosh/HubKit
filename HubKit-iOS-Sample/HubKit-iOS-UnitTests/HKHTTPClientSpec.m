@@ -23,69 +23,177 @@
 #define EXP_SHORTHAND
 #import "Specta.h"
 #import "Expecta.h"
-
 #import "HKHTTPClient.h"
 #import "HKURLTestProtocol.h"
 #import "HKCannedDataSource.h"
+#import "HKFixtures.h"
 
 SpecBegin(HKHTTPClient)
 
 describe(@"HKHTTPClient", ^{
-   
+    
+    __block HKURLTestProtocol *sharedProtocol = nil;
+    __block HKHTTPClient *client = nil;
+    
     beforeAll(^{
+        sharedProtocol = [HKURLTestProtocol sharedInstance];
         [NSURLProtocol registerClass:[HKURLTestProtocol class]];
+        
+        client = [[HKHTTPClient alloc] init];
     });
     
-    it(@"should getAuthenticatedUserWithCompletion", ^{
-        HKCannedDataSource *datasource = [HKCannedDataSource new];
-        datasource.responseDictionary = @{ @"somekey": @"somevalue" };
-        datasource.statusCode = 200;
-        [[HKURLTestProtocol sharedInstance] setDataSource:datasource];
+    context(@"when connecting to the authorizations api", ^{
         
-        __block volatile BOOL didCall = NO;
-        HKHTTPClient *client = [[HKHTTPClient alloc] init];
-        [client getAuthenticatedUserWithCompletion:^(id object, NSError *error) {
-            if (object) {
-                didCall = ([object objectForKey:@"somekey"] != nil);
-            }
-        }];
+        it(@"should get authorization object when creating new authorization", ^{
+            HKCannedDataSource *dataSource = [HKCannedDataSource new];
+            dataSource.responseObject = [HKFixtures cannedAuthorizationResponse];
+            sharedProtocol.dataSource = dataSource;
+
+            __block id actualObject = nil;
+            __block id actualError = nil;
+            [client createAuthorizationWithUsername:@"USER" password:@"PASSWORD" completion:^(id object, NSError *error) {
+                actualObject = object;
+                actualError = error;
+            }];
+            
+            expect(actualObject).willNot.beNil();
+            expect(actualError).will.beNil();
+            expect(actualObject).will.beKindOf([NSDictionary class]);
+            
+            NSString *checkKey = @"token";
+            expect([actualObject objectForKey:checkKey]).will.equal([dataSource.responseObject objectForKey:checkKey]);
+        });
         
-        expect(didCall).will.equal(YES);
+        it(@"should get an error object when failing to create a new authorization", ^{
+            HKCannedDataSource *dataSource = [HKCannedDataSource new];
+            dataSource.error = [HKFixtures cannedError];
+            sharedProtocol.dataSource = dataSource;
+            
+            __block id actualObject = nil;
+            __block id actualError = nil;
+            [client createAuthorizationWithUsername:@"USER" password:@"PASSWORD" completion:^(id object, NSError *error) {
+                actualObject = object;
+                actualError = error;
+            }];
+            
+            expect(actualObject).will.beNil();
+            expect(actualError).willNot.beNil();
+        });
         
     });
     
-    it(@"should error when posting a login and recieving a 400 status code", ^{
-        HKCannedDataSource *datasource = [HKCannedDataSource new];
-        datasource.error = [NSError errorWithDomain:kHKHubKitErrorDomain code:101 userInfo:nil];
-        [[HKURLTestProtocol sharedInstance] setDataSource:datasource];
+    context(@"when connecting to the currently authenticated user", ^{
+
+        it(@"should get the authenticated user object", ^{
+            HKCannedDataSource *dataSource = [HKCannedDataSource new];
+            dataSource.responseObject = [HKFixtures cannedUserResponse];
+            sharedProtocol.dataSource = dataSource;
+            
+            __block id actualObject = nil;
+            __block id actualError = nil;
+            [client getAuthenticatedUserWithCompletion:^(id object, NSError *error) {
+                actualObject = object;
+                actualError = error;
+            }];
+            
+            expect(actualObject).willNot.beNil();
+            expect(actualObject).will.beKindOf([NSDictionary class]);
+            expect(actualError).will.beNil();
+
+            NSString *checkKey = @"login";
+            expect([actualObject objectForKey:checkKey]).will.equal([dataSource.responseObject objectForKey:checkKey]);
+        });
         
-        __block volatile BOOL didCall = NO;
-        HKHTTPClient *client = [[HKHTTPClient alloc] init];
-        [client createAuthorizationWithUsername:@"josh" password:@"password" completion:^(id object, NSError *error) {
-            if ([[error domain] isEqualToString:kHKHubKitErrorDomain]) {
-                didCall = YES;
-            }
-        }];
-        
-        expect(didCall).will.equal(YES);
-        
+        it(@"should get an error object when failing to get user object", ^{
+            HKCannedDataSource *dataSource = [HKCannedDataSource new];
+            dataSource.error = [HKFixtures cannedError];
+            sharedProtocol.dataSource = dataSource;
+
+            __block id actualObject = nil;
+            __block id actualError = nil;
+            [client getAuthenticatedUserWithCompletion:^(id object, NSError *error) {
+                actualObject = object;
+                actualError = error;
+            }];
+            
+            expect(actualObject).will.beNil();
+            expect(actualError).willNot.beNil();
+        });
+    
+        it(@"should get repositories of the authenticated user", ^{
+            HKCannedDataSource *dataSource = [HKCannedDataSource new];
+            dataSource.responseObject = [HKFixtures cannedRepositoryCollectionResponse];
+            sharedProtocol.dataSource = dataSource;
+            
+            __block id actualObject = nil;
+            __block id actualError = nil;
+            [client getAuthenticatedUserReposWithCompletion:^(id object, NSError *error) {
+                actualObject = object;
+                actualError = error;
+            }];
+            
+            expect(actualObject).willNot.beNil();
+            expect(actualObject).will.beKindOf([NSArray class]);
+            expect(actualError).will.beNil();
+        });
+
+        it(@"should get starred repositories of the authenticated user", ^{
+            HKCannedDataSource *dataSource = [HKCannedDataSource new];
+            dataSource.responseObject = [HKFixtures cannedRepositoryCollectionResponse];
+            sharedProtocol.dataSource = dataSource;
+            
+            __block id actualObject = nil;
+            __block id actualError = nil;
+            [client getAuthenticatedUserStarredReposWithCompletion:^(id object, NSError *error) {
+                actualObject = object;
+                actualError = error;
+            }];
+            
+            expect(actualObject).willNot.beNil();
+            expect(actualObject).will.beKindOf([NSArray class]);
+            expect(actualError).will.beNil();
+        });
+
     });
     
-    it(@"should post login", ^{
-        HKCannedDataSource *datasource = [HKCannedDataSource new];
-        datasource.responseDictionary = @{ @"somekey": @"somevalue" };
-        datasource.statusCode = 200;
-        [[HKURLTestProtocol sharedInstance] setDataSource:datasource];
+    context(@"when connecting to repositories", ^{
+
+        it(@"should get a repository with name and user", ^{
+            HKCannedDataSource *dataSource = [HKCannedDataSource new];
+            dataSource.responseObject = [HKFixtures cannedRepositoryResponse];
+            sharedProtocol.dataSource = dataSource;
+            
+            __block id actualObject = nil;
+            __block id actualError = nil;
+            [client getRepositoryWithName:@"REPO" user:@"USER" completion:^(id object, NSError *error) {
+                actualObject = object;
+                actualError = error;
+            }];
+            
+            expect(actualObject).willNot.beNil();
+            expect(actualObject).will.beKindOf([NSDictionary class]);
+            expect(actualError).will.beNil();
+            
+            NSString *checkKey = @"name";
+            expect([actualObject objectForKey:checkKey]).will.equal([dataSource.responseObject objectForKey:checkKey]);
+        });
         
-        __block volatile BOOL didCall = NO;
-        HKHTTPClient *client = [[HKHTTPClient alloc] init];
-        [client createAuthorizationWithUsername:@"josh" password:@"password" completion:^(id object, NSError *error) {
-            if (! error) {
-                didCall = YES;
-            }
-        }];
-        
-        expect(didCall).will.equal(YES);
+        it(@"should get an error object when failing to get user object", ^{
+            HKCannedDataSource *dataSource = [HKCannedDataSource new];
+            dataSource.error = [HKFixtures cannedError];
+            sharedProtocol.dataSource = dataSource;
+            
+            __block id actualObject = nil;
+            __block id actualError = nil;
+            [client getRepositoryWithName:@"REPO" user:@"USER" completion:^(id object, NSError *error) {
+                actualObject = object;
+                actualError = error;
+            }];
+            
+            expect(actualObject).will.beNil();
+            expect(actualError).willNot.beNil();
+        });
+
     });
     
     afterAll(^{

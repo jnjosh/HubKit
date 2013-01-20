@@ -38,6 +38,8 @@ NSString * const kHKURLTestProtocolHTTPVersion = @"HTTP/1.1";
     return hk_sharedProtocol;
 }
 
+#pragma mark - NSURLProtocol
+
 + (BOOL)canInitWithRequest:(NSURLRequest *)request
 {
     return YES;
@@ -56,40 +58,47 @@ NSString * const kHKURLTestProtocolHTTPVersion = @"HTTP/1.1";
 - (void)startLoading
 {
     HKCannedDataSource *datasource = [[HKURLTestProtocol sharedInstance] dataSource];
-    
     if ([datasource error]) {
-        [self loadCannedError];
-    } else if ([datasource responseDictionary]) {
-        [self loadCannedResponse];
+        [self loadCannedErrorFromDatasource:datasource];
+    } else if ([datasource responseObject]) {
+        [self loadCannedResponseFromDatasource:datasource];
     }
 }
 
 - (void)stopLoading
 {
-    // required overload
+    // required for subclasses
 }
 
-#pragma mark - Loading
+#pragma mark - Helpers
 
-- (void)loadCannedResponse
+- (NSDictionary *)headerFieldsForDataSource:(HKCannedDataSource *)dataSource
+{
+    NSDictionary *defaultHeaderFields = @{ @"Content-Type": @"application/json" };
+    return [dataSource httpHeader] ?: defaultHeaderFields;
+}
+
+#pragma mark - Canned responses
+
+- (void)loadCannedResponseFromDatasource:(HKCannedDataSource *)dataSource
 {
     NSURLRequest *request = [self request];
     id<NSURLProtocolClient> client = [self client];
-    HKCannedDataSource *datasource = [[HKURLTestProtocol sharedInstance] dataSource];
     
-    NSData *data = [NSJSONSerialization dataWithJSONObject:datasource.responseDictionary options:0 error:nil];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dataSource.responseObject options:0 error:nil];
+    NSDictionary *headers = [self headerFieldsForDataSource:dataSource];
+    
     NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:request.URL
-                                                              statusCode:datasource.statusCode
+                                                              statusCode:dataSource.statusCode
                                                              HTTPVersion:kHKURLTestProtocolHTTPVersion
-                                                            headerFields:@{ @"Content-Type": @"application/json" }];
+                                                            headerFields:headers];
     [client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
     [client URLProtocol:self didLoadData:data];
     [client URLProtocolDidFinishLoading:self];
 }
 
-- (void)loadCannedError
+- (void)loadCannedErrorFromDatasource:(HKCannedDataSource *)datasource
 {
-    HKCannedDataSource *datasource = [[HKURLTestProtocol sharedInstance] dataSource];
     id<NSURLProtocolClient> client = [self client];
     [client URLProtocol:self didFailWithError:datasource.error];
 }

@@ -82,8 +82,8 @@
                 }];
             } else {
                 NSError *tokenError = [NSError errorWithDomain:kHKHubKitErrorDomain
-                                                     code:100
-                                                 userInfo:@{ NSLocalizedDescriptionKey : @"Could not find token" }];
+                                                          code:100
+                                                      userInfo:@{ NSLocalizedDescriptionKey : @"Could not find token" }];
                 if (completion) {
                     completion(tokenError);
                 }

@@ -25,9 +25,8 @@
 @interface HKCannedDataSource : NSObject
 
 @property (nonatomic, strong) NSError *error;
-
 @property (nonatomic, assign) NSUInteger statusCode;
-
-@property (nonatomic, strong) NSDictionary *responseDictionary;
+@property (nonatomic, strong) id responseObject;
+@property (nonatomic, strong) NSDictionary *httpHeader;
 
 @end
