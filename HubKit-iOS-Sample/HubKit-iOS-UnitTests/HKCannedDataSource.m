@@ -20,14 +20,8 @@
  SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
+#import "HKCannedDataSource.h"
 
-@class HKCannedDataSource;
-
-@interface HKURLTestProtocol : NSURLProtocol
-
-+ (instancetype)sharedInstance;
-
-@property (nonatomic, strong) HKCannedDataSource *dataSource;
+@implementation HKCannedDataSource
 
 @end

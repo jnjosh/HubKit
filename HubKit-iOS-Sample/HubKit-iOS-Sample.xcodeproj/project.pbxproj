@@ -77,6 +77,7 @@
 		A4D2278616AA932600BDE006 /* HKAuthorizationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2278516AA932600BDE006 /* HKAuthorizationSpec.m */; };
 		A4D2279B16ABDB1600BDE006 /* HKHTTPClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2279A16ABDB1600BDE006 /* HKHTTPClientSpec.m */; };
 		A4D2279E16ABE23900BDE006 /* HKURLTestProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2279D16ABE23900BDE006 /* HKURLTestProtocol.m */; };
+		A4D227A116ABE93B00BDE006 /* HKCannedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D227A016ABE93B00BDE006 /* HKCannedDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -199,6 +200,8 @@
 		A4D2279A16ABDB1600BDE006 /* HKHTTPClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKHTTPClientSpec.m; sourceTree = "<group>"; };
 		A4D2279C16ABE23900BDE006 /* HKURLTestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKURLTestProtocol.h; sourceTree = "<group>"; };
 		A4D2279D16ABE23900BDE006 /* HKURLTestProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKURLTestProtocol.m; sourceTree = "<group>"; };
+		A4D2279F16ABE93B00BDE006 /* HKCannedDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKCannedDataSource.h; sourceTree = "<group>"; };
+		A4D227A016ABE93B00BDE006 /* HKCannedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKCannedDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -459,6 +462,8 @@
 				A4B3C10316A7CBD400643BF3 /* HubKit+HKExtensions.h */,
 				A4B3C10416A7CE3700643BF3 /* HKFixtures.h */,
 				A4B3C10516A7CE3700643BF3 /* HKFixtures.m */,
+				A4D2279F16ABE93B00BDE006 /* HKCannedDataSource.h */,
+				A4D227A016ABE93B00BDE006 /* HKCannedDataSource.m */,
 				A4D2279C16ABE23900BDE006 /* HKURLTestProtocol.h */,
 				A4D2279D16ABE23900BDE006 /* HKURLTestProtocol.m */,
 			);
@@ -655,6 +660,7 @@
 				A4D2278616AA932600BDE006 /* HKAuthorizationSpec.m in Sources */,
 				A4D2279B16ABDB1600BDE006 /* HKHTTPClientSpec.m in Sources */,
 				A4D2279E16ABE23900BDE006 /* HKURLTestProtocol.m in Sources */,
+				A4D227A116ABE93B00BDE006 /* HKCannedDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

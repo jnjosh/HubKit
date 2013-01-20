@@ -26,6 +26,7 @@
 
 #import "HKHTTPClient.h"
 #import "HKURLTestProtocol.h"
+#import "HKCannedDataSource.h"
 
 SpecBegin(HKHTTPClient)
 
@@ -36,17 +37,33 @@ describe(@"HKHTTPClient", ^{
     });
     
     it(@"should getAuthenticatedUserWithCompletion", ^{
-       
+        HKCannedDataSource *datasource = [HKCannedDataSource new];
+        datasource.responseDictionary = @{ @"somekey": @"somevalue" };
+        datasource.statusCode = 200;
+        [[HKURLTestProtocol sharedInstance] setDataSource:datasource];
+        
         __block volatile BOOL didCall = NO;
-        
         HKHTTPClient *client = [[HKHTTPClient alloc] init];
-        
         [client getAuthenticatedUserWithCompletion:^(id object, NSError *error) {
             if (object) {
                 didCall = ([object objectForKey:@"somekey"] != nil);
             }
-            if (error) {
-                didCall = [[error domain] isEqualToString:kHKHubKitErrorDomain];
+        }];
+        
+        expect(didCall).will.equal(YES);
+        
+    });
+    
+    it(@"should error when posting a login and recieving a 400 status code", ^{
+        HKCannedDataSource *datasource = [HKCannedDataSource new];
+        datasource.error = [NSError errorWithDomain:kHKHubKitErrorDomain code:101 userInfo:nil];
+        [[HKURLTestProtocol sharedInstance] setDataSource:datasource];
+        
+        __block volatile BOOL didCall = NO;
+        HKHTTPClient *client = [[HKHTTPClient alloc] init];
+        [client createAuthorizationWithUsername:@"josh" password:@"password" completion:^(id object, NSError *error) {
+            if ([[error domain] isEqualToString:kHKHubKitErrorDomain]) {
+                didCall = YES;
             }
         }];
         
@@ -55,12 +72,17 @@ describe(@"HKHTTPClient", ^{
     });
     
     it(@"should post login", ^{
-       
-        __block volatile BOOL didCall = NO;
+        HKCannedDataSource *datasource = [HKCannedDataSource new];
+        datasource.responseDictionary = @{ @"somekey": @"somevalue" };
+        datasource.statusCode = 200;
+        [[HKURLTestProtocol sharedInstance] setDataSource:datasource];
         
+        __block volatile BOOL didCall = NO;
         HKHTTPClient *client = [[HKHTTPClient alloc] init];
         [client createAuthorizationWithUsername:@"josh" password:@"password" completion:^(id object, NSError *error) {
-            didCall = YES;
+            if (! error) {
+                didCall = YES;
+            }
         }];
         
         expect(didCall).will.equal(YES);

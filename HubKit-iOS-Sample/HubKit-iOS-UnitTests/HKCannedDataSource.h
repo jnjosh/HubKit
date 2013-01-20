@@ -22,12 +22,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class HKCannedDataSource;
+@interface HKCannedDataSource : NSObject
 
-@interface HKURLTestProtocol : NSURLProtocol
+@property (nonatomic, strong) NSError *error;
 
-+ (instancetype)sharedInstance;
+@property (nonatomic, assign) NSUInteger statusCode;
 
-@property (nonatomic, strong) HKCannedDataSource *dataSource;
+@property (nonatomic, strong) NSDictionary *responseDictionary;
 
 @end
