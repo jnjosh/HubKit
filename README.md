@@ -86,12 +86,10 @@ Create an instance of HubKit, setup the required fields for authorization:
 
 ```objective-c
 HubKit *github = [HubKit new];
-github.authorizationClientId = <# Client ID #>;
-github.authorizationClientSecret = <# Client Secret #>;
-github.authorizationScopes = @[
-    HKGithubAuthorizationScopes.user,
+[github setApplicationClientId:<# Client ID #> secret:<# Client Secret #> requestedScopes:@[ 
+    HKGithubAuthorizationScopes.user, 
     HKGithubAuthorizationScopes.repo
-];
+]];
 ```
 
 When logging in, send the `-[HubKit loginWithUser:password:completion:]` message to the github client:
@@ -105,7 +103,7 @@ When logging in, send the `-[HubKit loginWithUser:password:completion:]` message
 Now that you are logged in, you can access resources on GitHub:
 
 ```objective-c
-[github getAuthenticatedUserReposWithCompletion:^(NSArray *collection, NSError *error) {
+[github getCurrentUserReposWithCompletion:^(NSArray *collection, NSError *error) {
     // Access the repos via collections
 }];
 ```
