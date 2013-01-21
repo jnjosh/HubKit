@@ -20,8 +20,8 @@
  SOFTWARE.
  */
 
-#import "Specta.h"
 #define EXP_SHORTHAND
+#import "Specta.h"
 #import "Expecta.h"
 #import <OCMock/OCMock.h>
 #import "HubKit+HKExtensions.h"
@@ -36,16 +36,11 @@ describe(@"HubKit", ^{
         __block id client = nil;
         
         beforeEach(^{
-            client = [OCMockObject mockForClass:[HKHTTPClient class]];
-            [[client stub] setAuthorizationHeaderWithUsername:[OCMArg any] password:[OCMArg any]];
-            [[client stub] clearAuthorizationHeader];
+            client = [OCMockObject niceMockForClass:[HKHTTPClient class]];
         });
         
         it(@"should send request to authorizations", ^{
-            
-            [[client expect] postPath:[OCMArg checkWithBlock:^BOOL(id argument) {
-                return [argument isEqualToString:@"authorizations"];
-            }] parameters:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY];
+            [[client expect] createAuthorizationWithUsername:OCMOCK_ANY password:OCMOCK_ANY completion:OCMOCK_ANY];
             
             HubKit *github = [HKFixtures hubKit];
             [github setHttpClient:client];
@@ -55,29 +50,15 @@ describe(@"HubKit", ^{
         });
 		
 		it(@"should send request to github", ^{
-            
-            [[client expect] postPath:OCMOCK_ANY parameters:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY];
+            [[client expect] createAuthorizationWithUsername:OCMOCK_ANY password:OCMOCK_ANY completion:OCMOCK_ANY];
 
             HubKit *github = [HKFixtures hubKit];
             [github setHttpClient:client];
             
             [github loginWithUser:@"user" password:@"password" completion:nil];
             [client verify];
-            
 		});
         
-        it(@"should not send to github if empty client id or secret is available", ^{
-           
-            [[client reject] postPath:OCMOCK_ANY parameters:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY];
- 
-            HubKit *github = [HKFixtures hubKitWithEmptyAuthorization];
-            [github setHttpClient:client];
-            
-            [github loginWithUser:@"user" password:@"password" completion:nil];
-            [client verify];
-            
-        });
-		
 	});
 	
 });

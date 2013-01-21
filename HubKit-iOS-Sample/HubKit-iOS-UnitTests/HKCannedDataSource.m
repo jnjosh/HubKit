@@ -20,15 +20,16 @@
  SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
+#import "HKCannedDataSource.h"
 
-@interface HKUser : NSObject
+@implementation HKCannedDataSource
 
-@property (nonatomic, readonly) NSString *login;
-
-+ (instancetype)userWithDictionaryRepresentation:(NSDictionary *)dictionary;
-+ (void)setCurrentUser:(HKUser *)user;
-+ (instancetype)currentUser;
-
+- (id)init
+{
+    if (self = [super init]) {
+        _statusCode = 200;
+    }
+    return self;
+}
 
 @end

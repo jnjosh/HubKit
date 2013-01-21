@@ -54,13 +54,9 @@
         _repositoryViewController = [[HKRepositoryViewController alloc] initWithNibName:nil bundle:nil];
         
         HubKit *github = [HubKit new];
-        github.authorizationClientId = kHKGtHubClientID;
-        github.authorizationClientSecret = kHKGtHubClientSecret;
-        github.authorizationScopes = @[
-            HKGithubAuthorizationScopes.user,
-            HKGithubAuthorizationScopes.repo
-        ];
-        
+        [github setApplicationClientId:kHKGtHubClientID
+                                secret:kHKGtHubClientSecret
+                       requestedScopes:@[ HKGithubAuthorizationScopes.user, HKGithubAuthorizationScopes.repo ]];
         _repositoryViewController.githubClient = github;
     }
     return _repositoryViewController;

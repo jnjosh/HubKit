@@ -20,15 +20,26 @@
  SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
+#import "HKAuthorization.h"
 
-@interface HKUser : NSObject
+NSString * const kHKAuthorizationKeyClientId = @"client_id";
+NSString * const kHKAuthorizationKeyClientSecret = @"client_secret";
+NSString * const kHKAuthorizationKeyClientScopes = @"scopes";
 
-@property (nonatomic, readonly) NSString *login;
+@implementation HKAuthorization
 
-+ (instancetype)userWithDictionaryRepresentation:(NSDictionary *)dictionary;
-+ (void)setCurrentUser:(HKUser *)user;
-+ (instancetype)currentUser;
-
+- (NSDictionary *)dictionaryRepresentation
+{
+    NSDictionary *representation = nil;
+    if ([self.clientId length] > 0 &&
+        [self.clientSecret length] > 0 && self.scopes) {
+        representation = @{
+            kHKAuthorizationKeyClientId : self.clientId,
+            kHKAuthorizationKeyClientSecret : self.clientSecret,
+            kHKAuthorizationKeyClientScopes : self.scopes
+        };
+    }
+    return representation;
+}
 
 @end

@@ -22,13 +22,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HKUser : NSObject
+@interface HKCannedDataSource : NSObject
 
-@property (nonatomic, readonly) NSString *login;
-
-+ (instancetype)userWithDictionaryRepresentation:(NSDictionary *)dictionary;
-+ (void)setCurrentUser:(HKUser *)user;
-+ (instancetype)currentUser;
-
+@property (nonatomic, strong) NSError *error;
+@property (nonatomic, assign) NSUInteger statusCode;
+@property (nonatomic, strong) id responseObject;
+@property (nonatomic, strong) NSDictionary *httpHeader;
 
 @end

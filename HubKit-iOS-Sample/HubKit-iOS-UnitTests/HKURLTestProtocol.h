@@ -22,13 +22,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HKUser : NSObject
+@class HKCannedDataSource;
 
-@property (nonatomic, readonly) NSString *login;
+@interface HKURLTestProtocol : NSURLProtocol
 
-+ (instancetype)userWithDictionaryRepresentation:(NSDictionary *)dictionary;
-+ (void)setCurrentUser:(HKUser *)user;
-+ (instancetype)currentUser;
++ (instancetype)sharedInstance;
 
+@property (nonatomic, strong) HKCannedDataSource *dataSource;
 
 @end

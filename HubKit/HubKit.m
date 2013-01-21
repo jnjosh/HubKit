@@ -23,18 +23,31 @@
 #import "HubKit.h"
 #import "HKHTTPClient.h"
 #import "HKKeychain.h"
+#import "HKAuthorization.h"
 
 @interface HubKit ()
 
-@property (nonatomic, strong, readwrite) AFHTTPClient *httpClient;
+@property (nonatomic, strong, readwrite) HKHTTPClient *httpClient;
 
 @end
 
 @implementation HubKit {}
 
+#pragma mark - Shared Instance
+
++ (instancetype)sharedInstance
+{
+    static dispatch_once_t onceToken;
+    static HubKit *hk_sharedInstance = nil;
+    dispatch_once(&onceToken, ^{
+        hk_sharedInstance = [[HubKit alloc] init];
+    });
+    return hk_sharedInstance;
+}
+
 #pragma mark - Properties
 
-- (AFHTTPClient *)httpClient
+- (HKHTTPClient *)httpClient
 {
     if (! _httpClient) {
         _httpClient = [[HKHTTPClient alloc] init];
@@ -44,26 +57,15 @@
 
 #pragma mark - Authorization
 
-- (NSDictionary *)authorizationDictionary
+- (void)setApplicationClientId:(NSString *)clientId
+                        secret:(NSString *)clientSecret
+               requestedScopes:(NSArray *)scopes
 {
-    return @{
-        @"client_id"     : self.authorizationClientId,
-        @"client_secret" : self.authorizationClientSecret,
-        @"scopes"        : self.authorizationScopes
-    };
-}
-
-- (void)setAuthorizationHeaderWithToken:(NSString *)token
-{
-    [self.httpClient setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"bearer %@", token]];
-}
-
-- (void)verifyAuthorizationHeader;
-{
-    if (! [self.httpClient defaultValueForHeader:@"Authorization"]) {
-        NSString *token = [HKKeychain authenticationTokenForAccount:kHKHubKitKeychainDefaultAccount];
-        [self setAuthorizationHeaderWithToken:token];
-    }
+    HKAuthorization *authorization = [HKAuthorization new];
+    [authorization setClientId:clientId];
+    [authorization setClientSecret:clientSecret];
+    [authorization setScopes:scopes];
+    [self.httpClient setAuthorization:authorization];
 }
 
 #pragma mark - GitHub API Authorization
@@ -72,128 +74,89 @@
              password:(NSString *)password
            completion:(HKGenericCompletionHandler)completion
 {
-    NSAssert(self.authorizationClientId != nil, @"Authorization Client ID is required");
-    NSAssert(self.authorizationClientSecret != nil, @"Authorization Client ID is required");
-    
-    if ([self.authorizationClientId length] == 0 || [self.authorizationClientSecret length] == 0) return;
-    
-    [self.httpClient setAuthorizationHeaderWithUsername:username password:password];
-    [self.httpClient postPath:@"authorizations" parameters:[self authorizationDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *responseDict = (NSDictionary *)responseObject;
-        NSString *token = responseDict[@"token"];
-        
-        if (token) {
-            [HKKeychain storeAuthenticationToken:token userAccount:username];
-            [self setAuthorizationHeaderWithToken:token];
-            [self getAuthenticatedUserWithToken:token completion:^(id object, NSError *error) {
-                if (completion) {
-                    completion(error);
-                }
-            }];
-        } else {
-            NSError *error = [NSError errorWithDomain:kHKHubKitErrorDomain
-                                                 code:100
-                                             userInfo:@{ NSLocalizedDescriptionKey : @"Could not find token" }];
+    [self.httpClient createAuthorizationWithUsername:username password:password completion:^(id authorizationDictionary, NSError *error) {
+        if (error) {
             if (completion) {
                 completion(error);
             }
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(error);
+        } else {
+            NSString *token = authorizationDictionary[@"token"];
+            
+            if (token) {
+                [HKKeychain storeAuthenticationToken:token userAccount:username];
+                [[NSUserDefaults standardUserDefaults] setObject:username forKey:kHKCurrentUserIDKey];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                [self getCurrentUserWithCompletion:^(id userObject, NSError *userError) {
+                    if (completion) {
+                        completion(userError);
+                    }
+                }];
+            } else {
+                NSError *tokenError = [NSError errorWithDomain:kHKHubKitErrorDomain
+                                                          code:100
+                                                      userInfo:@{ NSLocalizedDescriptionKey : @"Could not find token" }];
+                if (completion) {
+                    completion(tokenError);
+                }
+            }
         }
     }];
-    [self.httpClient clearAuthorizationHeader];
 }
 
 #pragma mark - GitHub API User
 
-- (void)getAuthenticatedUserWithToken:(NSString *)token
-                           completion:(HKObjectCompletionHandler)completion
+- (void)getCurrentUserWithCompletion:(HKObjectCompletionHandler)completion
 {
-    [self setAuthorizationHeaderWithToken:token];
-    [self.httpClient getPath:@"user" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        HKUser *user = [HKUser userWithDictionaryRepresentation:responseObject];
-        user.accessToken = token;
-        [HKUser setCurrentUser:user];
-
-        if (completion) {
-            completion(user, nil);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(nil, error);
+    [self.httpClient getAuthenticatedUserWithCompletion:^(id object, NSError *error) {
+        if (! error) {
+            HKUser *user = [HKUser userWithDictionaryRepresentation:object];
+            [HKUser setCurrentUser:user];
+            
+            if (completion) {
+                completion(user, nil);
+            }
+        } else {
+            if (completion) {
+                completion(nil, error);
+            }
         }
     }];
 }
 
-- (void)getAuthenticatedUserWithCompletion:(HKObjectCompletionHandler)completion
-{
-    NSString *token = [HKKeychain authenticationTokenForAccount:kHKHubKitKeychainDefaultAccount];
-    [self getAuthenticatedUserWithToken:token completion:completion];
-}
-
 #pragma mark - GitHub API Repos
 
-- (void)getAuthenticatedUserReposWithCompletion:(HKArrayCompletionHandler)completion
+- (void)getCurrentUserReposWithCompletion:(HKArrayCompletionHandler)completion
 {
-    [self verifyAuthorizationHeader];
-    [self.httpClient getPath:@"user/repos" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.httpClient getAuthenticatedUserReposWithCompletion:^(NSArray *collection, NSError *error) {
+        // TODO: Needs to be mapped to model objects
+        
         if (completion) {
-            completion(responseObject, nil);
+            completion(collection, error);
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    }];
+}
+
+- (void)getCurrentUserStarredReposWithCompletion:(HKArrayCompletionHandler)completion
+{
+    [self.httpClient getAuthenticatedUserStarredReposWithCompletion:^(NSArray *collection, NSError *error) {
+        // TODO: Needs to be mapped to model objects
+        
         if (completion) {
-            completion(nil, error);
+            completion(collection, error);
         }
     }];
 }
 
 - (void)getRepositoryWithName:(NSString *)repositoryName user:(NSString *)userName completion:(HKObjectCompletionHandler)completion
 {
-    NSString *repoPath = [NSString stringWithFormat:@"repos/%@/%@", userName, repositoryName];
-    [self.httpClient getPath:repoPath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-       if (completion) {
-           completion(responseObject, nil);
-       }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    [self.httpClient getRepositoryWithName:repositoryName user:userName completion:^(id object, NSError *error) {
+        // TODO: Needs to be mapped to model objects
+
         if (completion) {
-            completion(nil, error);
+            completion(object, error);
         }
     }];
 }
-
-- (void)getAuthenticatedUserStarredReposWithCompletion:(HKArrayCompletionHandler)completion
-{
-    [self.httpClient getPath:@"user/starred" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (completion) {
-            completion(responseObject, nil);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(nil, error);
-        }
-    }];
-}
-
-#pragma mark - TODO
-
-// TODO (JNJ): Hidden until we add repos model object back
-
-//- (void)getIssuesForRepo:(HKRepo *)repo success:(HKHTTPClientSuccess)success failure:(HKHTTPClientFailure)failure
-//{
-//    NSString *path = [NSString stringWithFormat:@"/repos/%@/%@/issues", repo.owner.login, repo.name];
-//
-//    [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        if (success) {
-//            success((AFJSONRequestOperation *)operation, responseObject);
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        if (failure) {
-//            failure((AFJSONRequestOperation *)operation, error);
-//        }
-//    }];
-//}
 
 @end
