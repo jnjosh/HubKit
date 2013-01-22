@@ -49,7 +49,7 @@ __Congrats! You are all ready to go. A couple things to keep in mind:__
 
 Be sure to open the project from the workspace file: 
 
-    HubKit-Sample.xcworkspace
+    HubKit.xcworkspace
 
 Rake isn't there just to setup, you can use it to do more. Here are all the additional Rake tasks:
 
