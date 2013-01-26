@@ -47,7 +47,7 @@ describe(@"HubKit Repository", ^{
             
             [github getCurrentUserReposWithCompletion:nil];
 
-            expect([^{ [client verify]; } copy]).toNot.raiseAny();
+            expect([^{ [client verify]; } copy]).notTo.raiseAny();
         });
         
         pending(@"should get a collection of dictionaries when requesting user's repos");
@@ -60,7 +60,7 @@ describe(@"HubKit Repository", ^{
             
             [github getCurrentUserStarredReposWithCompletion:nil];
             
-            expect([^{ [client verify]; } copy]).toNot.raiseAny();
+            expect([^{ [client verify]; } copy]).notTo.raiseAny();
         });
         
         pending(@"should get a collection of dictionaries when requesting user's starred repos");
@@ -83,7 +83,7 @@ describe(@"HubKit Repository", ^{
             [github setHttpClient:client];
             [github getRepositoryWithName:sampleRepoName user:sampleUserName completion:nil];
 
-            expect([^{ [client verify]; } copy]).toNot.raiseAny();
+            expect([^{ [client verify]; } copy]).notTo.raiseAny();
 
         });
         
