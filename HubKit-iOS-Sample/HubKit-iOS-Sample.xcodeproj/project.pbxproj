@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		57AA0A9816A6A17A00F9E033 /* HKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E977F16A67E5500E05562 /* HKUser.m */; };
+		57C6CA2416B641F300B4D188 /* HubKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C6CA2216B641F300B4D188 /* HubKit.xcdatamodeld */; };
+		57C6CA2516B641F300B4D188 /* HubKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C6CA2216B641F300B4D188 /* HubKit.xcdatamodeld */; };
 		A42E5E0C16A278A200BB5907 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0B16A278A200BB5907 /* UIKit.framework */; };
 		A42E5E0E16A278A200BB5907 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0D16A278A200BB5907 /* Foundation.framework */; };
 		A42E5E1016A278A200BB5907 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E5E0F16A278A200BB5907 /* CoreGraphics.framework */; };
@@ -81,6 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57C6CA2316B641F300B4D188 /* HubKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HubKit.xcdatamodel; sourceTree = "<group>"; };
 		A42E5E0716A278A200BB5907 /* HubKit-iOS-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HubKit-iOS-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A42E5E0B16A278A200BB5907 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A42E5E0D16A278A200BB5907 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -311,6 +314,7 @@
 		A42E5E3016A27AFE00BB5907 /* HubKit */ = {
 			isa = PBXGroup;
 			children = (
+				57C6CA2216B641F300B4D188 /* HubKit.xcdatamodeld */,
 				A4B3C0FC16A7B38A00643BF3 /* HubKit.h */,
 				A4B3C0FD16A7B38A00643BF3 /* HubKit.m */,
 				A42E5E3816A27B0A00BB5907 /* HKHTTPClient.h */,
@@ -629,6 +633,7 @@
 				A43E978416A6820800E05562 /* NSArray+HKExtensions.m in Sources */,
 				A4B3C0FE16A7B38A00643BF3 /* HubKit.m in Sources */,
 				A4D2278316AA8D3700BDE006 /* HKAuthorization.m in Sources */,
+				57C6CA2416B641F300B4D188 /* HubKit.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +666,7 @@
 				A4D2279B16ABDB1600BDE006 /* HKHTTPClientSpec.m in Sources */,
 				A4D2279E16ABE23900BDE006 /* HKURLTestProtocol.m in Sources */,
 				A4D227A116ABE93B00BDE006 /* HKCannedDataSource.m in Sources */,
+				57C6CA2516B641F300B4D188 /* HubKit.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,6 +879,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		57C6CA2216B641F300B4D188 /* HubKit.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				57C6CA2316B641F300B4D188 /* HubKit.xcdatamodel */,
+			);
+			currentVersion = 57C6CA2316B641F300B4D188 /* HubKit.xcdatamodel */;
+			name = HubKit.xcdatamodeld;
+			path = ../HubKit/HubKit.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A42E5DFE16A278A200BB5907 /* Project object */;
 }
