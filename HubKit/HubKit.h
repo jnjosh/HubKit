@@ -28,6 +28,12 @@
 
 @class HKHTTPClient;
 
+/** 
+ The HubKit singleton class is the main interface through which you can
+ request records, authenticate users and otherwise interact with the GitHub
+ API.
+ */
+
 @interface HubKit : NSObject
 
 /** Shared Instance of HubKit */
