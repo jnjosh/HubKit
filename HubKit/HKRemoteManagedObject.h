@@ -27,6 +27,16 @@
  for objects that are retrieved from a remote store such as a web service. It allows
  objects to be retrieved with a dictionary representation or remote ID as well 
  as providing methods for unpacking dictionaries retrieved from a remote source.
+ 
+ ## Subclassing Notes
+ 
+ It is up to subclasses to implement their own implementations of `unpackDictionary:`
+ and `shouldUnpackDictionary:`. The purpose of these methods is to map the data retrieved
+ from the remote store to the class's own representation.
+ 
+ Subclasses should also let their superclass be responsible for the `remoteID`, `createdAt`,
+ and `updatedAt` properties by not redefining them and calling the superclass's 
+ implementation of `unpackDictionary` before doing any of its own unpacking.
  */
 
 @interface HKRemoteManagedObject : HKManagedObject
