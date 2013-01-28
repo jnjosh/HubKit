@@ -69,7 +69,22 @@ static HKUser *__currentUser = nil;
 {
     [super unpackDictionary:dictionary];
     
-    self.login = [dictionary safeObjectForKey:@"login"];
+    self.login          = [dictionary safeObjectForKey:@"login"];
+    self.avatarURL      = [dictionary safeObjectForKey:@"avatar_url"];
+    self.name           = [dictionary safeObjectForKey:@"url"];
+    self.company        = [dictionary safeObjectForKey:@"company"];
+    self.blog           = [dictionary safeObjectForKey:@"blog"];
+    self.location       = [dictionary safeObjectForKey:@"location"];
+    self.email          = [dictionary safeObjectForKey:@"email"];
+    self.hireable       = [dictionary safeObjectForKey:@"hireable"];
+    self.bio            = [dictionary safeObjectForKey:@"bio"];
+    self.repoCount      = [dictionary safeObjectForKey:@"public_repos"];
+    self.gistCount      = [dictionary safeObjectForKey:@"public_gists"];
+    self.followerCount  = [dictionary safeObjectForKey:@"followers"];
+    self.followingCount = [dictionary safeObjectForKey:@"following"];
+    self.type           = [dictionary safeObjectForKey:@"type"];
+    
+    NSLog(@"Created user: %@", self);
 }
 
 @end
