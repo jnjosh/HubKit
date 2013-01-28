@@ -22,6 +22,7 @@
 
 #import "HubKit.h"
 #import "HKUser.h"
+#import "HKKeychain.h"
 
 static HKUser *__currentUser = nil;
 
@@ -41,6 +42,7 @@ static HKUser *__currentUser = nil;
 @dynamic followerCount;
 @dynamic followingCount;
 @dynamic type;
+@synthesize token;
 
 + (NSString *)entityName
 {
@@ -53,6 +55,7 @@ static HKUser *__currentUser = nil;
         NSNumber *remoteID = [[NSUserDefaults standardUserDefaults] objectForKey:kHKCurrentUserIDKey];
         if (remoteID) {
             __currentUser = [HKUser objectWithRemoteID:remoteID];
+            __currentUser.token = [HKKeychain authenticationTokenForAccount:__currentUser.login];
         }
     }
     
@@ -63,6 +66,8 @@ static HKUser *__currentUser = nil;
 {
     __currentUser = user;
     [[NSUserDefaults standardUserDefaults] setObject:user.remoteID forKey:kHKCurrentUserIDKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [HKKeychain storeAuthenticationToken:user.token userAccount:user.login];
 }
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
