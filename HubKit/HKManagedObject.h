@@ -77,7 +77,10 @@
  */
 + (NSDictionary *)persistentStoreOptions;
 
-/** Set options for the persistent store */
+/** Set options for the persistent store
+ 
+ @param options the options to set
+ */
 + (void)setPersistentStoreOptions:(NSDictionary *)options;
 
 /** The managed object model
@@ -86,7 +89,10 @@
  */
 + (NSManagedObjectModel *)managedObjectModel;
 
-/** Set the managed object model */
+/** Set the managed object model
+ 
+ @param model the `NSManagedObjectModel` to set
+ */
 + (void)setManagedObjectModel:(NSManagedObjectModel *)model;
 
 /** The location of the persistent store
@@ -95,7 +101,10 @@
  */
 + (NSURL *)persistentStoreURL;
 
-/** Set the persistent store's location */
+/** Set the persistent store's location 
+ 
+ @param url the `NSURL` of the new persistent store
+ */
 + (void)setPersistentStoreURL:(NSURL *)url;
 
 /** @name  Getting Entity Information */

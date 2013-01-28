@@ -108,7 +108,7 @@
  This sets a given user object as the current user, a status that
  persists through application restarts
  
- @param the `HKUser` to make current
+ @param user the `HKUser` to make current
  */
 + (void)setCurrentUser:(HKUser *)user;
 

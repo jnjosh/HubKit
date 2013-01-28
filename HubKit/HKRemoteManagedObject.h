@@ -135,7 +135,6 @@
  if an object is not found it wil return `nil`.
  
  @param dictionary the `NSDictionary` returned by the remote service
- @param context the context to use, if set to nil the main context is used
  
  @return an object of this class unpackd from `dictionary`
  */
@@ -173,7 +172,7 @@
 
 /** Parses an ISO 8601 formatted date
  
- @param an ISO 8601 encoded date string
+ @param dateStringOrDateNumber an ISO 8601 encoded date string
  
  @return the `NSDate representation of the passed string
  */
