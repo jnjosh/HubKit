@@ -32,7 +32,16 @@
    `initWithContext:` method.
  - A `save` method on all managed objects
  
- @see NSRemoteManagedObjectContext
+ ## Subclassing Notes
+ 
+ Subclasses of this should be aware that the following methods may need to be overridden:
+ 
+ - `entityName` should be overridden if the entity's class name differs from its name in the
+   Core Data model
+ - In almost every case, it's a good idea to override `defaultSortDescriptors` and return a
+   sensible set of sort descriptors.
+ 
+ @see HKRemoteManagedObject
  */
 
 @interface HKManagedObject : NSManagedObject
