@@ -20,56 +20,32 @@
  SOFTWARE.
  */
 
-#import "HubKit.h"
-#import "HKUser.h"
+#import <CoreData/CoreData.h>
 
-static HKUser *__currentUser = nil;
+@interface HKManagedObject : NSManagedObject
 
-@implementation HKUser
+// Accessing the Main Context
++ (NSManagedObjectContext *)mainContext;
++ (BOOL)hasMainContext;
 
-@dynamic login;
-@dynamic avatarURL;
-@dynamic name;
-@dynamic company;
-@dynamic blog;
-@dynamic location;
-@dynamic email;
-@dynamic hireable;
-@dynamic bio;
-@dynamic repoCount;
-@dynamic gistCount;
-@dynamic followerCount;
-@dynamic followingCount;
-@dynamic type;
+// Configuring the Persistent Store
++ (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
++ (NSDictionary *)persistentStoreOptions;
++ (void)setPersistentStoreOptions:(NSDictionary *)options;
++ (NSManagedObjectModel *)managedObjectModel;
++ (void)setManagedObjectModel:(NSManagedObjectModel *)model;
++ (NSURL *)persistentStoreURL;
++ (void)setPersistentStoreURL:(NSURL *)url;
 
-+ (NSString *)entityName
-{
-    return @"User";
-}
+// Getting Entity Information
++ (NSString *)entityName;
++ (NSEntityDescription *)entity;
++ (NSEntityDescription *)entityWithContext:(NSManagedObjectContext *)context;
++ (NSArray *)defaultSortDescriptors;
 
-+ (instancetype)currentUser
-{
-    if (!__currentUser) {
-        NSNumber *remoteID = [[NSUserDefaults standardUserDefaults] objectForKey:kHKCurrentUserIDKey];
-        if (remoteID) {
-            __currentUser = [HKUser objectWithRemoteID:remoteID];
-        }
-    }
-    
-    return __currentUser;
-}
+// Initializing
+- (instancetype)initWithContext:(NSManagedObjectContext *)context;
 
-+ (void)setCurrentUser:(HKUser *)user
-{
-    __currentUser = user;
-    [[NSUserDefaults standardUserDefaults] setObject:user.remoteID forKey:kHKCurrentUserIDKey];
-}
-
-- (void)unpackDictionary:(NSDictionary *)dictionary
-{
-    [super unpackDictionary:dictionary];
-    
-    self.login = [dictionary safeObjectForKey:@"login"];
-}
+- (void)save;
 
 @end

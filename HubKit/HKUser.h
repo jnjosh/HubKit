@@ -21,14 +21,27 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "HKRemoteManagedObject.h"
 
-@interface HKUser : NSObject
+@interface HKUser : HKRemoteManagedObject
 
-@property (nonatomic, readonly) NSString *login;
+@property (nonatomic, retain) NSString * login;
+@property (nonatomic, retain) NSString * avatarURL;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * company;
+@property (nonatomic, retain) NSString * blog;
+@property (nonatomic, retain) NSString * location;
+@property (nonatomic, retain) NSString * email;
+@property (nonatomic, retain) NSNumber * hireable;
+@property (nonatomic, retain) NSString * bio;
+@property (nonatomic, retain) NSNumber * repoCount;
+@property (nonatomic, retain) NSNumber * gistCount;
+@property (nonatomic, retain) NSNumber * followerCount;
+@property (nonatomic, retain) NSNumber * followingCount;
+@property (nonatomic, retain) NSString * type;
 
-+ (instancetype)userWithDictionaryRepresentation:(NSDictionary *)dictionary;
 + (void)setCurrentUser:(HKUser *)user;
 + (instancetype)currentUser;
-
 
 @end

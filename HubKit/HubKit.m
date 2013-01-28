@@ -110,7 +110,7 @@
 {
     [self.httpClient getAuthenticatedUserWithCompletion:^(id object, NSError *error) {
         if (! error) {
-            HKUser *user = [HKUser userWithDictionaryRepresentation:object];
+            HKUser *user = [HKUser objectWithDictionary:object];
             [HKUser setCurrentUser:user];
             
             if (completion) {
