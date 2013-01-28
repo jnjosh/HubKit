@@ -24,6 +24,12 @@
 #import <CoreData/CoreData.h>
 #import "HKRemoteManagedObject.h"
 
+/**
+ A `HKUser` object represents a user record returned by the remote API.
+ It provides persistence and a clean Objective-C interface to the response's
+ properties.
+ */
+
 @interface HKUser : HKRemoteManagedObject
 
 /**The user's GitHub login
