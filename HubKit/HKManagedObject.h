@@ -20,29 +20,32 @@
  SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "HKRemoteManagedObject.h"
 
-@interface HKUser : HKRemoteManagedObject
+@interface HKManagedObject : NSManagedObject
 
-@property (nonatomic, retain) NSString *login;
-@property (nonatomic, retain) NSString *avatarURL;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *company;
-@property (nonatomic, retain) NSString *blog;
-@property (nonatomic, retain) NSString *location;
-@property (nonatomic, retain) NSString *email;
-@property (nonatomic, retain) NSNumber *hireable;
-@property (nonatomic, retain) NSString *bio;
-@property (nonatomic, retain) NSNumber *repoCount;
-@property (nonatomic, retain) NSNumber *gistCount;
-@property (nonatomic, retain) NSNumber *followerCount;
-@property (nonatomic, retain) NSNumber *followingCount;
-@property (nonatomic, retain) NSString *type;
-@property (nonatomic, strong) NSString *token;
+// Accessing the Main Context
++ (NSManagedObjectContext *)mainContext;
++ (BOOL)hasMainContext;
 
-+ (void)setCurrentUser:(HKUser *)user;
-+ (instancetype)currentUser;
+// Configuring the Persistent Store
++ (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
++ (NSDictionary *)persistentStoreOptions;
++ (void)setPersistentStoreOptions:(NSDictionary *)options;
++ (NSManagedObjectModel *)managedObjectModel;
++ (void)setManagedObjectModel:(NSManagedObjectModel *)model;
++ (NSURL *)persistentStoreURL;
++ (void)setPersistentStoreURL:(NSURL *)url;
+
+// Getting Entity Information
++ (NSString *)entityName;
++ (NSEntityDescription *)entity;
++ (NSEntityDescription *)entityWithContext:(NSManagedObjectContext *)context;
++ (NSArray *)defaultSortDescriptors;
+
+// Initializing
+- (instancetype)initWithContext:(NSManagedObjectContext *)context;
+
+- (void)save;
 
 @end

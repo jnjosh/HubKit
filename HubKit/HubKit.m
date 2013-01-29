@@ -51,6 +51,7 @@
 {
     if (! _httpClient) {
         _httpClient = [[HKHTTPClient alloc] init];
+        [_httpClient setAuthorizationHeaderWithToken:[[HKUser currentUser] token]];
     }
     return _httpClient;
 }
@@ -84,8 +85,7 @@
             
             if (token) {
                 [HKKeychain storeAuthenticationToken:token userAccount:username];
-                [[NSUserDefaults standardUserDefaults] setObject:username forKey:kHKCurrentUserIDKey];
-                [[NSUserDefaults standardUserDefaults] synchronize];
+                [self.httpClient setAuthorizationHeaderWithToken:token];
                 
                 [self getCurrentUserWithCompletion:^(id userObject, NSError *userError) {
                     if (completion) {
@@ -110,8 +110,9 @@
 {
     [self.httpClient getAuthenticatedUserWithCompletion:^(id object, NSError *error) {
         if (! error) {
-            HKUser *user = [HKUser userWithDictionaryRepresentation:object];
+            HKUser *user = [HKUser objectWithDictionary:object];
             [HKUser setCurrentUser:user];
+            [user save];
             
             if (completion) {
                 completion(user, nil);
