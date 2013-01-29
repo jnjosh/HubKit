@@ -41,6 +41,9 @@
 /** Use Basic Authorization to obtain a scoped access token from the GitHub authorization API
  * @discussion This method is part of the non-web authorization flow discussed in the GitHub
  *             API documentation.
+ * @param username the user's login
+ * @param password the user's password
+ * @param completion An array style completion block that is sent a collection of repository dictionaries
  * @see http://developer.github.com/v3/oauth/#create-a-new-authorization
  */
 - (void)createAuthorizationWithUsername:(NSString *)username
@@ -48,11 +51,13 @@
                              completion:(HKObjectCompletionHandler)completion;
 
 /** Use current token to obtain the currently authenticated user.
+ * @param completion An array style completion block that is sent a collection of repository dictionaries
  * @see http://developer.github.com/v3/users/#get-the-authenticated-user
  */
 - (void)getAuthenticatedUserWithCompletion:(HKObjectCompletionHandler)completion;
 
-/** Use current token to obtain the currently authenticated user's repos 
+/** Use current token to obtain the currently authenticated user's repos
+ * @param completion An array style completion block that is sent a collection of repository dictionaries
  * @see http://developer.github.com/v3/repos/#list-your-repositories
  */
 - (void)getAuthenticatedUserReposWithCompletion:(HKArrayCompletionHandler)completion;
@@ -64,6 +69,8 @@
 - (void)getAuthenticatedUserStarredReposWithCompletion:(HKArrayCompletionHandler)completion;
 
 /** Get the specified repository for the specified user
+ * @param repositoryName the name of the repo
+ * @param userName the repo owner's login
  * @param completion An single object style completion block that is sent the repository dictionary
  * @see http://developer.github.com/v3/repos/#list-all-repositories
  */

@@ -24,15 +24,35 @@
 
 extern NSString * const kHKHubKitKeychainDefaultAccount;
 
+/**
+ HKKeychain provides a simplified interface to the system keychain, making
+ it work more like NSUserDefaults. It allows the easy and secure storage of
+ user's OAuth tokens and other login info.
+ */
+
 @interface HKKeychain : NSObject
 
-/** Store the Authorization Token in the keychain */
+/** Store the Authorization Token in the keychain 
+ 
+ @param token the token to be stored
+ @param userAccount the login of the user this token belongs to
+ 
+ @return whether or not the item was added to the keychain
+ */
 + (BOOL)storeAuthenticationToken:(NSString *)token userAccount:(NSString *)userAccount;
 
-/** Retrieve the Authorization Token from the keychain */
+/** Retrieve the Authorization Token from the keychain 
+ 
+ @param account the login of the account desired
+ 
+ @return the OAuth key for the account, or nil if the key isn't found
+ */
 + (NSString *)authenticationTokenForAccount:(NSString *)account;
 
-/** Remove the authorization token from the keychain */
+/** Remove the authorization token from the keychain 
+ 
+ @param account the account who's token you wish to remove
+ */
 + (void)removeAuthenticationTokenForAccount:(NSString *)account;
 
 @end
